@@ -1,6 +1,6 @@
 # Vibmedia Agent Skills
 
-> 🧠 Modular AI agent toolkit — **77 skills**, **21 agents**, **22 workflows** for Antigravity, Claude Code, and AI coding assistants.
+> 🧠 Modular AI agent toolkit — **77 skills**, **21 agents**, **25 workflows** for Antigravity, Claude Code, and AI coding assistants.
 
 Curated and merged from the best open-source AI skill repositories.
 
@@ -53,7 +53,7 @@ Antigravity will automatically detect and use the skills, agents, and workflows.
 │       ├── SKILL.md         # Main instructions (required)
 │       ├── references/      # Deep-dive docs (optional)
 │       └── scripts/         # Automation scripts (optional)
-├── workflows/               # 22 Slash command procedures
+├── workflows/               # 25 Slash command procedures
 ├── rules/                   # Global rules
 └── scripts/                 # Master validation scripts
 ```
@@ -128,7 +128,7 @@ Antigravity will automatically detect and use the skills, agents, and workflows.
 
 ---
 
-## 🔄 Workflows (22)
+## 🔄 Workflows (25)
 
 Invoke with `/command` in your AI assistant:
 
@@ -156,6 +156,9 @@ Invoke with `/command` in your AI assistant:
 | `/piv-prime` | Prime agent with codebase |
 | `/piv-execute` | Execute PIV plan |
 | `/validate` | Validate implementation |
+| `/update` | Sync system after changes |
+| `/audit-goals` | Find gaps in goals vs capabilities |
+| `/system-check` | System health check |
 
 ---
 
@@ -182,7 +185,7 @@ User Request → Match skill by description → Load SKILL.md
 |--------|-------|
 | Agents | 21 |
 | Skills | 77 |
-| Workflows | 22 |
+| Workflows | 25 |
 | Reference Files | 20+ |
 | Validation Scripts | 20 |
 

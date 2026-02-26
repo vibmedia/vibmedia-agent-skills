@@ -1,12 +1,6 @@
-# 🏢 Brand Context System
+# 🏢 Brand & Industry Context System
 
-> Persistent project context that AI agents use across sessions. One folder per brand/client.
-
----
-
-## Why This Exists
-
-AI agents lose context between sessions. This system solves that by keeping **everything an agent needs to know** about a brand/client in a structured folder. When an agent starts working, it reads the brand folder first — no repeat questions, no lost context.
+> Persistent project context organized by industry and brand. AI reads these before working — no repeated questions, no lost context.
 
 ---
 
@@ -14,198 +8,118 @@ AI agents lose context between sessions. This system solves that by keeping **ev
 
 ```
 brands/
-├── _template/                    # Copy this for new brands
-│   ├── context.md                # Brand identity + AI instructions
-│   ├── todo.md                   # Progress tracking
-│   ├── reference/                # Raw client inputs
-│   │   └── .gitkeep
-│   ├── brand-data/               # Processed brand assets
-│   │   └── .gitkeep
-│   └── artifacts/                # AI-generated deliverables
-│       └── .gitkeep
+├── [industry]/                       # Any industry (create as needed)
+│   ├── _common/                      # Shared industry knowledge
+│   │   ├── industry.md               # Industry-specific AI instructions
+│   │   └── references/               # Benchmarks, frameworks, terminology
+│   ├── _brand-template/              # Copy for new brands in this industry
+│   │   ├── context.md                # Brand identity (fill-in template)
+│   │   ├── todo.md                   # Progress + decisions + ideas
+│   │   ├── reference/                # Raw client data (inbox)
+│   │   ├── brand-data/               # Processed assets (logos, guidelines)
+│   │   └── artifacts/                # AI-generated deliverables
+│   └── [brand-name]/                 # Actual brand (copy from _brand-template)
 │
-├── acme-corp/                    # Example: SaaS client
-│   ├── context.md
-│   ├── todo.md
-│   ├── reference/
-│   │   ├── client-brief.pdf
-│   │   ├── competitor-screenshots/
-│   │   └── meeting-notes-2026-02.md
-│   ├── brand-data/
-│   │   ├── logo.svg
-│   │   ├── brand-guidelines.md
-│   │   ├── services.md
-│   │   └── contacts.md
-│   └── artifacts/
-│       ├── landing-page-v1/
-│       ├── seo-audit-2026-02.md
-│       └── campaign-brief-q1.md
+├── _industry-template/               # Copy when adding a new industry
+│   ├── _common/
+│   │   ├── industry.md
+│   │   └── references/.gitkeep
+│   └── _brand-template/
+│       ├── context.md
+│       ├── todo.md
+│       ├── reference/.gitkeep
+│       ├── brand-data/.gitkeep
+│       └── artifacts/.gitkeep
 │
-└── README.md                     # This file
+└── README.md                         # This file
 ```
 
 ---
 
-## Quick Start
-
-### 1. Create a brand folder
+## Adding a New Industry
 
 ```bash
-cp -r brands/_template brands/your-client-name
+# 1. Copy the industry template
+cp -r brands/_industry-template brands/fintech
+
+# 2. Edit industry knowledge
+#    Fill brands/fintech/_common/industry.md with:
+#    - Industry terminology and concepts
+#    - Key metrics and benchmarks
+#    - Common workflows and patterns
+#    - Regulatory/compliance notes
+#    - Technical stack preferences
+
+# 3. Run /update to sync the system
 ```
 
-### 2. Fill in `context.md`
+## Adding a New Brand
 
-Answer the prompts in the template. Takes 10-15 minutes.
+```bash
+# 1. Copy the brand template from the industry
+cp -r brands/fintech/_brand-template brands/fintech/acme-pay
 
-### 3. Start working
-
-```
-You: "Write homepage copy for acme-corp"
-AI:  → Reads brands/acme-corp/context.md
-     → Loads copywriting skill
-     → Writes copy using brand voice, audience, and product details
-     → No repeated questions needed
+# 2. Fill in context.md (10-15 minutes)
+# 3. Drop raw client data into reference/
+# 4. Add processed assets to brand-data/
+# 5. Run /update to sync the system
 ```
 
 ---
 
-## Folder Breakdown
+## How AI Uses This
 
-### `context.md` — Brand Identity + AI Instructions
+```
+You: "Write homepage copy for acme-pay"
+AI:  1. Reads brands/fintech/_common/industry.md     ← industry context
+     2. Reads brands/fintech/acme-pay/context.md      ← brand context
+     3. Loads copywriting skill                        ← domain expertise
+     4. Writes copy using all three layers of context
+```
 
-The **single most important file**. Contains everything an agent needs:
-- What the company does
-- Who the customers are
-- Brand voice and positioning
-- Products/services and pricing
-- Competitive landscape
+**Three layers of context:**
+1. **Skills** — domain expertise (how to write copy in general)
+2. **Industry** — sector knowledge (fintech terminology, compliance, benchmarks)
+3. **Brand** — client specifics (voice, audience, products, competitors)
 
-### `reference/` — Raw Client Data
+---
 
-Unprocessed inputs from the client:
-- Client briefs, SOWs, meeting notes
-- Competitor screenshots, market research
-- Raw data, spreadsheets
-- Email threads, requirements docs
+## Folder Details
 
-**Rule:** Drop files here as-is. Don't spend time organizing — this is the "inbox".
+### `_common/industry.md` — Industry Knowledge
 
-### `brand-data/` — Processed Brand Assets
+Must-needed knowledge for any project in this industry:
 
-Cleaned, organized brand materials:
-- Logos (SVG, PNG)
-- Brand guidelines (colors, fonts, do/don'ts)
-- Product/service descriptions
-- Contact information
-- Team structure
+**For tech industries:** Technical standards, architecture patterns, compliance requirements, common integrations, performance benchmarks.
 
-**Rule:** These should be AI-readable (markdown preferred, not just PDFs).
+**For customer-facing industries:** Customer personas, buying patterns, common objections, conversion benchmarks, regulatory requirements, seasonal patterns.
+
+### `context.md` — Brand Identity
+
+Everything an AI needs to know about this specific brand. See the template for all fields.
 
 ### `todo.md` — Progress Tracking
 
-Living document tracking:
-- What's been done
-- What's in progress
-- What's planned next
-- Decisions made + rationale
+Living document with: completed work, in-progress items, planned tasks, decisions log, and ideas parking lot.
 
-### `artifacts/` — AI-Generated Deliverables
+### `reference/` — Raw Client Data (Inbox)
 
-Everything the AI has produced for this brand:
-- Landing pages, email campaigns
-- SEO audits, CRO analyses
-- Campaign briefs, content plans
-- Code, designs, reports
+Drop files as-is: briefs, meeting notes, screenshots, spreadsheets. Don't organize — this is the raw input.
 
-**Rule:** Organize by project or date. Never delete — keep the history.
+### `brand-data/` — Processed Assets
 
----
+Cleaned, AI-readable brand materials: logos, guidelines, services, contacts. Markdown preferred over PDFs.
 
-## Industry Templates
+### `artifacts/` — AI Deliverables
 
-The `context.md` template works for any industry. Here's how the same structure adapts:
-
-### SaaS Company
-
-```markdown
-## Product
-- Core product: Project management SaaS
-- Pricing: Free / Pro $29/mo / Enterprise custom
-- Key differentiator: AI-powered task estimation
-- Value metric: Per user/month
-```
-
-### E-commerce Brand
-
-```markdown
-## Product
-- Product type: Sustainable fashion
-- Price range: $50-$200
-- Key differentiator: Carbon-neutral supply chain
-- Fulfillment: Shopify + 3PL
-```
-
-### Service Agency
-
-```markdown
-## Services
-- Core services: Web development, SEO, paid ads
-- Pricing model: Retainer ($5k-$20k/mo)
-- Key differentiator: Performance guarantees
-- Team size: 15 people
-```
-
-### Startup (Pre-revenue)
-
-```markdown
-## Product
-- Stage: MVP / Beta
-- Core product: [Description]
-- Target launch: Q2 2026
-- Funding: Bootstrapped / Seed
-- Key hypothesis: [What you're testing]
-```
-
----
-
-## Multi-Brand Workflow
-
-When working across brands in the same project:
-
-```bash
-# Structure
-project/
-├── .agent/           # AI skills and agents (shared)
-└── brands/           # Per-brand context (isolated)
-    ├── brand-a/
-    ├── brand-b/
-    └── brand-c/
-```
-
-**Switching brands:**
-```
-You: "Switch to acme-corp. Write their Q2 email sequence."
-AI:  → Reads brands/acme-corp/context.md
-     → Loads email-sequence skill
-     → Uses acme-corp's voice, audience, products
-```
-
-**Cross-brand work:**
-```
-You: "Compare SEO performance across all brands"
-AI:  → Reads context.md from each brand folder
-     → Loads seo-audit skill
-     → Produces comparative analysis
-```
+Everything AI produces: pages, audits, campaigns, reports. Date-stamp files for history.
 
 ---
 
 ## Tips
 
-1. **Fill `context.md` thoroughly** — 30 minutes upfront saves hours of repeated questions
-2. **Keep `reference/` messy, `brand-data/` clean** — reference is raw input, brand-data is processed
-3. **Update `todo.md` after every session** — your future self (and AI) will thank you
-4. **Store artifacts with dates** — `seo-audit-2026-02.md` not just `seo-audit.md`
-5. **Use markdown over PDFs** — AI reads markdown 10x better than PDFs
-6. **One brand = one folder** — never mix brand contexts
+1. **Industry before brand** — fill `_common/industry.md` before adding brands
+2. **Context.md is king** — 30 minutes upfront saves hours of repeated questions
+3. **Use `/update` after every addition** — keeps the system in sync
+4. **Use `/audit-goals` weekly** — finds gaps between todo and actual progress
+5. **Use `/system-check` monthly** — catches broken references and stale data
