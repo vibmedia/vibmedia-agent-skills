@@ -187,17 +187,17 @@ When user's prompt is NOT in English:
 
 | Request Type            | Strategy       | Required Action                                                   |
 | ----------------------- | -------------- | ----------------------------------------------------------------- |
-| **New Feature / Build** | Deep Discovery | ASK minimum 3 strategic questions                                 |
+| **New Feature / Build** | Deep Discovery | ASK minimum 8 strategic questions                                 |
 | **Code Edit / Bug Fix** | Context Check  | Confirm understanding + ask impact questions                      |
 | **Marketing / Copy**    | Brand Check    | Confirm brand context loaded + ask audience/channel questions      |
 | **Vague / Simple**      | Clarification  | Ask Purpose, Users, and Scope                                     |
 | **Full Orchestration**  | Gatekeeper     | **STOP** subagents until user confirms plan details               |
-| **Direct "Proceed"**    | Validation     | **STOP** → Ask 2 "Edge Case" questions                            |
+| **Direct "Proceed"**    | Validation     | **STOP** → Ask 4 "Edge Case" questions                            |
 
 **Protocol:**
 
 1. **Never Assume:** If even 1% is unclear, ASK.
-2. **Brand Context:** For marketing work, read `context.md` BEFORE asking questions.
+2. **Handle Spec-heavy Requests:** When user gives a list (Answers 1, 2, 3...), do NOT skip the gate. Instead, ask about **Trade-offs** or **Edge Cases** (e.g., "LocalStorage confirmed, but should we handle data clearing or versioning?") before starting.
 3. **Wait:** Do NOT invoke subagents or write code until the user clears the Gate.
 4. **Reference:** Full protocol in `@[skills/brainstorming]`.
 
@@ -210,6 +210,34 @@ When user's prompt is NOT in English:
 | **Manual Audit** | `python .agent/scripts/checklist.py .`             | Priority-based project audit   |
 | **Pre-Deploy**   | `python .agent/scripts/checklist.py . --url <URL>` | Full Suite + Performance + E2E |
 
+**Priority Execution Order:**
+
+1. **Security** → 2. **Lint** → 3. **Schema** → 4. **Tests** → 5. **UX** → 6. **SEO** → 7. **Lighthouse/E2E**
+
+**Rules:**
+
+- **Completion:** A task is NOT finished until `checklist.py` returns success.
+- **Reporting:** If it fails, fix the **Critical** blockers first (Security/Lint).
+
+**Available Scripts (12 total):**
+
+| Script                     | Skill                 | When to Use         |
+| -------------------------- | --------------------- | ------------------- |
+| `security_scan.py`         | vulnerability-scanner | Always on deploy    |
+| `dependency_analyzer.py`   | vulnerability-scanner | Weekly / Deploy     |
+| `lint_runner.py`           | lint-and-validate     | Every code change   |
+| `test_runner.py`           | testing-patterns      | After logic change  |
+| `schema_validator.py`      | database-design       | After DB change     |
+| `ux_audit.py`              | frontend-design       | After UI change     |
+| `accessibility_checker.py` | frontend-design       | After UI change     |
+| `seo_checker.py`           | seo-fundamentals      | After page change   |
+| `bundle_analyzer.py`       | performance-profiling | Before deploy       |
+| `mobile_audit.py`          | mobile-design         | After mobile change |
+| `lighthouse_audit.py`      | performance-profiling | Before deploy       |
+| `playwright_runner.py`     | webapp-testing        | Before deploy       |
+
+> 🔴 **Agents & Skills can invoke ANY script** via `python .agent/skills/<skill>/scripts/<script>.py`
+
 ### 🎭 Gemini Mode Mapping
 
 | Mode     | Agent             | Behavior                                     |
@@ -217,6 +245,15 @@ When user's prompt is NOT in English:
 | **plan** | `project-planner` | 4-phase methodology. NO CODE before Phase 4. |
 | **ask**  | -                 | Focus on understanding. Ask questions.       |
 | **edit** | `orchestrator`    | Execute. Check `{task-slug}.md` first.       |
+
+**Plan Mode (4-Phase):**
+
+1. ANALYSIS → Research, questions
+2. PLANNING → `{task-slug}.md`, task breakdown
+3. SOLUTIONING → Architecture, design (NO CODE!)
+4. IMPLEMENTATION → Code + tests
+
+> 🔴 **Edit mode:** If multi-file or structural change → Offer to create `{task-slug}.md`. For single-file fixes → Proceed directly.
 
 ---
 
