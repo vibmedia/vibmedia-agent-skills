@@ -1,6 +1,8 @@
 ---
 name: clean-code
 description: Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments
+category: core
+profile: shared
 allowed-tools: Read, Write, Edit
 version: 2.0
 priority: CRITICAL

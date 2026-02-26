@@ -1,6 +1,8 @@
 ---
 name: webapp-testing
 description: Web application testing principles. E2E, Playwright, deep audit strategies.
+category: dev
+profile: dev
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-02-26T07:25:00.000Z" agent="VibMedia Agent Skills" version="24.0.0" type="device">
+  <diagram id="system-structure" name="System Structure">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="VibMedia Agent Skills — System Structure" style="text;html=1;fontSize=24;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- VIB.MD - Top Level -->
+        <mxCell id="vib" value="📋 vib.md&#xa;Company Identity&#xa;(Loads First)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Profiles -->
+        <mxCell id="profiles-header" value="📂 Profiles" style="text;html=1;fontSize=16;fontStyle=1;align=center;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="540" y="180" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile-dev" value="🔧 dev.md&#xa;~30 Skills" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="220" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile-marketing" value="📈 marketing.md&#xa;~35 Skills" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="220" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile-hybrid" value="🔀 hybrid.md&#xa;All Skills" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="220" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows from vib to profiles -->
+        <mxCell id="e1" edge="1" source="vib" target="profile-dev" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" source="vib" target="profile-marketing" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" source="vib" target="profile-hybrid" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- DEV Column -->
+        <mxCell id="dev-agents" value="🤖 Dev Agents (12)&#xa;backend, frontend, database,&#xa;devops, test, debug, security,&#xa;code-reviewer, QA, mobile..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dev-skills" value="⚡ Dev Skills (~30)&#xa;api-patterns, tdd-workflow,&#xa;typeorm, prisma, testing,&#xa;deployment, security..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- SHARED Column -->
+        <mxCell id="shared-agents" value="🤖 Shared Agents (9)&#xa;orchestrator, planner,&#xa;frontend, product-mgr,&#xa;explorer, docs-writer..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="330" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="shared-skills" value="⚡ Shared Skills (~15)&#xa;clean-code, brainstorming,&#xa;plan-writing, architecture,&#xa;react, frontend-design..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="430" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- MARKETING Column -->
+        <mxCell id="mkt-agents" value="🤖 Marketing Agents (2)&#xa;seo-specialist&#xa;(+ shared agents)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="980" y="330" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mkt-skills" value="⚡ Marketing Skills (29)&#xa;copywriting, page-cro,&#xa;seo-audit, paid-ads,&#xa;email-sequence, pricing..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="980" y="430" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows from profiles to columns -->
+        <mxCell id="e4" edge="1" source="profile-dev" target="dev-agents" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" source="profile-dev" target="shared-agents" parent="1" style="dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" source="profile-marketing" target="mkt-agents" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" source="profile-marketing" target="shared-agents" parent="1" style="dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" source="profile-hybrid" target="dev-agents" parent="1" style="dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" source="profile-hybrid" target="shared-agents" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" source="profile-hybrid" target="mkt-agents" parent="1" style="dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Workflows -->
+        <mxCell id="workflows" value="🔄 Workflows (25)&#xa;/plan · /create · /debug · /deploy · /test&#xa;/update · /audit-goals · /system-check&#xa;/brainstorm · /code-review · /enhance..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="560" width="440" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Brands Section -->
+        <mxCell id="brands-header" value="🏢 Brands (by Industry)" style="text;html=1;fontSize=16;fontStyle=1;align=center;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="670" width="320" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="industry1" value="📁 [Industry A]&#xa;├── _common/industry.md&#xa;├── brand-1/context.md&#xa;└── brand-2/context.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="710" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="industry2" value="📁 [Industry B]&#xa;├── _common/industry.md&#xa;└── brand-3/context.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="710" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="industry3" value="📁 [Industry C]&#xa;├── _common/industry.md&#xa;└── brand-4/context.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="820" y="710" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Brand detail -->
+        <mxCell id="brand-detail" value="Each Brand Folder:&#xa;├── context.md (profile: dev|marketing|hybrid)&#xa;├── todo.md (progress + decisions)&#xa;├── reference/ (raw client data)&#xa;├── brand-data/ (logos, guidelines)&#xa;└── artifacts/ (AI deliverables)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="410" y="830" width="460" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Docs & References -->
+        <mxCell id="docs" value="📖 docs/&#xa;Building Agents · Building Skills&#xa;Building Workflows · Combining Components" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#999999;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="560" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="stats" value="📊 77 Skills · 21 Agents · 25 Workflows" style="text;html=1;fontSize=14;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="400" y="960" width="480" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Connection arrows -->
+        <mxCell id="e11" edge="1" source="dev-agents" target="dev-skills" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" source="shared-agents" target="shared-skills" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" source="mkt-agents" target="mkt-skills" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" source="shared-skills" target="workflows" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" source="workflows" target="brands-header" parent="1" style="dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

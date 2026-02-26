@@ -1,6 +1,8 @@
 ---
 name: project-planner
 description: Smart project planning agent. Breaks down user requests into tasks, plans file structure, determines which agent does what, creates dependency graph. Use when starting new projects or planning major features.
+category: management
+profile: shared
 tools: Read, Grep, Glob, Bash
 model: inherit
 skills: clean-code, app-builder, plan-writing, brainstorming

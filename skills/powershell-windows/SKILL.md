@@ -1,6 +1,8 @@
 ---
 name: powershell-windows
 description: PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling.
+category: core
+profile: shared
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

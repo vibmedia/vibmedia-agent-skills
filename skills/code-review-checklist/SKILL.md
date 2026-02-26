@@ -1,6 +1,8 @@
 ---
 name: code-review-checklist
 description: Code review guidelines covering code quality, security, and best practices.
+category: dev
+profile: dev
 allowed-tools: Read, Glob, Grep
 ---
 

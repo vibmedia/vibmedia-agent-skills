@@ -1,6 +1,8 @@
 ---
 name: tailwind-patterns
 description: Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture.
+category: core
+profile: shared
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 

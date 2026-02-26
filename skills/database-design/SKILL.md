@@ -1,6 +1,8 @@
 ---
 name: database-design
 description: Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases.
+category: dev
+profile: dev
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 

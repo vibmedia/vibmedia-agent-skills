@@ -1,6 +1,8 @@
 ---
 name: testing-patterns
 description: Testing patterns and principles. Unit, integration, mocking strategies.
+category: dev
+profile: dev
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

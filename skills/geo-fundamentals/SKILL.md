@@ -1,6 +1,8 @@
 ---
 name: geo-fundamentals
 description: Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity).
+category: core
+profile: shared
 allowed-tools: Read, Glob, Grep
 ---
 

@@ -1,6 +1,8 @@
 ---
 name: intelligent-routing
 description: Automatic agent selection and intelligent task routing. Analyzes user requests and automatically selects the best specialist agent(s) without requiring explicit user mentions.
+category: core
+profile: shared
 version: 1.0.0
 ---
 

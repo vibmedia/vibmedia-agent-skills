@@ -1,6 +1,8 @@
 ---
 name: performance-profiling
 description: Performance profiling principles. Measurement, analysis, and optimization techniques.
+category: core
+profile: shared
 allowed-tools: Read, Glob, Grep, Bash
 ---
 

@@ -1,6 +1,8 @@
 ---
 name: seo-fundamentals
 description: SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles.
+category: core
+profile: shared
 allowed-tools: Read, Glob, Grep
 ---
 

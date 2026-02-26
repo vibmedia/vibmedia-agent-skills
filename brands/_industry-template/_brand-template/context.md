@@ -13,6 +13,7 @@
 - **Team size:** [Number]
 - **Location:** [City, Country / Remote]
 - **Website:** [URL]
+- **Profile:** [dev | marketing | hybrid]
 
 ---
 

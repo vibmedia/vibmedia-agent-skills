@@ -1,6 +1,8 @@
 ---
 name: documentation-templates
 description: Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.
+category: core
+profile: shared
 allowed-tools: Read, Glob, Grep
 ---
 

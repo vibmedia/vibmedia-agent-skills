@@ -1,6 +1,8 @@
 ---
 name: tdd-workflow
 description: Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.
+category: dev
+profile: dev
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

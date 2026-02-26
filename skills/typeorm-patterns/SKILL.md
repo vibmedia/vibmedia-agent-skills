@@ -1,6 +1,8 @@
 ---
 name: typeorm-patterns
 description: TypeORM patterns and best practices for TypeScript/JavaScript. Entity design, relations, migrations, QueryBuilder, repositories, transactions. Use when working with TypeORM or designing database layers with decorators.
+category: dev
+profile: dev
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 

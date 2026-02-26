@@ -1,6 +1,8 @@
 ---
 name: brainstorming
 description: Socratic questioning protocol + user communication. MANDATORY for complex requests, new features, or unclear requirements. Includes progress reporting and error handling.
+category: core
+profile: shared
 allowed-tools: Read, Glob, Grep
 ---
 
