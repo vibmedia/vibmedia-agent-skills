@@ -10,16 +10,68 @@
 # 1. Clone into your project
 git clone https://github.com/vibmedia/vibmedia-agent-skills.git .agent
 
-# 2. Open your project in Antigravity or Claude Code
+# 2. Edit vib.md with your company practices
+nano .agent/vib.md
 
-# 3. Start using slash commands
+# 3. Open your project in Antigravity or Claude Code
+
+# 4. Start using slash commands
 /plan        # Plan a feature
 /create      # Build something new
 /debug       # Debug an issue
-/enhance     # Improve existing code
 ```
 
-That's it. The AI will automatically detect your `.agent/` directory and use the skills.
+See [INSTALL.md](INSTALL.md) for detailed setup.
+
+---
+
+## System Hierarchy
+
+The system has a clear hierarchy. The AI loads context top-down:
+
+```
+vib.md                          ← Company identity (ALWAYS loads first)
+  └── profiles/[profile].md    ← Project type routing (dev|marketing|hybrid)
+        └── agents/            ← Specialist personas (tagged: profile)
+              └── skills/      ← Domain knowledge (tagged: profile)
+                    └── workflows/  ← Slash command procedures
+                          └── brands/[industry]/[brand]/  ← Client context
+                                └── _common/industry.md   ← Industry knowledge
+```
+
+### What Each Layer Does
+
+| Layer | File | Purpose |
+|-------|------|---------|
+| **Company** | `vib.md` | Your practices, standards, routing rules |
+| **Profile** | `profiles/*.md` | Which agents/skills to prioritize |
+| **Agent** | `agents/*.md` | Specialist persona + principles |
+| **Skill** | `skills/*/SKILL.md` | Domain expertise (has `profile:` and `category:` metadata) |
+| **Workflow** | `workflows/*.md` | Step-by-step procedures |
+| **Industry** | `brands/[industry]/_common/` | Shared industry knowledge |
+| **Brand** | `brands/[industry]/[brand]/` | Client-specific context |
+
+---
+
+## Profiles — Dev vs Marketing vs Hybrid
+
+Every project has a **profile** that determines which agents and skills are prioritized:
+
+| Profile | Set In `context.md` | What Loads |
+|---------|-------------------|------------|
+| `dev` | `profile: dev` | 22 dev skills + 10 dev agents |
+| `marketing` | `profile: marketing` | 29 marketing skills + marketing agents |
+| `hybrid` | `profile: hybrid` | All skills, phase-based priority |
+
+### How Profiles Work
+
+```
+profile: dev       → AI prioritizes: backend, database, testing, security skills
+profile: marketing → AI prioritizes: copywriting, SEO, CRO, ads skills
+profile: hybrid    → AI uses both, switches by phase (Build → Grow)
+```
+
+Shared skills (clean-code, brainstorming, architecture, frontend) load for ALL profiles.
 
 ---
 
@@ -27,18 +79,21 @@ That's it. The AI will automatically detect your `.agent/` directory and use the
 
 ### Agents → Who does the work
 
-Agents are **specialist AI personas**. Each has a focus area and knows which skills to use.
+Agents are **specialist AI personas**. Each has a focus area, a profile tag, and skills.
 
 ```
 You: "Build a REST API for user management"
 AI:  🤖 Applying knowledge of @backend-specialist...
+     → Profile: dev
      → Loads: api-patterns, nodejs-best-practices, database-design
 ```
 
 ### Skills → What they know
 
-Skills are **knowledge modules** loaded on-demand. Each has:
+Skills are **knowledge modules** loaded on-demand. Each has metadata:
 - `SKILL.md` — Instructions and rules
+- `profile:` — dev, marketing, or shared
+- `category:` — Hierarchy grouping (backend, content, core, etc.)
 - `references/` — Deep-dive docs, cheatsheets
 - `scripts/` — Automation scripts (optional)
 
@@ -49,14 +104,59 @@ Workflows are **slash commands** that activate specific processes:
 ```
 /plan     → Uses project-planner agent + plan-writing skill
 /debug    → Uses debugger agent + systematic-debugging skill
-/test     → Uses test-engineer agent + tdd-workflow skill
+/update   → Scans system, validates, syncs counts
+```
+
+---
+
+## Working with Brands
+
+### Setting Up a New Client
+
+```bash
+# 1. Create industry (if new)
+cp -r .agent/brands/_industry-template .agent/brands/saas
+
+# 2. Fill industry knowledge
+nano .agent/brands/saas/_common/industry.md
+
+# 3. Create brand
+cp -r .agent/brands/saas/_brand-template .agent/brands/saas/acme-corp
+
+# 4. Fill brand context (set profile: dev | marketing | hybrid)
+nano .agent/brands/saas/acme-corp/context.md
+
+# 5. Drop raw client data into reference/
+# 6. Add logos, guidelines to brand-data/
+```
+
+### Brand Folder Contents
+
+```
+brands/saas/acme-corp/
+├── context.md          # Brand identity + profile: marketing
+├── todo.md             # Progress, decisions, ideas
+├── structure.drawio    # Visual project map (draw.io)
+├── reference/          # Raw client data (inbox)
+├── brand-data/         # Processed assets (logos, guidelines)
+└── artifacts/          # AI-generated deliverables
+```
+
+### Switching Brands
+
+```
+You: "Switch to acme-corp. Write their Q2 email sequence."
+AI:  → Reads brands/saas/acme-corp/context.md
+     → Detects profile: marketing
+     → Loads marketing skills
+     → Uses acme-corp's voice, audience, products
 ```
 
 ---
 
 ## Common Workflows
 
-### 🏗️ Building a New Feature
+### 🏗️ Building a New Feature (Dev Profile)
 
 ```
 1. /plan                    # Break down the feature into tasks
@@ -66,48 +166,37 @@ Workflows are **slash commands** that activate specific processes:
 5. /deploy                  # Deploy to production
 ```
 
-### 🐛 Debugging an Issue
+### 📝 Marketing Campaign (Marketing Profile)
+
+```
+1. Set profile: marketing in context.md
+2. "Write homepage copy for acme-corp"
+   → Loads: copywriting skill + brand context
+3. "Audit SEO for acme-corp.com"
+   → Loads: seo-audit, schema-markup, ai-seo
+4. "Set up Google Ads campaign"
+   → Loads: paid-ads, ad-creative
+```
+
+### 🔀 Hybrid Project (Build + Grow)
+
+```
+Phase 1 — Build:
+1. /create-prd              # Product Requirements Document
+2. /plan                    # Architecture + tasks
+3. /create                  # Build the product
+
+Phase 2 — Grow:
+4. "Write launch copy"      # → copywriting, launch-strategy
+5. "Set up tracking"        # → analytics-tracking
+6. "Run SEO audit"          # → seo-audit
+```
+
+### 🐛 Debugging
 
 ```
 1. /debug                   # Systematic 4-phase debugging
    → Reproduce → Isolate → Understand → Fix & Verify
-```
-
-### 📝 Writing Marketing Copy
-
-```
-You: "Write homepage copy for our SaaS product"
-AI:  🤖 Applying knowledge of @frontend-specialist...
-     → Loads: copywriting skill
-     → Asks: Page type? Audience? Product? Traffic source?
-     → Outputs: Headline, subheadline, sections, CTAs with alternatives
-```
-
-### 🔍 SEO Audit
-
-```
-You: "Audit our site's SEO"
-AI:  → Loads: seo-audit, schema-markup, ai-seo skills
-     → Checks: Technical SEO, on-page, structured data, AI visibility
-     → Outputs: Prioritized fixes with implementation steps
-```
-
-### 📊 CRO Analysis
-
-```
-You: "Our landing page isn't converting"
-AI:  → Loads: page-cro skill
-     → Analyzes: Value proposition, headlines, CTAs, trust signals, friction
-     → Outputs: Quick wins, high-impact changes, test ideas
-```
-
-### 🚀 Product Launch
-
-```
-You: "Plan our product launch"
-AI:  → Loads: launch-strategy skill
-     → Asks: Launch type? Channels? Timeline?
-     → Outputs: Phased launch plan with channel strategy
 ```
 
 ---
@@ -124,7 +213,6 @@ AI:  → Loads: launch-strategy skill
 | `/debug` | Systematic debugging of issues |
 | `/test` | Generate and run tests |
 | `/code-review` | Review code for quality and bugs |
-| `/code-review-fix` | Fix issues found in code review |
 | `/deploy` | Deploy to production |
 | `/preview` | Start/stop local dev server |
 
@@ -135,24 +223,25 @@ AI:  → Loads: launch-strategy skill
 | `/brainstorm` | Explore ideas before building |
 | `/create-prd` | Create a Product Requirements Document |
 | `/piv-plan` | Deep feature plan with codebase analysis |
-| `/piv-prime` | Prime AI with codebase understanding |
 | `/orchestrate` | Coordinate multiple agents for complex tasks |
 | `/rca` | Root cause analysis for issues |
 
-### Verification
+### System Management
 
 | Command | When to Use |
 |---------|-------------|
-| `/validate` | Run full validation suite |
+| `/update` | After adding skills, agents, workflows, industries, or brands |
+| `/audit-goals` | Weekly — find gaps between goals and capabilities |
+| `/system-check` | Monthly — find errors, broken refs, stale data |
 | `/status` | Check project progress |
-| `/execution-report` | Generate implementation report |
-| `/system-review` | Review implementation against plan |
 
 ---
 
 ## Agent Selection
 
-The AI **automatically selects** the best agent based on your request. You can also force a specific agent:
+The AI **automatically selects** the best agent based on your request and the active profile.
+
+Force a specific agent with `@`:
 
 ```
 "@backend-specialist design the database schema"
@@ -160,99 +249,53 @@ The AI **automatically selects** the best agent based on your request. You can a
 "@seo-specialist audit our site"
 ```
 
-### Agent Routing Cheat Sheet
+### Agent Routing (Profile-Aware)
 
-| Your Request Contains | Agent Selected |
-|----------------------|----------------|
-| "build", "create", "implement" web UI | `frontend-specialist` |
-| "API", "backend", "server" | `backend-specialist` |
-| "database", "schema", "SQL" | `database-architect` |
-| "mobile", "React Native", "iOS" | `mobile-developer` |
-| "test", "TDD", "coverage" | `test-engineer` |
-| "debug", "fix", "broken" | `debugger` |
-| "security", "vulnerability", "auth" | `security-auditor` |
-| "SEO", "ranking", "meta tags" | `seo-specialist` |
-| "deploy", "CI/CD", "Docker" | `devops-engineer` |
-| "plan", "architecture", "design" | `project-planner` |
-| Marketing/CRO/copy related | Relevant marketing skills auto-loaded |
+| Your Request | Profile | Agent |
+|-------------|---------|-------|
+| "build API" | dev | `backend-specialist` |
+| "write copy" | marketing | (copywriting skill) |
+| "build landing page" | hybrid | `frontend-specialist` + copywriting |
+| "debug" | any | `debugger` |
+| "plan" | any | `project-planner` |
 
 ---
 
-## Skill Categories at a Glance
+## Skill Categories
 
-### 🖥️ Development (30+ skills)
+### 🔧 Dev Skills (22) — `profile: dev`
 
-| Area | Key Skills |
-|------|-----------|
-| React/Next.js | `react-best-practices`, `composition-patterns` |
-| Backend | `api-patterns`, `nodejs-best-practices`, `python-patterns` |
-| Database | `database-design`, `prisma-expert`, `typeorm-patterns` |
-| Testing | `tdd-workflow`, `testing-patterns`, `webapp-testing` |
-| Code Quality | `clean-code`, `code-review-checklist` |
-| Architecture | `architecture`, `plan-writing`, `app-builder` |
-| Mobile | `mobile-design`, `react-native-guidelines` |
+`api-patterns` · `nodejs-best-practices` · `python-patterns` · `rust-pro` · `database-design` · `typeorm-patterns` · `testing-patterns` · `webapp-testing` · `tdd-workflow` · `code-review-checklist` · `requesting-code-review` · `receiving-code-review` · `verification-before-completion` · `lint-and-validate` · `vulnerability-scanner` · `red-team-tactics` · `deployment-procedures` · `server-management` · `mobile-design` · `react-native-guidelines` · `mcp-builder` · `i18n-localization`
 
-### 📈 Marketing (29 skills)
+### 📈 Marketing Skills (29) — `profile: marketing`
 
-| Area | Key Skills |
-|------|-----------|
-| CRO | `page-cro`, `signup-flow-cro`, `form-cro`, `popup-cro` |
-| Content | `copywriting`, `copy-editing`, `email-sequence`, `social-content` |
-| SEO | `seo-audit`, `ai-seo`, `programmatic-seo`, `schema-markup` |
-| Ads | `paid-ads`, `ad-creative` |
-| Growth | `free-tool-strategy`, `referral-program`, `launch-strategy` |
-| Strategy | `pricing-strategy`, `marketing-psychology`, `content-strategy` |
+`copywriting` · `copy-editing` · `cold-email` · `email-sequence` · `social-content` · `content-strategy` · `seo-audit` · `ai-seo` · `programmatic-seo` · `schema-markup` · `competitor-alternatives` · `page-cro` · `signup-flow-cro` · `onboarding-cro` · `form-cro` · `popup-cro` · `paywall-upgrade-cro` · `paid-ads` · `ad-creative` · `analytics-tracking` · `ab-test-setup` · `churn-prevention` · `free-tool-strategy` · `referral-program` · `marketing-ideas` · `marketing-psychology` · `launch-strategy` · `pricing-strategy` · `product-marketing-context`
+
+### ⚡ Shared Skills (26) — `profile: shared`
+
+`clean-code` · `brainstorming` · `plan-writing` · `architecture` · `app-builder` · `nextjs-react-expert` · `web-design-guidelines` · `composition-patterns` · `tailwind-patterns` · `frontend-design` · `behavioral-modes` · `parallel-agents` · `intelligent-routing` · `performance-profiling` · `systematic-debugging` · `documentation-templates` · `seo-fundamentals` · `geo-fundamentals` · `executing-plans` · `subagent-driven-development` · `using-git-worktrees` · `finishing-a-development-branch` · `writing-skills` · `bash-linux` · `powershell-windows` · `game-development`
 
 ---
 
-## Reference Files
+## Extending the System
 
-Some skills include **cheatsheet reference files** for quick lookup:
-
-```bash
-# View available references for a skill
-ls .agent/skills/clean-code/references/
-# → solid-principles.md, design-patterns.md, code-smells.md, 
-#   git-cheatsheet.sh, architecture.md, ...
-
-ls .agent/skills/nodejs-best-practices/references/
-# → node-cheatsheet.js (565 lines of Node.js patterns)
-
-ls .agent/skills/database-design/references/
-# → mysql-cheatsheet.sh, redis-cheatsheet.sh
-```
-
----
-
-## Validation Scripts
-
-Run checks before deploying:
-
-```bash
-# Quick development checks (security, lint, tests, UX)
-python .agent/scripts/checklist.py .
-
-# Full pre-deploy suite (+ Lighthouse, E2E, bundle analysis)
-python .agent/scripts/verify_all.py . --url http://localhost:3000
-```
-
-### Individual audit scripts
-
-```bash
-python .agent/skills/vulnerability-scanner/scripts/security_scan.py
-python .agent/skills/frontend-design/scripts/ux_audit.py
-python .agent/skills/seo-fundamentals/scripts/seo_checker.py
-python .agent/skills/performance-profiling/scripts/lighthouse_audit.py
-python .agent/skills/webapp-testing/scripts/playwright_runner.py
-```
+| Want to add... | How | After adding |
+|---------------|-----|-------------|
+| New skill | See `docs/BUILDING-SKILLS.md` | Run `/update` |
+| New agent | See `docs/BUILDING-AGENTS.md` | Run `/update` |
+| New workflow | See `docs/BUILDING-WORKFLOWS.md` | Run `/update` |
+| New industry | Copy `brands/_industry-template` | Run `/update` |
+| New brand | Copy `brands/[industry]/_brand-template` | Run `/update` |
 
 ---
 
 ## Tips
 
-1. **Be specific** — "Build a REST API with JWT auth for user management" beats "build an API"
-2. **Use `/plan` first** — For complex features, plan before coding
-3. **Use `/brainstorm` for vague ideas** — It'll ask the right questions
-4. **Check the skill** — If output isn't great, read the relevant `SKILL.md` for what context it needs
-5. **Stack skills** — Complex tasks auto-load multiple skills: "SEO audit + fix" loads `seo-audit` + `schema-markup` + `ai-seo`
-6. **Reference files are gold** — Check `references/` folders for cheatsheets and deep-dive docs
+1. **Fill `vib.md` first** — your company identity shapes all AI responses
+2. **Set the profile** — `profile: dev` or `profile: marketing` in `context.md` saves tokens
+3. **Use `/plan` first** — for complex features, plan before coding
+4. **Use `/brainstorm` for vague ideas** — it asks the right questions
+5. **Read brand context** — the AI is better when it knows the brand
+6. **Run `/update` after changes** — keeps counts and references in sync
+7. **Run `/system-check` monthly** — catches drift and broken references
+8. **Use draw.io** — each brand gets a `structure.drawio` for visual mapping

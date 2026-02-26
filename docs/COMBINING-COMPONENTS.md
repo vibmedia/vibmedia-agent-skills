@@ -8,7 +8,7 @@
 
 ```
                     ┌─────────────┐
-User Request ──────►│ Agent Router │
+User Request ──────►│ Agent Router│
                     └──────┬──────┘
                            │ selects
                     ┌──────▼──────┐

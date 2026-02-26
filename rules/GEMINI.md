@@ -8,21 +8,34 @@ trigger: always_on
 
 ---
 
-## CRITICAL: AGENT & SKILL PROTOCOL (START HERE)
+## CRITICAL: STARTUP PROTOCOL (START HERE)
 
-> **MANDATORY:** You MUST read the appropriate agent file and its skills BEFORE performing any implementation. This is the highest priority rule.
+> **MANDATORY:** At session start, follow this sequence.
 
-### 1. Modular Skill Loading Protocol
+### 1. Load Company Context
 
-Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Read specific sections.
+```
+1. Read vib.md              → Company identity, practices, routing instructions
+2. Read ARCHITECTURE.md     → System map (agents, skills, workflows, profiles)
+3. If working on a brand:
+   a. Read brands/[industry]/[brand]/context.md → Brand identity
+   b. Check profile: field → dev | marketing | hybrid
+   c. Read profiles/[profile].md → Prioritized agents/skills
+   d. Read brands/[industry]/_common/industry.md → Industry context
+```
 
+### 2. Agent & Skill Loading
+
+Agent activated → Check `profile:` tag → Check frontmatter `skills:` → Read SKILL.md → Read specific sections.
+
+- **Profile Awareness:** Check the skill/agent `profile:` metadata (dev | marketing | shared). Prioritize skills matching the current project profile.
 - **Selective Reading:** DO NOT read ALL files in a skill folder. Read `SKILL.md` first, then only read sections matching the user's request.
-- **Rule Priority:** P0 (GEMINI.md) > P1 (Agent .md) > P2 (SKILL.md). All rules are binding.
+- **Rule Priority:** P0 (GEMINI.md) > P1 (vib.md) > P2 (Agent .md) > P3 (SKILL.md). All rules are binding.
 
-### 2. Enforcement Protocol
+### 3. Enforcement
 
 1. **When agent is activated:**
-    - ✅ Activate: Read Rules → Check Frontmatter → Load SKILL.md → Apply All.
+    - ✅ Activate: Read Rules → Check Profile → Check Frontmatter → Load SKILL.md → Apply All.
 2. **Forbidden:** Never skip reading agent rules or skill instructions. "Read → Understand → Apply" is mandatory.
 
 ---
@@ -38,7 +51,8 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 | **SIMPLE CODE**  | "fix", "add", "change" (single file)       | TIER 0 + TIER 1 (lite)         | Inline Edit                 |
 | **COMPLEX CODE** | "build", "create", "implement", "refactor" | TIER 0 + TIER 1 (full) + Agent | **{task-slug}.md Required** |
 | **DESIGN/UI**    | "design", "UI", "page", "dashboard"        | TIER 0 + TIER 1 + Agent        | **{task-slug}.md Required** |
-| **SLASH CMD**    | /create, /orchestrate, /debug              | Command-specific flow          | Variable                    |
+| **MARKETING**    | "copy", "SEO", "campaign", "CRO"          | TIER 0 + Marketing Profile     | Brand context required      |
+| **SLASH CMD**    | /create, /orchestrate, /debug, /update     | Command-specific flow          | Variable                    |
 
 ---
 
@@ -48,12 +62,29 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 
 > 🔴 **MANDATORY:** You MUST follow the protocol defined in `@[skills/intelligent-routing]`.
 
-### Auto-Selection Protocol
+### Profile-Aware Routing
 
-1. **Analyze (Silent)**: Detect domains (Frontend, Backend, Security, etc.) from user request.
-2. **Select Agent(s)**: Choose the most appropriate specialist(s).
-3. **Inform User**: Concisely state which expertise is being applied.
-4. **Apply**: Generate response using the selected agent's persona and rules.
+1. **Check project profile** (from brand's `context.md`):
+   - `profile: dev` → Prioritize agents/skills from `profiles/dev.md`
+   - `profile: marketing` → Prioritize agents/skills from `profiles/marketing.md`
+   - `profile: hybrid` → All available, prioritize by current phase
+   - No profile set → Use request keywords to determine
+
+2. **Analyze (Silent)**: Detect domains from user request.
+3. **Select Agent(s)**: Choose from agents matching the active profile.
+4. **Inform User**: Concisely state which expertise is being applied.
+5. **Apply**: Generate response using the selected agent's persona and rules.
+
+### Skill/Agent Metadata
+
+Every skill and agent has profile metadata in its frontmatter:
+
+```yaml
+profile: dev        # Only prioritized for dev projects
+profile: marketing  # Only prioritized for marketing projects
+profile: shared     # Prioritized for all project types
+category: backend   # Hierarchy grouping
+```
 
 ### Response Format (MANDATORY)
 
@@ -73,23 +104,13 @@ When auto-applying an agent, inform the user:
 
 ### ⚠️ AGENT ROUTING CHECKLIST (MANDATORY BEFORE EVERY CODE/DESIGN RESPONSE)
 
-**Before ANY code or design work, you MUST complete this mental checklist:**
-
 | Step | Check | If Unchecked |
 |------|-------|--------------|
-| 1 | Did I identify the correct agent for this domain? | → STOP. Analyze request domain first. |
-| 2 | Did I READ the agent's `.md` file (or recall its rules)? | → STOP. Open `.agent/agents/{agent}.md` |
-| 3 | Did I announce `🤖 Applying knowledge of @[agent]...`? | → STOP. Add announcement before response. |
-| 4 | Did I load required skills from agent's frontmatter? | → STOP. Check `skills:` field and read them. |
-
-**Failure Conditions:**
-
-- ❌ Writing code without identifying an agent = **PROTOCOL VIOLATION**
-- ❌ Skipping the announcement = **USER CANNOT VERIFY AGENT WAS USED**
-- ❌ Ignoring agent-specific rules (e.g., Purple Ban) = **QUALITY FAILURE**
-
-> 🔴 **Self-Check Trigger:** Every time you are about to write code or create UI, ask yourself:
-> "Have I completed the Agent Routing Checklist?" If NO → Complete it first.
+| 1 | Did I check the project profile? | → STOP. Read brand's `context.md` |
+| 2 | Did I identify the correct agent for this domain? | → STOP. Analyze request domain first. |
+| 3 | Did I READ the agent's `.md` file? | → STOP. Open `.agent/agents/{agent}.md` |
+| 4 | Did I announce `🤖 Applying knowledge of @[agent]...`? | → STOP. Add announcement. |
+| 5 | Did I load required skills from agent's frontmatter? | → STOP. Check `skills:` field. |
 
 ---
 
@@ -120,15 +141,23 @@ When user's prompt is NOT in English:
 2. Identify dependent files
 3. Update ALL affected files together
 
-### 🗺️ System Map Read
+### 🗺️ System Map
 
-> 🔴 **MANDATORY:** Read `ARCHITECTURE.md` at session start to understand Agents, Skills, and Scripts.
+> 🔴 **MANDATORY:** Read `ARCHITECTURE.md` at session start.
 
 **Path Awareness:**
 
-- Agents: `.agent/` (Project)
-- Skills: `.agent/skills/` (Project)
-- Runtime Scripts: `.agent/skills/<skill>/scripts/`
+- Company identity: `.agent/vib.md`
+- System map: `.agent/ARCHITECTURE.md`
+- Visual diagram: `.agent/structure.drawio`
+- Profiles: `.agent/profiles/` (dev.md, marketing.md, hybrid.md)
+- Agents: `.agent/agents/`
+- Skills: `.agent/skills/`
+- Workflows: `.agent/workflows/`
+- Brands: `.agent/brands/[industry]/[brand]/`
+- Industry knowledge: `.agent/brands/[industry]/_common/`
+- Docs: `.agent/docs/`
+- Scripts: `.agent/scripts/`, `.agent/skills/<skill>/scripts/`
 
 ### 🧠 Read → Understand → Apply
 
@@ -137,31 +166,22 @@ When user's prompt is NOT in English:
 ✅ CORRECT: Read → Understand WHY → Apply PRINCIPLES → Code
 ```
 
-**Before coding, answer:**
-
-1. What is the GOAL of this agent/skill?
-2. What PRINCIPLES must I apply?
-3. How does this DIFFER from generic output?
-
 ---
 
 ## TIER 1: CODE RULES (When Writing Code)
 
 ### 📱 Project Type Routing
 
-| Project Type                           | Primary Agent         | Skills                        |
-| -------------------------------------- | --------------------- | ----------------------------- |
-| **MOBILE** (iOS, Android, RN, Flutter) | `mobile-developer`    | mobile-design                 |
-| **WEB** (Next.js, React web)           | `frontend-specialist` | frontend-design               |
-| **BACKEND** (API, server, DB)          | `backend-specialist`  | api-patterns, database-design |
+| Project Type                           | Primary Agent         | Profile    | Skills                        |
+| -------------------------------------- | --------------------- | ---------- | ----------------------------- |
+| **MOBILE** (iOS, Android, RN, Flutter) | `mobile-developer`    | dev        | mobile-design                 |
+| **WEB** (Next.js, React web)           | `frontend-specialist` | shared     | frontend-design               |
+| **BACKEND** (API, server, DB)          | `backend-specialist`  | dev        | api-patterns, database-design |
+| **MARKETING** (Copy, SEO, Ads)         | (skill-based)         | marketing  | copywriting, seo-audit, etc.  |
 
 > 🔴 **Mobile + frontend-specialist = WRONG.** Mobile = mobile-developer ONLY.
 
 ### 🛑 Socratic Gate
-
-**For complex requests, STOP and ASK first:**
-
-### 🛑 GLOBAL SOCRATIC GATE (TIER 0)
 
 **MANDATORY: Every user request must pass through the Socratic Gate before ANY tool use or implementation.**
 
@@ -169,14 +189,15 @@ When user's prompt is NOT in English:
 | ----------------------- | -------------- | ----------------------------------------------------------------- |
 | **New Feature / Build** | Deep Discovery | ASK minimum 3 strategic questions                                 |
 | **Code Edit / Bug Fix** | Context Check  | Confirm understanding + ask impact questions                      |
+| **Marketing / Copy**    | Brand Check    | Confirm brand context loaded + ask audience/channel questions      |
 | **Vague / Simple**      | Clarification  | Ask Purpose, Users, and Scope                                     |
 | **Full Orchestration**  | Gatekeeper     | **STOP** subagents until user confirms plan details               |
-| **Direct "Proceed"**    | Validation     | **STOP** → Even if answers are given, ask 2 "Edge Case" questions |
+| **Direct "Proceed"**    | Validation     | **STOP** → Ask 2 "Edge Case" questions                            |
 
 **Protocol:**
 
 1. **Never Assume:** If even 1% is unclear, ASK.
-2. **Handle Spec-heavy Requests:** When user gives a list (Answers 1, 2, 3...), do NOT skip the gate. Instead, ask about **Trade-offs** or **Edge Cases** (e.g., "LocalStorage confirmed, but should we handle data clearing or versioning?") before starting.
+2. **Brand Context:** For marketing work, read `context.md` BEFORE asking questions.
 3. **Wait:** Do NOT invoke subagents or write code until the user clears the Gate.
 4. **Reference:** Full protocol in `@[skills/brainstorming]`.
 
@@ -189,34 +210,6 @@ When user's prompt is NOT in English:
 | **Manual Audit** | `python .agent/scripts/checklist.py .`             | Priority-based project audit   |
 | **Pre-Deploy**   | `python .agent/scripts/checklist.py . --url <URL>` | Full Suite + Performance + E2E |
 
-**Priority Execution Order:**
-
-1. **Security** → 2. **Lint** → 3. **Schema** → 4. **Tests** → 5. **UX** → 6. **Seo** → 7. **Lighthouse/E2E**
-
-**Rules:**
-
-- **Completion:** A task is NOT finished until `checklist.py` returns success.
-- **Reporting:** If it fails, fix the **Critical** blockers first (Security/Lint).
-
-**Available Scripts (12 total):**
-
-| Script                     | Skill                 | When to Use         |
-| -------------------------- | --------------------- | ------------------- |
-| `security_scan.py`         | vulnerability-scanner | Always on deploy    |
-| `dependency_analyzer.py`   | vulnerability-scanner | Weekly / Deploy     |
-| `lint_runner.py`           | lint-and-validate     | Every code change   |
-| `test_runner.py`           | testing-patterns      | After logic change  |
-| `schema_validator.py`      | database-design       | After DB change     |
-| `ux_audit.py`              | frontend-design       | After UI change     |
-| `accessibility_checker.py` | frontend-design       | After UI change     |
-| `seo_checker.py`           | seo-fundamentals      | After page change   |
-| `bundle_analyzer.py`       | performance-profiling | Before deploy       |
-| `mobile_audit.py`          | mobile-design         | After mobile change |
-| `lighthouse_audit.py`      | performance-profiling | Before deploy       |
-| `playwright_runner.py`     | webapp-testing        | Before deploy       |
-
-> 🔴 **Agents & Skills can invoke ANY script** via `python .agent/skills/<skill>/scripts/<script>.py`
-
 ### 🎭 Gemini Mode Mapping
 
 | Mode     | Agent             | Behavior                                     |
@@ -224,15 +217,6 @@ When user's prompt is NOT in English:
 | **plan** | `project-planner` | 4-phase methodology. NO CODE before Phase 4. |
 | **ask**  | -                 | Focus on understanding. Ask questions.       |
 | **edit** | `orchestrator`    | Execute. Check `{task-slug}.md` first.       |
-
-**Plan Mode (4-Phase):**
-
-1. ANALYSIS → Research, questions
-2. PLANNING → `{task-slug}.md`, task breakdown
-3. SOLUTIONING → Architecture, design (NO CODE!)
-4. IMPLEMENTATION → Code + tests
-
-> 🔴 **Edit mode:** If multi-file or structural change → Offer to create `{task-slug}.md`. For single-file fixes → Proceed directly.
 
 ---
 
@@ -242,32 +226,49 @@ When user's prompt is NOT in English:
 
 | Task         | Read                            |
 | ------------ | ------------------------------- |
-| Web UI/UX    | `.agent/frontend-specialist.md` |
-| Mobile UI/UX | `.agent/mobile-developer.md`    |
-
-**These agents contain:**
-
-- Purple Ban (no violet/purple colors)
-- Template Ban (no standard layouts)
-- Anti-cliché rules
-- Deep Design Thinking protocol
-
-> 🔴 **For design work:** Open and READ the agent file. Rules are there.
+| Web UI/UX    | `.agent/agents/frontend-specialist.md` |
+| Mobile UI/UX | `.agent/agents/mobile-developer.md`    |
 
 ---
 
 ## 📁 QUICK REFERENCE
 
-### Agents & Skills
+### System Files
 
-- **Masters**: `orchestrator`, `project-planner`, `security-auditor` (Cyber/Audit), `backend-specialist` (API/DB), `frontend-specialist` (UI/UX), `mobile-developer`, `debugger`, `game-developer`
-- **Key Skills**: `clean-code`, `brainstorming`, `app-builder`, `frontend-design`, `mobile-design`, `plan-writing`, `behavioral-modes`
+| File | Purpose |
+|------|---------|
+| `vib.md` | Company identity — loads first |
+| `ARCHITECTURE.md` | System map — agents, skills, workflows |
+| `structure.drawio` | Visual diagram — open in draw.io |
+| `profiles/*.md` | Project-type routing — dev, marketing, hybrid |
+| `brands/[industry]/[brand]/context.md` | Brand identity — profile, voice, audience |
+
+### Profiles
+
+| Profile | When | Agents | Skills |
+|---------|------|--------|--------|
+| `dev` | Software projects | 10 engineering | 22 dev skills |
+| `marketing` | Marketing campaigns | 1 + shared | 29 marketing skills |
+| `hybrid` | Build + grow | All | All (phase-based) |
+
+### System Management Commands
+
+| Command | When |
+|---------|------|
+| `/update` | After adding skills, agents, workflows, industries, or brands |
+| `/audit-goals` | Weekly — find gaps between goals and capabilities |
+| `/system-check` | Monthly — find errors, broken refs, stale data |
+
+### Key Agents
+
+- **Core**: `orchestrator`, `project-planner`, `frontend-specialist`, `backend-specialist`
+- **Dev**: `database-architect`, `devops-engineer`, `test-engineer`, `debugger`, `security-auditor`
+- **Marketing**: `seo-specialist` + marketing skills (copywriting, page-cro, paid-ads, etc.)
 
 ### Key Scripts
 
 - **Verify**: `.agent/scripts/verify_all.py`, `.agent/scripts/checklist.py`
 - **Scanners**: `security_scan.py`, `dependency_analyzer.py`
 - **Audits**: `ux_audit.py`, `mobile_audit.py`, `lighthouse_audit.py`, `seo_checker.py`
-- **Test**: `playwright_runner.py`, `test_runner.py`
 
 ---
