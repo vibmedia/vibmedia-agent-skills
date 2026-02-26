@@ -1,6 +1,7 @@
 # Todo — [Brand Name]
 
-> Living progress tracker. Update after every work session.
+> Living progress tracker. Update after every work session. and never dele or remove anything
+
 
 ---
 
