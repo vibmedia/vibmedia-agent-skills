@@ -18,10 +18,15 @@ Antigravity Kit is a modular system consisting of:
 
 ```plaintext
 .agent/
+├── vib.md                   # Company identity (loads first)
 ├── ARCHITECTURE.md          # This file
+├── structure.drawio          # Visual system map (draw.io)
+├── profiles/                # Project-type routing (3 profiles)
 ├── agents/                  # 21 Specialist Agents
-├── skills/                  # 77 Skills
+├── skills/                  # 77 Skills (tagged: dev|marketing|shared)
 ├── workflows/               # 25 Slash Commands
+├── brands/                  # Industry → Brand context folders
+├── docs/                    # Authoring guides (4 files)
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
 ```
@@ -64,45 +69,37 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ### Frontend & UI
 
-| Skill                   | Description                                                           |
-| ----------------------- | --------------------------------------------------------------------- |
-| `react-best-practices`  | React & Next.js performance optimization (Vercel - 57 rules)          |
-| `web-design-guidelines` | Web UI audit - 100+ rules for accessibility, UX, performance (Vercel) |
-| `composition-patterns`  | React composition patterns - compound components, state lifting       |
-| `tailwind-patterns`     | Tailwind CSS v4 utilities                                             |
-| `frontend-design`       | UI/UX patterns, design systems                                        |
-| `ui-ux-pro-max`         | 50 styles, 21 palettes, 50 fonts                                      |
+| Skill                   | Profile  | Description                                                           |
+| ----------------------- | -------- | --------------------------------------------------------------------- |
+| `nextjs-react-expert`   | shared   | React & Next.js performance optimization (Vercel - 57 rules)          |
+| `web-design-guidelines` | shared   | Web UI audit - 100+ rules for accessibility, UX, performance (Vercel) |
+| `composition-patterns`  | shared   | React composition patterns - compound components, state lifting       |
+| `tailwind-patterns`     | shared   | Tailwind CSS v4 utilities                                             |
+| `frontend-design`       | shared   | UI/UX patterns, design systems                                        |
+| `ui-ux-pro-max`         | shared   | 50 styles, 21 palettes, 50 fonts                                      |
 
 ### Backend & API
 
-| Skill                   | Description                    |
-| ----------------------- | ------------------------------ |
-| `api-patterns`          | REST, GraphQL, tRPC            |
-| `nestjs-expert`         | NestJS modules, DI, decorators |
-| `nodejs-best-practices` | Node.js async, modules         |
-| `python-patterns`       | Python standards, FastAPI      |
+| Skill                   | Profile  | Description                    |
+| ----------------------- | -------- | ------------------------------ |
+| `api-patterns`          | dev      | REST, GraphQL, tRPC            |
+| `nodejs-best-practices` | dev      | Node.js async, modules         |
+| `python-patterns`       | dev      | Python standards, FastAPI      |
+| `rust-pro`              | dev      | Rust 1.75+ async, type system  |
 
 ### Database
 
-| Skill              | Description                         |
-| ------------------ | ----------------------------------- |
-| `database-design`  | Schema design, optimization         |
-| `prisma-expert`    | Prisma ORM, migrations              |
-| `typeorm-patterns` | TypeORM entities, relations, migrations, QueryBuilder |
-
-### TypeScript/JavaScript
-
-| Skill               | Description                         |
-| ------------------- | ----------------------------------- |
-| `typescript-expert` | Type-level programming, performance |
+| Skill              | Profile  | Description                         |
+| ------------------ | -------- | ----------------------------------- |
+| `database-design`  | dev      | Schema design, optimization         |
+| `typeorm-patterns` | dev      | TypeORM entities, relations, migrations, QueryBuilder |
 
 ### Cloud & Infrastructure
 
-| Skill                   | Description               |
-| ----------------------- | ------------------------- |
-| `docker-expert`         | Containerization, Compose |
-| `deployment-procedures` | CI/CD, deploy workflows   |
-| `server-management`     | Infrastructure management |
+| Skill                   | Profile  | Description               |
+| ----------------------- | -------- | ------------------------- |
+| `deployment-procedures` | dev      | CI/CD, deploy workflows   |
+| `server-management`     | dev      | Infrastructure management |
 
 ### Testing & Quality
 
@@ -201,16 +198,31 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ### Other
 
-| Skill                     | Description               |
-| ------------------------- | ------------------------- |
-| `clean-code`              | Coding standards + SOLID + Karpathy (Global) |
-| `behavioral-modes`        | Agent personas            |
-| `parallel-agents`         | Multi-agent patterns      |
-| `mcp-builder`             | Model Context Protocol    |
-| `documentation-templates` | Doc formats               |
-| `i18n-localization`       | Internationalization      |
-| `performance-profiling`   | Web Vitals, optimization  |
-| `systematic-debugging`    | Troubleshooting           |
+| Skill                     | Profile  | Description               |
+| ------------------------- | -------- | ------------------------- |
+| `clean-code`              | shared   | Coding standards + SOLID + Karpathy (Global) |
+| `behavioral-modes`        | shared   | Agent personas            |
+| `parallel-agents`         | shared   | Multi-agent patterns      |
+| `intelligent-routing`     | shared   | Auto agent selection      |
+| `mcp-builder`             | dev      | Model Context Protocol    |
+| `documentation-templates` | shared   | Doc formats               |
+| `i18n-localization`       | dev      | Internationalization      |
+| `performance-profiling`   | shared   | Web Vitals, optimization  |
+| `systematic-debugging`    | shared   | Troubleshooting           |
+
+---
+
+## 🎭 Profiles (3)
+
+Project-type routing — determines which agents/skills are prioritized per project.
+
+| Profile | Agents | Skills | Use When |
+| ------- | ------ | ------ | -------- |
+| `dev` | 10 engineering | 22 dev skills | Software development projects |
+| `marketing` | 1 + shared | 29 marketing skills | Marketing campaigns, CRO, content |
+| `hybrid` | All | All (phase-based) | Build product + grow it |
+
+Set `profile:` in brand's `context.md`. See `profiles/` for full listings.
 
 ---
 
@@ -222,6 +234,7 @@ Slash command procedures. Invoke with `/command`.
 | ---------------- | ------------------------ |
 | `/brainstorm`    | Socratic discovery       |
 | `/create`        | Create new features      |
+| `/create-prd`    | Product Requirements Doc |
 | `/debug`         | Debug issues             |
 | `/deploy`        | Deploy application       |
 | `/enhance`       | Improve existing code    |
@@ -231,6 +244,16 @@ Slash command procedures. Invoke with `/command`.
 | `/status`        | Check project status     |
 | `/test`          | Run tests                |
 | `/ui-ux-pro-max` | Design with 50 styles    |
+| `/code-review`   | Technical code review    |
+| `/code-review-fix` | Fix review issues      |
+| `/rca`           | Root cause analysis      |
+| `/implement-fix` | Implement fix from RCA   |
+| `/piv-plan`      | Feature plan + analysis  |
+| `/piv-prime`     | Prime codebase           |
+| `/piv-execute`   | Execute PIV plan         |
+| `/validate`      | Validate implementation  |
+| `/execution-report` | Implementation report |
+| `/system-review` | Review against plan      |
 | `/update`        | Sync system after changes |
 | `/audit-goals`   | Goal gap analysis        |
 | `/system-check`  | System health check      |
@@ -311,13 +334,42 @@ For details, see [scripts/README.md](scripts/README.md)
 
 ---
 
+## 🏢 Brands & Industries
+
+```plaintext
+brands/
+├── _industry-template/          # Copy for new industry
+│   ├── _common/industry.md      # Industry knowledge
+│   └── _brand-template/         # Copy for new brand
+│       ├── context.md            # Brand identity (has profile: field)
+│       ├── todo.md               # Progress + decisions
+│       ├── reference/            # Raw client data
+│       ├── brand-data/           # Processed assets
+│       └── artifacts/            # AI deliverables
+└── [industry]/[brand]/          # Actual brand folders
+```
+
+---
+
+## 📖 Docs
+
+| Document | Purpose |
+| -------- | ------- |
+| `docs/BUILDING-AGENTS.md` | How to create agents |
+| `docs/BUILDING-SKILLS.md` | How to create skills |
+| `docs/BUILDING-WORKFLOWS.md` | How to create workflows |
+| `docs/COMBINING-COMPONENTS.md` | How they work together |
+
+---
+
 ## 📊 Statistics
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 21                            |
 | **Total Skills**    | 77                            |
-| **Total Workflows**    | 25                            |
+| **Total Workflows** | 25                            |
+| **Profiles**        | 3 (dev, marketing, hybrid)    |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~98% web/mobile/marketing     |
 
@@ -325,13 +377,17 @@ For details, see [scripts/README.md](scripts/README.md)
 
 ## 🔗 Quick Reference
 
-| Need     | Agent                 | Skills                                |
-| -------- | --------------------- | ------------------------------------- |
-| Web App  | `frontend-specialist` | react-best-practices, frontend-design |
-| API      | `backend-specialist`  | api-patterns, nodejs-best-practices   |
-| Mobile   | `mobile-developer`    | mobile-design                         |
-| Database | `database-architect`  | database-design, prisma-expert        |
-| Security | `security-auditor`    | vulnerability-scanner                 |
-| Testing  | `test-engineer`       | testing-patterns, webapp-testing      |
-| Debug    | `debugger`            | systematic-debugging                  |
-| Plan     | `project-planner`     | brainstorming, plan-writing           |
+| Need      | Agent                 | Skills                                   |
+| --------- | --------------------- | ---------------------------------------- |
+| Web App   | `frontend-specialist` | nextjs-react-expert, frontend-design     |
+| API       | `backend-specialist`  | api-patterns, nodejs-best-practices      |
+| Mobile    | `mobile-developer`    | mobile-design, react-native-guidelines   |
+| Database  | `database-architect`  | database-design, typeorm-patterns        |
+| Security  | `security-auditor`    | vulnerability-scanner                    |
+| Testing   | `test-engineer`       | testing-patterns, webapp-testing         |
+| Debug     | `debugger`            | systematic-debugging                     |
+| Plan      | `project-planner`     | brainstorming, plan-writing              |
+| SEO       | `seo-specialist`      | seo-audit, ai-seo, schema-markup         |
+| Copy      | (skill-based)         | copywriting, copy-editing                |
+| CRO       | (skill-based)         | page-cro, signup-flow-cro                |
+| Ads       | (skill-based)         | paid-ads, ad-creative                    |

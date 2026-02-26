@@ -123,3 +123,4 @@ Everything AI produces: pages, audits, campaigns, reports. Date-stamp files for 
 3. **Use `/update` after every addition** — keeps the system in sync
 4. **Use `/audit-goals` weekly** — finds gaps between todo and actual progress
 5. **Use `/system-check` monthly** — catches broken references and stale data
+6. **Use draw.io diagrams** — each brand gets a `structure.drawio` for visual project mapping

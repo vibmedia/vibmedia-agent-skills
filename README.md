@@ -1,44 +1,21 @@
 # Vibmedia Agent Skills
 
-> 🧠 Modular AI agent toolkit — **77 skills**, **21 agents**, **25 workflows** for Antigravity, Claude Code, and AI coding assistants.
+> 🧠 Modular AI agent toolkit — **77 skills**, **21 agents**, **25 workflows**, **3 project profiles** for Antigravity, Claude Code, and AI coding assistants.
 
 Curated and merged from the best open-source AI skill repositories.
 
+**[📖 Installation Guide →](INSTALL.md)** · **[🏗️ Architecture →](ARCHITECTURE.md)** · **[📋 How to Use →](GUIDE.md)** · **[🚀 Roadmap →](ROADMAP.md)**
+
 ---
 
-## 📦 Installation
-
-### Option 1: Copy into your project (Recommended)
+## 📦 Quick Install
 
 ```bash
-git clone https://github.com/vibmedia/vibmedia-agent-skills.git
-cp -r vibmedia-agent-skills/* /path/to/your/project/.agent/
-rm -rf vibmedia-agent-skills
-```
-
-### Option 2: Git Submodule
-
-```bash
-git submodule add https://github.com/vibmedia/vibmedia-agent-skills.git .agent
-git submodule update --remote  # to update later
-```
-
-### Option 3: Symlink
-
-```bash
-git clone https://github.com/vibmedia/vibmedia-agent-skills.git ~/agent-skills
-ln -s ~/agent-skills /path/to/your/project/.agent
-```
-
-### For Antigravity IDE
-
-Place the contents at the root of your project as `.agent/`:
-
-```bash
+# Clone into your project
 git clone https://github.com/vibmedia/vibmedia-agent-skills.git .agent
 ```
 
-Antigravity will automatically detect and use the skills, agents, and workflows.
+See [INSTALL.md](INSTALL.md) for detailed setup across different IDEs and CLI tools.
 
 ---
 
@@ -46,97 +23,129 @@ Antigravity will automatically detect and use the skills, agents, and workflows.
 
 ```
 .agent/
+├── vib.md                   # Company identity (loads first)
 ├── ARCHITECTURE.md          # Full system map
+├── structure.drawio         # Visual diagram (open in draw.io)
+├── profiles/                # Project-type routing
+│   ├── dev.md               # Dev skills prioritized
+│   ├── marketing.md         # Marketing skills prioritized
+│   └── hybrid.md            # Both (phase-based)
 ├── agents/                  # 21 Specialist AI personas
-├── skills/                  # 77 Domain-specific skills
+├── skills/                  # 77 Domain skills (tagged: dev|marketing|shared)
 │   └── <skill>/
 │       ├── SKILL.md         # Main instructions (required)
 │       ├── references/      # Deep-dive docs (optional)
 │       └── scripts/         # Automation scripts (optional)
 ├── workflows/               # 25 Slash command procedures
+├── brands/                  # Industry → Brand context folders
+│   └── <industry>/
+│       ├── _common/         # Shared industry knowledge
+│       └── <brand>/
+│           ├── context.md   # Brand identity (profile: dev|marketing|hybrid)
+│           ├── todo.md      # Progress + decisions
+│           ├── structure.drawio  # Visual project map
+│           ├── reference/   # Raw client data
+│           ├── brand-data/  # Processed assets
+│           └── artifacts/   # AI deliverables
+├── docs/                    # How-to guides
 ├── rules/                   # Global rules
 └── scripts/                 # Master validation scripts
 ```
 
 ---
 
+## 🎭 Profiles
+
+Project-type routing — controls which agents/skills are prioritized.
+
+| Profile | Skills | Use When |
+|---------|--------|----------|
+| `dev` | 22 dev + 26 shared | Software development |
+| `marketing` | 29 marketing + 26 shared | Campaigns, CRO, content |
+| `hybrid` | All 77 (phase-based) | Build product + grow it |
+
+Set `profile:` in your brand's `context.md`.
+
+---
+
 ## 🤖 Agents (21)
 
-| Agent | Focus |
-|-------|-------|
-| `orchestrator` | Multi-agent coordination |
-| `project-planner` | Discovery, task planning |
-| `frontend-specialist` | Web UI/UX |
-| `backend-specialist` | API, business logic |
-| `database-architect` | Schema, SQL |
-| `mobile-developer` | iOS, Android, React Native |
-| `game-developer` | Game logic, mechanics |
-| `devops-engineer` | CI/CD, Docker |
-| `security-auditor` | Security compliance |
-| `penetration-tester` | Offensive security |
-| `test-engineer` | Testing strategies |
-| `debugger` | Root cause analysis |
-| `performance-optimizer` | Speed, Web Vitals |
-| `seo-specialist` | Ranking, visibility |
-| `documentation-writer` | Manuals, docs |
-| `product-manager` | Requirements, user stories |
-| `product-owner` | Strategy, backlog, MVP |
-| `qa-automation-engineer` | E2E testing, CI pipelines |
-| `code-archaeologist` | Legacy code, refactoring |
-| `code-reviewer` | Code quality review |
-| `explorer-agent` | Codebase analysis |
+| Agent | Focus | Profile |
+|-------|-------|---------|
+| `orchestrator` | Multi-agent coordination | shared |
+| `project-planner` | Discovery, task planning | shared |
+| `frontend-specialist` | Web UI/UX | shared |
+| `backend-specialist` | API, business logic | dev |
+| `database-architect` | Schema, SQL | dev |
+| `mobile-developer` | iOS, Android, React Native | shared |
+| `game-developer` | Game logic, mechanics | shared |
+| `devops-engineer` | CI/CD, Docker | dev |
+| `security-auditor` | Security compliance | dev |
+| `penetration-tester` | Offensive security | dev |
+| `test-engineer` | Testing strategies | dev |
+| `debugger` | Root cause analysis | dev |
+| `performance-optimizer` | Speed, Web Vitals | shared |
+| `seo-specialist` | Ranking, visibility | marketing |
+| `documentation-writer` | Manuals, docs | shared |
+| `product-manager` | Requirements, user stories | shared |
+| `product-owner` | Strategy, backlog, MVP | shared |
+| `qa-automation-engineer` | E2E testing, CI pipelines | dev |
+| `code-archaeologist` | Legacy code, refactoring | dev |
+| `code-reviewer` | Code quality review | dev |
+| `explorer-agent` | Codebase analysis | shared |
 
 ---
 
 ## 🧩 Skills (77)
 
-### Frontend & UI (6)
-`react-best-practices` · `web-design-guidelines` · `composition-patterns` · `tailwind-patterns` · `frontend-design` · `ui-ux-pro-max`
+### Frontend & UI (6) — shared
+`nextjs-react-expert` · `web-design-guidelines` · `composition-patterns` · `tailwind-patterns` · `frontend-design` · `ui-ux-pro-max`
 
-### Backend & API (4)
-`api-patterns` · `nestjs-expert` · `nodejs-best-practices` · `python-patterns`
+### Backend & API (4) — dev
+`api-patterns` · `nodejs-best-practices` · `python-patterns` · `rust-pro`
 
-### Database (3)
-`database-design` · `prisma-expert` · `typeorm-patterns`
+### Database (2) — dev
+`database-design` · `typeorm-patterns`
 
-### Testing & Quality (8)
+### Testing & Quality (8) — dev
 `testing-patterns` · `webapp-testing` · `tdd-workflow` · `code-review-checklist` · `requesting-code-review` · `receiving-code-review` · `verification-before-completion` · `lint-and-validate`
 
-### Architecture & Planning (9)
+### Architecture & Planning (9) — shared
 `app-builder` · `architecture` · `plan-writing` · `brainstorming` · `executing-plans` · `subagent-driven-development` · `using-git-worktrees` · `finishing-a-development-branch` · `writing-skills`
 
-### Security (2)
+### Security (2) — dev
 `vulnerability-scanner` · `red-team-tactics`
 
-### SEO & Discovery (6)
+### SEO & Discovery (6) — marketing
 `seo-fundamentals` · `geo-fundamentals` · `seo-audit` · `ai-seo` · `programmatic-seo` · `schema-markup`
 
-### Marketing & CRO (25)
+### Marketing & CRO (25) — marketing
 `page-cro` · `signup-flow-cro` · `onboarding-cro` · `form-cro` · `popup-cro` · `paywall-upgrade-cro` · `copywriting` · `copy-editing` · `cold-email` · `email-sequence` · `social-content` · `content-strategy` · `paid-ads` · `ad-creative` · `analytics-tracking` · `ab-test-setup` · `churn-prevention` · `free-tool-strategy` · `referral-program` · `marketing-ideas` · `marketing-psychology` · `launch-strategy` · `pricing-strategy` · `competitor-alternatives` · `product-marketing-context`
 
-### Mobile (2)
+### Mobile (2) — shared
 `mobile-design` · `react-native-guidelines`
 
-### Infrastructure (3)
-`deployment-procedures` · `server-management` · `docker-expert`
+### Infrastructure (2) — dev
+`deployment-procedures` · `server-management`
 
-### Shell & CLI (2)
+### Shell & CLI (2) — shared
 `bash-linux` · `powershell-windows`
 
-### Other (11)
-`clean-code` · `behavioral-modes` · `parallel-agents` · `mcp-builder` · `documentation-templates` · `i18n-localization` · `performance-profiling` · `systematic-debugging` · `game-development` · `typescript-expert` · `intelligent-routing`
+### Other (9) — shared/dev
+`clean-code` · `behavioral-modes` · `parallel-agents` · `intelligent-routing` · `mcp-builder` · `documentation-templates` · `i18n-localization` · `performance-profiling` · `systematic-debugging`
+
+### Game (1) — shared
+`game-development`
 
 ---
 
 ## 🔄 Workflows (25)
 
-Invoke with `/command` in your AI assistant:
-
 | Command | Description |
 |---------|-------------|
 | `/brainstorm` | Socratic discovery |
 | `/create` | Create new features |
-| `/create-prd` | Create Product Requirements Document |
+| `/create-prd` | Product Requirements Document |
 | `/debug` | Debug issues |
 | `/deploy` | Deploy application |
 | `/enhance` | Improve existing code |
@@ -154,28 +163,26 @@ Invoke with `/command` in your AI assistant:
 | `/system-review` | Analyze against plan |
 | `/piv-plan` | Feature plan with analysis |
 | `/piv-prime` | Prime agent with codebase |
-| `/piv-execute` | Execute PIV plan |
 | `/validate` | Validate implementation |
 | `/update` | Sync system after changes |
-| `/audit-goals` | Find gaps in goals vs capabilities |
+| `/audit-goals` | Goal gap analysis |
 | `/system-check` | System health check |
 
 ---
 
-## 🚀 How Skills Work
+## 📖 Documentation
 
-```
-User Request → Match skill by description → Load SKILL.md
-                                               ↓
-                                        Read references/
-                                               ↓
-                                        Execute scripts/
-```
-
-1. **Agent routing** — Your AI assistant matches the request to the best agent
-2. **Skill loading** — The agent loads relevant skills based on frontmatter descriptions
-3. **Reference docs** — Deep-dive references are loaded on-demand
-4. **Scripts** — Validation and audit scripts run when needed
+| Document | Purpose |
+|----------|---------|
+| [INSTALL.md](INSTALL.md) | Installation guide for all environments |
+| [GUIDE.md](GUIDE.md) | How to use — workflows, commands, tips |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Full system map with all components |
+| [ROADMAP.md](ROADMAP.md) | Enterprise AI workforce roadmap |
+| [docs/BUILDING-AGENTS.md](docs/BUILDING-AGENTS.md) | How to create agents |
+| [docs/BUILDING-SKILLS.md](docs/BUILDING-SKILLS.md) | How to create skills |
+| [docs/BUILDING-WORKFLOWS.md](docs/BUILDING-WORKFLOWS.md) | How to create workflows |
+| [docs/COMBINING-COMPONENTS.md](docs/COMBINING-COMPONENTS.md) | How they work together |
+| [brands/README.md](brands/README.md) | Brand & industry context system |
 
 ---
 
@@ -186,7 +193,8 @@ User Request → Match skill by description → Load SKILL.md
 | Agents | 21 |
 | Skills | 77 |
 | Workflows | 25 |
-| Reference Files | 20+ |
+| Profiles | 3 |
+| Reference Files | 60+ |
 | Validation Scripts | 20 |
 
 ---
