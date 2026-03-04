@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectus — Connected Architecture Explorer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --sidebar-bg: rgba(22, 27, 34, 0.85);
+            --card-bg: rgba(33, 38, 45, 0.7);
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-purple: #bc8cff;
+            --border-color: rgba(48, 54, 61, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* --- Layout --- */
+        #viewport {
+            flex-grow: 1;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, #161b22 0%, #0d1117 100%);
+        }
+
+        #sidebar {
+            width: 420px;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid var(--border-color);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- UI Elements --- */
+        .controls {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slider-container label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        /* --- Sidebar Content --- */
+        .doc-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .doc-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            color: #fff;
+        }
+
+        .doc-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        #content-area {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        #content-area code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(110, 118, 129, 0.4);
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-size: 85%;
+        }
+
+        #content-area pre {
+            background: #161b22;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-secondary);
+            text-align: center;
+            gap: 12px;
+        }
+
+        .empty-state svg {
+            width: 48px;
+            opacity: 0.3;
+        }
+
+        /* --- Graph Styling --- */
+        .node circle {
+            stroke-width: 2px;
+            transition: r 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+
+        .node text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            fill: var(--text-secondary);
+            pointer-events: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .node:hover circle {
+            filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
+        }
+
+        .link {
+            stroke-opacity: 0.2;
+            stroke-width: 1.5px;
+            transition: stroke-opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            stroke-opacity: 0.8;
+            stroke-width: 3px;
+        }
+
+        .link.hierarchy {
+            stroke: var(--text-secondary);
+            stroke-dasharray: 4;
+        }
+
+        .link.import {
+            stroke: var(--accent-blue);
+        }
+
+        /* --- Types --- */
+        .node.server circle {
+            fill: var(--accent-red);
+            stroke: #8e1b1b;
+        }
+
+        .node.service circle {
+            fill: var(--accent-blue);
+            stroke: #214d81;
+        }
+
+        .node.node circle {
+            fill: var(--accent-green);
+            stroke: #235d2d;
+        }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            display: flex;
+            gap: 16px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: var(--accent-blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewport">
+        <div class="controls">
+            <div class="glass-panel">
+                <h1>ARCHITECTUS</h1>
+                <div class="slider-container">
+                    <label for="depthSlider">Exploration Depth</label>
+                    <input type="range" id="depthSlider" min="0" max="3" value="2">
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="dot" style="background: var(--accent-red)"></div> Root
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: var(--accent-blue)"></div> Service
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: var(--accent-green)"></div> File
+            </div>
+        </div>
+
+        <svg id="graph" width="100%" height="100%"></svg>
+    </div>
+
+    <div id="sidebar">
+        <div id="sidebar-default" class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <p>Select a node or connection<br>to explore documentation</p>
+        </div>
+        <div id="sidebar-content" style="display: none;">
+            <div class="doc-header">
+                <h2 id="doc-title" class="doc-title">Node Name</h2>
+                <div id="doc-meta" class="doc-meta">/path/to/node</div>
+            </div>
+            <div id="content-area"></div>
+        </div>
+    </div>
+
+    <script>
+        const svg = d3.select("#graph");
+        const width = window.innerWidth - 420;
+        const height = window.innerHeight;
+
+        let simulation, nodes, links, nodeGroup, linkGroup;
+        let graphData = null;
+
+        // Initialize simulation
+        simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40));
+
+        // Load data
+        d3.json("relationships.json").then(data => {
+            graphData = data;
+            initGraph(data);
+        }).catch(err => {
+            console.error("Error loading JSON:", err);
+            document.querySelector('.empty-state p').innerText = "relationships.json not found. Run scanner first.";
+        });
+
+        function initGraph(data) {
+            const container = svg.append("g").attr("class", "container");
+
+            // Zoom behavior
+            svg.call(d3.zoom().scaleExtent([0.1, 4]).on("zoom", (event) => {
+                container.attr("transform", event.transform);
+            }));
+
+            linkGroup = container.append("g").attr("class", "links");
+            nodeGroup = container.append("g").attr("class", "nodes");
+
+            update(parseInt(document.getElementById('depthSlider').value));
+        }
+
+        function update(maxDepth) {
+            const filteredNodes = graphData.nodes.filter(n => n.level <= maxDepth);
+            const nodeIds = new Set(filteredNodes.map(n => n.id));
+            const filteredLinks = graphData.links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
+
+            // Links
+            const link = linkGroup.selectAll(".link")
+                .data(filteredLinks, d => `${d.source}-${d.target}`);
+
+            link.exit().remove();
+            const linkEnter = link.enter().append("line")
+                .attr("class", d => `link ${d.type}`)
+                .on("click", (event, d) => showConnection(d));
+
+            // Nodes
+            const node = nodeGroup.selectAll(".node")
+                .data(filteredNodes, d => d.id);
+
+            node.exit().remove();
+            const nodeEnter = node.enter().append("g")
+                .attr("class", d => `node ${d.type}`)
+                .on("click", (event, d) => showDetails(d))
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            nodeEnter.append("circle").attr("r", d => 15 - (d.level * 2));
+            nodeEnter.append("text").attr("dx", 18).attr("dy", ".35em").text(d => d.name);
+
+            const allNodes = nodeEnter.merge(node);
+            const allLinks = linkEnter.merge(link);
+
+            simulation.nodes(filteredNodes);
+            simulation.force("link").links(filteredLinks);
+            simulation.alpha(1).restart();
+
+            simulation.on("tick", () => {
+                allLinks
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                allNodes.attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+        }
+
+        // Sidebar Actions
+        function showDetails(node) {
+            document.getElementById('sidebar-default').style.display = 'none';
+            document.getElementById('sidebar-content').style.display = 'block';
+
+            document.getElementById('doc-title').innerText = node.name;
+            document.getElementById('doc-meta').innerText = node.path;
+
+            // Add Open in Editor Button
+            const editorLink = `file://${node.path}`;
+            const actionArea = `
+                <div style="margin-bottom: 20px;">
+                    <a href="${editorLink}" class="action-btn" onclick="window.close()">
+                        <span>📂 Open in Editor</span>
+                    </a>
+                </div>
+            `;
+
+            const content = node.content || "No documentation available for this node.";
+            document.getElementById('content-area').innerHTML = actionArea + marked.parse(content);
+        }
+
+        function showConnection(link) {
+            document.getElementById('sidebar-default').style.display = 'none';
+            document.getElementById('sidebar-content').style.display = 'block';
+
+            const source = typeof link.source === 'object' ? link.source.name : link.source;
+            const target = typeof link.target === 'object' ? link.target.name : link.target;
+
+            document.getElementById('doc-title').innerText = "Relationship";
+            document.getElementById('doc-meta').innerText = `${source} ➔ ${target}`;
+
+            let explanation = `This is a **${link.type}** connection.\n\n`;
+            if (link.type === 'import') {
+                explanation += `\`${source}\` explicitly imports functionality from \`${target}\`.\n\nContext:\n> ${link.label || 'Direct dependency'}`;
+            } else {
+                explanation += `\`${target}\` is contained within the \`${source}\` directory.`;
+            }
+
+            document.getElementById('content-area').innerHTML = marked.parse(explanation);
+        }
+
+        // Dragging
+        function dragstarted(event) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            event.subject.fx = event.subject.x;
+            event.subject.fy = event.subject.y;
+        }
+        function dragged(event) {
+            event.subject.fx = event.x;
+            event.subject.fy = event.y;
+        }
+        function dragended(event) {
+            if (!event.active) simulation.alphaTarget(0);
+            event.subject.fx = null;
+            event.subject.fy = null;
+        }
+
+        // Depth slider listener
+        document.getElementById('depthSlider').addEventListener('input', (e) => {
+            if (graphData) update(parseInt(e.target.value));
+        });
+    </script>
+</body>
+
+</html>

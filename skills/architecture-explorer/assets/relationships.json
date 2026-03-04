@@ -1,0 +1,924 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "name": "travel_ai",
+      "type": "server",
+      "level": 0,
+      "path": "/nara/travel_ai",
+      "content": ""
+    },
+    {
+      "id": "inspect_kuma_db.py",
+      "name": "inspect_kuma_db.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/inspect_kuma_db.py",
+      "content": ""
+    },
+    {
+      "id": "reset_kuma_users.py",
+      "name": "reset_kuma_users.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/reset_kuma_users.py",
+      "content": ""
+    },
+    {
+      "id": "rewrite.py",
+      "name": "rewrite.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/rewrite.py",
+      "content": ""
+    },
+    {
+      "id": "scenario_a.py",
+      "name": "scenario_a.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/scenario_a.py",
+      "content": ""
+    },
+    {
+      "id": "scenario_b.py",
+      "name": "scenario_b.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/scenario_b.py",
+      "content": ""
+    },
+    {
+      "id": "test_flows.py",
+      "name": "test_flows.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/test_flows.py",
+      "content": ""
+    },
+    {
+      "id": "test_supabase_async.py",
+      "name": "test_supabase_async.py",
+      "type": "node",
+      "level": 1,
+      "path": "/nara/travel_ai/test_supabase_async.py",
+      "content": ""
+    },
+    {
+      "id": "app",
+      "name": "app",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/app",
+      "content": ""
+    },
+    {
+      "id": "app/__init__.py",
+      "name": "__init__.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/__init__.py",
+      "content": ""
+    },
+    {
+      "id": "app/config.py",
+      "name": "config.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/config.py",
+      "content": "The Journey Books \u2014 Bot Configuration Loads settings from .env + Supabase bot_settings table."
+    },
+    {
+      "id": "app/generate_scenarios.py",
+      "name": "generate_scenarios.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/generate_scenarios.py",
+      "content": ""
+    },
+    {
+      "id": "app/live_e2e.py",
+      "name": "live_e2e.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/live_e2e.py",
+      "content": ""
+    },
+    {
+      "id": "app/main.py",
+      "name": "main.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/main.py",
+      "content": "The Journey Books \u2014 WhatsApp Automation Bot FastAPI Application Entry Point Endpoints: - POST /webhook/evolution \u2014 receives all WhatsApp messages from Evolution API - POST /webhook/sheets \u2014 receives PAID/KILL/PAUSE signals from Google Sheets - GET /health \u2014 health check - GET /api/settings \u2014 get bot settings - POST /api/settings \u2014 update bot settings - GET /api/leads \u2014 list leads - POST /api/leads/{id}/kill \u2014 toggle kill switch - POST /api/leads/{id}/pause \u2014 toggle pause switch"
+    },
+    {
+      "id": "app/run_e2e.py",
+      "name": "run_e2e.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/run_e2e.py",
+      "content": ""
+    },
+    {
+      "id": "app/run_tests.py",
+      "name": "run_tests.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/run_tests.py",
+      "content": ""
+    },
+    {
+      "id": "app/start_user_test.py",
+      "name": "start_user_test.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/start_user_test.py",
+      "content": ""
+    },
+    {
+      "id": "app/graph",
+      "name": "graph",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/app/graph",
+      "content": ""
+    },
+    {
+      "id": "app/graph/__init__.py",
+      "name": "__init__.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/graph/__init__.py",
+      "content": ""
+    },
+    {
+      "id": "app/graph/builder.py",
+      "name": "builder.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/graph/builder.py",
+      "content": "LangGraph Builder \u2014 Constructs the conversation graph with checkpointing. Phase 1: Human-First flow (Inquiry \u2192 Info Dump \u2192 Gatekeeper \u2192 Handoff)."
+    },
+    {
+      "id": "app/graph/state.py",
+      "name": "state.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/graph/state.py",
+      "content": "LangGraph Conversation State \u2014 the data that flows through every node."
+    },
+    {
+      "id": "app/models",
+      "name": "models",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/app/models",
+      "content": ""
+    },
+    {
+      "id": "app/models/__init__.py",
+      "name": "__init__.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/models/__init__.py",
+      "content": ""
+    },
+    {
+      "id": "app/models/schemas.py",
+      "name": "schemas.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/models/schemas.py",
+      "content": "Pydantic models for leads, trips, messages, and settings."
+    },
+    {
+      "id": "app/services",
+      "name": "services",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services",
+      "content": ""
+    },
+    {
+      "id": "app/services/__init__.py",
+      "name": "__init__.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/__init__.py",
+      "content": ""
+    },
+    {
+      "id": "app/services/audit.py",
+      "name": "audit.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/audit.py",
+      "content": "Audit Log Service \u2014 Filesystem-based history for all Evolution API interactions. Logs every inbound/outbound message, admin command, and workflow run to structured JSON files in the logs/ directory."
+    },
+    {
+      "id": "app/services/auto_tester.py",
+      "name": "auto_tester.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/auto_tester.py",
+      "content": ""
+    },
+    {
+      "id": "app/services/content.py",
+      "name": "content.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/content.py",
+      "content": "Content Manager \u2014 Serves trip PDFs, photos, and videos from the filesystem."
+    },
+    {
+      "id": "app/services/evolution.py",
+      "name": "evolution.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/evolution.py",
+      "content": "Evolution API Client \u2014 Send and receive WhatsApp messages. Wraps all HTTP calls to the Evolution API gateway."
+    },
+    {
+      "id": "app/services/llm.py",
+      "name": "llm.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/llm.py",
+      "content": "LLM Router \u2014 Multi-provider LLM with automatic fallback. Supports: - Gemini (Google) \u2014 great for testing, generous free tier - Grok (xAI) \u2014 fast, good for production - OpenAI \u2014 GPT-4o-mini, reliable fallback - Ollama \u2014 local LLMs, no API key needed Uses LangChain's unified interface so structured output, guardrails, and conversation history all work identically regardless of which provider is active. Set LLM_PROVIDER in .env to switch providers."
+    },
+    {
+      "id": "app/services/supabase_client.py",
+      "name": "supabase_client.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/services/supabase_client.py",
+      "content": "Supabase Client \u2014 All database operations. Supabase is the SINGLE SOURCE OF TRUTH for the entire system."
+    },
+    {
+      "id": "app/utils",
+      "name": "utils",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/app/utils",
+      "content": ""
+    },
+    {
+      "id": "app/utils/__init__.py",
+      "name": "__init__.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/utils/__init__.py",
+      "content": ""
+    },
+    {
+      "id": "app/utils/guardrails.py",
+      "name": "guardrails.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/utils/guardrails.py",
+      "content": "Anti-Hallucination Guardrails \u2014 Output validation for LLM responses. Ensures the bot: 1. Never fabricates trip details not in the source data 2. Never discusses pricing or discounts 3. Never makes booking promises 4. Never outputs overly long messages"
+    },
+    {
+      "id": "app/utils/text.py",
+      "name": "text.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/utils/text.py",
+      "content": "Message Templates \u2014 Pre-written WhatsApp messages used throughout the bot."
+    },
+    {
+      "id": "app/utils/timing.py",
+      "name": "timing.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/app/utils/timing.py",
+      "content": "Timing Utilities \u2014 Delay calculations, quiet hours, timezone handling."
+    },
+    {
+      "id": "content",
+      "name": "content",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/content",
+      "content": ""
+    },
+    {
+      "id": "content/trips",
+      "name": "trips",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/content/trips",
+      "content": ""
+    },
+    {
+      "id": "credentials",
+      "name": "credentials",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/credentials",
+      "content": ""
+    },
+    {
+      "id": "dashboard",
+      "name": "dashboard",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/dashboard",
+      "content": ""
+    },
+    {
+      "id": "dashboard/app.js",
+      "name": "app.js",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/dashboard/app.js",
+      "content": ""
+    },
+    {
+      "id": "data",
+      "name": "data",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/data",
+      "content": ""
+    },
+    {
+      "id": "data/sync_csv.py",
+      "name": "sync_csv.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/data/sync_csv.py",
+      "content": "CSV \u2192 Supabase Sync Script Reads CSVs from data/ directory and upserts into Supabase tables. Usage: python data/sync_csv.py"
+    },
+    {
+      "id": "deploy",
+      "name": "deploy",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/deploy",
+      "content": ""
+    },
+    {
+      "id": "deploy/bot-engine",
+      "name": "bot-engine",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/deploy/bot-engine",
+      "content": ""
+    },
+    {
+      "id": "deploy/evolution-api",
+      "name": "evolution-api",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/deploy/evolution-api",
+      "content": ""
+    },
+    {
+      "id": "deploy/supabase",
+      "name": "supabase",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/deploy/supabase",
+      "content": ""
+    },
+    {
+      "id": "design-system",
+      "name": "design-system",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/design-system",
+      "content": ""
+    },
+    {
+      "id": "design-system/the-journey-books-admin",
+      "name": "the-journey-books-admin",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/travel_ai/design-system/the-journey-books-admin",
+      "content": ""
+    },
+    {
+      "id": "humaninput",
+      "name": "humaninput",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/humaninput",
+      "content": ""
+    },
+    {
+      "id": "nginx",
+      "name": "nginx",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/nginx",
+      "content": ""
+    },
+    {
+      "id": "scripts",
+      "name": "scripts",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/scripts",
+      "content": ""
+    },
+    {
+      "id": "scripts/check_status.py",
+      "name": "check_status.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/check_status.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/check_supabase.py",
+      "name": "check_supabase.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/check_supabase.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/debug_trips.py",
+      "name": "debug_trips.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/debug_trips.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/get_qr.py",
+      "name": "get_qr.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/get_qr.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/guardian_runner.py",
+      "name": "guardian_runner.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/guardian_runner.py",
+      "content": "System Guardian \u2014 Automated Health Checks & Bodyguard for The Journey Books. Monitors bot connectivity, admin group membership, and alerts on issues."
+    },
+    {
+      "id": "scripts/inspect_constraints.py",
+      "name": "inspect_constraints.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/inspect_constraints.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/inspect_schema.py",
+      "name": "inspect_schema.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/inspect_schema.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/seed_data.py",
+      "name": "seed_data.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/seed_data.py",
+      "content": "Seed Data \u2014 Insert sample trip data for testing. Run: python -m scripts.seed_data"
+    },
+    {
+      "id": "scripts/seed_supabase.py",
+      "name": "seed_supabase.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/seed_supabase.py",
+      "content": "Seed Supabase tables with current trip data, settings, and whitelist."
+    },
+    {
+      "id": "scripts/seed_trips.py",
+      "name": "seed_trips.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/seed_trips.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/send_qr_to_admin.py",
+      "name": "send_qr_to_admin.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/send_qr_to_admin.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/sheets_supabase_sync.py",
+      "name": "sheets_supabase_sync.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/sheets_supabase_sync.py",
+      "content": "Google Sheets \u2194 Supabase LIVE Sync Script Runs every 5 minutes via cron. Flow: 1. Download the unified Google Sheet workbook (as xlsx) via rclone 2. Extract each tab to CSV using openpyxl 3. Upsert into Supabase tables 4. Export Supabase leads \u2192 CSV \u2192 upload back to Drive"
+    },
+    {
+      "id": "scripts/simulate_booking.py",
+      "name": "simulate_booking.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/simulate_booking.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/simulate_scenarios.py",
+      "name": "simulate_scenarios.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/simulate_scenarios.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/simulate_webhook.py",
+      "name": "simulate_webhook.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/simulate_webhook.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/test_media.py",
+      "name": "test_media.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/test_media.py",
+      "content": ""
+    },
+    {
+      "id": "scripts/update_db_schema.py",
+      "name": "update_db_schema.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/travel_ai/scripts/update_db_schema.py",
+      "content": ""
+    },
+    {
+      "id": "website",
+      "name": "website",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/travel_ai/website",
+      "content": ""
+    }
+  ],
+  "links": [
+    {
+      "source": "root",
+      "target": "inspect_kuma_db.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "reset_kuma_users.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "rewrite.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "scenario_a.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "scenario_b.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "test_flows.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "test_supabase_async.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "app",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/__init__.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/config.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/generate_scenarios.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/live_e2e.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/main.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/run_e2e.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/run_tests.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/start_user_test.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/graph",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/graph",
+      "target": "app/graph/__init__.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/graph",
+      "target": "app/graph/builder.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/graph",
+      "target": "app/graph/state.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/models",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/models",
+      "target": "app/models/__init__.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/models",
+      "target": "app/models/schemas.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/services",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/__init__.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/audit.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/auto_tester.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/content.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/evolution.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/llm.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/services",
+      "target": "app/services/supabase_client.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app",
+      "target": "app/utils",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/utils",
+      "target": "app/utils/__init__.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/utils",
+      "target": "app/utils/guardrails.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/utils",
+      "target": "app/utils/text.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "app/utils",
+      "target": "app/utils/timing.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "content",
+      "type": "hierarchy"
+    },
+    {
+      "source": "content",
+      "target": "content/trips",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "credentials",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "dashboard",
+      "type": "hierarchy"
+    },
+    {
+      "source": "dashboard",
+      "target": "dashboard/app.js",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "data",
+      "type": "hierarchy"
+    },
+    {
+      "source": "data",
+      "target": "data/sync_csv.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "deploy",
+      "type": "hierarchy"
+    },
+    {
+      "source": "deploy",
+      "target": "deploy/bot-engine",
+      "type": "hierarchy"
+    },
+    {
+      "source": "deploy",
+      "target": "deploy/evolution-api",
+      "type": "hierarchy"
+    },
+    {
+      "source": "deploy",
+      "target": "deploy/supabase",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "design-system",
+      "type": "hierarchy"
+    },
+    {
+      "source": "design-system",
+      "target": "design-system/the-journey-books-admin",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "humaninput",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "nginx",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "scripts",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/check_status.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/check_supabase.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/debug_trips.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/get_qr.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/guardian_runner.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/inspect_constraints.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/inspect_schema.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/seed_data.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/seed_supabase.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/seed_trips.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/send_qr_to_admin.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/sheets_supabase_sync.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/simulate_booking.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/simulate_scenarios.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/simulate_webhook.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/test_media.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "scripts",
+      "target": "scripts/update_db_schema.py",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "website",
+      "type": "hierarchy"
+    }
+  ]
+}

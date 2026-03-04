@@ -110,7 +110,19 @@ Create a well-structured PRD with the following sections. Adapt depth and detail
 - Maintain consistency across sections
 - Ensure technical feasibility
 
-### 3. Write the PRD
+### 3. Map System Architecture
+- Run the architecture explorer to visually map the current structural state:
+  ```bash
+  AGENT_DIR="$(pwd)/.agent"
+  python3 "$AGENT_DIR/skills/architecture-explorer/scripts/scanner.py" . \
+    --output "$AGENT_DIR/skills/architecture-explorer/assets/relationships.json" \
+    --mermaid "$AGENT_DIR/skills/architecture-explorer/assets/map.md" \
+    --drawio "$AGENT_DIR/skills/architecture-explorer/assets/architecture.drawio" \
+    --depth 2
+  ```
+- Reference the generated `map.md` and incorporate its findings directly into the "Core Architecture & Patterns" section of the PRD.
+
+### 4. Write the PRD
 - Use clear, professional language
 - Include concrete examples and specifics
 - Use markdown formatting (headings, lists, code blocks, checkboxes)

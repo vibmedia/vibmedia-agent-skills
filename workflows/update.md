@@ -131,7 +131,20 @@ for industry in $(find brands -mindepth 1 -maxdepth 1 -type d ! -name '_*'); do
 done
 ```
 
-### Step 9: Confirm & Report
+### Step 9: Re-generate System Architecture
+
+Ensure system diagrams reflect the latest structure:
+
+```bash
+AGENT_DIR="$(pwd)/.agent"
+python3 "$AGENT_DIR/skills/architecture-explorer/scripts/scanner.py" . \
+  --output "$AGENT_DIR/skills/architecture-explorer/assets/relationships.json" \
+  --mermaid "$AGENT_DIR/skills/architecture-explorer/assets/map.md" \
+  --drawio "$AGENT_DIR/skills/architecture-explorer/assets/architecture.drawio" \
+  --depth 2
+```
+
+### Step 10: Confirm & Report
 
 Produce a summary report:
 
