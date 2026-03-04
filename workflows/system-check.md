@@ -141,11 +141,11 @@ echo "=== Brand Structure ==="
 for industry in $(find brands -mindepth 1 -maxdepth 1 -type d ! -name '_*'); do
   echo ""
   echo "📁 $(basename $industry)"
-  
+
   # Check _common exists
   [ ! -d "$industry/_common" ] && echo "  ❌ Missing _common/"
   [ ! -f "$industry/_common/industry.md" ] && echo "  ⚠️  Missing _common/industry.md"
-  
+
   # Check each brand
   for brand in $(find "$industry" -mindepth 1 -maxdepth 1 -type d ! -name '_*'); do
     echo "  └── $(basename $brand)"
@@ -165,6 +165,7 @@ find . -name '*.md' -mtime +90 -not -path './.git/*' | head -20
 ```
 
 Check for empty or near-empty template files that were never filled:
+
 ```bash
 echo ""
 echo "=== Unfilled Templates (still contain placeholder text) ==="
@@ -190,7 +191,63 @@ for dir in $(find skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \;); 
 done
 ```
 
-### Step 9: Report
+### Step 9: Workflow Coverage Audit (STRICT)
+
+Enforce the workflow-coverage-rule: every agent and skill must be reachable.
+
+```bash
+echo "=== Workflow Coverage Audit ==="
+
+# Check every agent is mentioned in at least one workflow
+echo ""
+echo "--- Agent Coverage ---"
+for agent_file in agents/*.md; do
+  agent=$(basename "$agent_file" .md)
+  found=$(grep -rl "$agent" workflows/ 2>/dev/null | head -1)
+  if [ -z "$found" ]; then
+    # Check if reachable via orchestrate
+    found=$(grep -l "$agent" workflows/orchestrate.md 2>/dev/null)
+  fi
+  if [ -z "$found" ]; then
+    echo "🔴 ORPHANED AGENT: $agent — not reachable via any workflow"
+  fi
+done
+
+# Check every skill is in at least one agent's frontmatter
+echo ""
+echo "--- Skill Coverage ---"
+for skill_dir in $(find skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \;); do
+  found=$(grep -rl "$skill_dir" agents/ 2>/dev/null | head -1)
+  if [ -z "$found" ]; then
+    echo "🔴 ORPHANED SKILL: $skill_dir — not loaded by any agent"
+  fi
+done
+
+echo ""
+echo "If any 🔴 ORPHANED items found: FIX BEFORE PROCEEDING."
+echo "See rules/workflow-coverage-rule.md for resolution steps."
+```
+
+### Step 10: Telos Validation
+
+Check that brand folders use Telos context files.
+
+```bash
+echo "=== Telos Validation ==="
+for industry in $(find brands -mindepth 1 -maxdepth 1 -type d ! -name '_*'); do
+  for brand in $(find "$industry" -mindepth 1 -maxdepth 1 -type d ! -name '_*'); do
+    echo "  └── $(basename $brand)"
+    [ ! -f "$brand/telos.md" ] && echo "     ❌ Missing telos.md (required — replaces todo.md)"
+    # Check telos.md has been filled in (not still template)
+    if [ -f "$brand/telos.md" ]; then
+      grep -q '\[Brand Name\]' "$brand/telos.md" && \
+        echo "     ⚠️  telos.md still contains template placeholders"
+    fi
+  done
+done
+```
+
+### Step 11: Report
 
 Produce a health report:
 
@@ -206,6 +263,10 @@ Components:
   Industries: [N]
   Brands:     [N]
 
+Coverage:
+  Agent Coverage:  [N]/[Total] ✅/❌
+  Skill Coverage:  [N]/[Total] ✅/❌
+
 Errors (must fix):
   ❌ [Error 1]
   ❌ [Error 2]
@@ -217,9 +278,10 @@ Warnings (should fix):
 Health Score: [Good / Needs Attention / Critical]
 ```
 
-### Step 10: Fix or Flag
+### Step 12: Fix or Flag
 
 For each issue found:
-- **Errors (❌)** → Fix immediately (broken refs, missing files, duplicate names)
-- **Warnings (⚠️)** → Add to `todo.md` for next session
+
+- **Errors (❌)** → Fix immediately (broken refs, missing files, orphaned components)
+- **Warnings (⚠️)** → Add to `telos.md` Activity Log for next session
 - **Info** → Note for awareness, no action needed

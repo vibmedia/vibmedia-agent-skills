@@ -9,8 +9,8 @@
 Antigravity Kit is a modular system consisting of:
 
 - **21 Specialist Agents** - Role-based AI personas
-- **77 Skills** - Domain-specific knowledge modules
-- **25 Slash Commands** - Slash command procedures
+- **86 Skills** - Domain-specific knowledge modules
+- **26 Slash Commands** - Slash command procedures
 
 ---
 
@@ -19,15 +19,16 @@ Antigravity Kit is a modular system consisting of:
 ```plaintext
 .agent/
 ├── vib.md                   # Company identity (loads first)
+├── telos.md                 # Framework-level Telos tracker
 ├── ARCHITECTURE.md          # This file
 ├── structure.drawio          # Visual system map (draw.io)
 ├── profiles/                # Project-type routing (3 profiles)
 ├── agents/                  # 21 Specialist Agents
-├── skills/                  # 77 Skills (tagged: dev|marketing|shared)
-├── workflows/               # 25 Slash Commands
+├── skills/                  # 85 Skills (tagged: dev|marketing|shared)
+├── workflows/               # 26 Slash Commands
 ├── brands/                  # Industry → Brand context folders
-├── docs/                    # Authoring guides (4 files)
-├── rules/                   # Global Rules
+├── docs/                    # Authoring guides (5 files)
+├── rules/                   # Global Rules (inc. coverage rule)
 └── scripts/                 # Master Validation Scripts
 ```
 
@@ -63,56 +64,59 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (77)
+## 🧩 Skills (79)
 
-Modular knowledge domains that agents can load on-demand. based on task context.
+Modular knowledge domains that agents can load on-demand based on task context.
 
 ### Frontend & UI
 
-| Skill                   | Profile  | Description                                                           |
-| ----------------------- | -------- | --------------------------------------------------------------------- |
-| `nextjs-react-expert`   | shared   | React & Next.js performance optimization (Vercel - 57 rules)          |
-| `web-design-guidelines` | shared   | Web UI audit - 100+ rules for accessibility, UX, performance (Vercel) |
-| `composition-patterns`  | shared   | React composition patterns - compound components, state lifting       |
-| `tailwind-patterns`     | shared   | Tailwind CSS v4 utilities                                             |
-| `frontend-design`       | shared   | UI/UX patterns, design systems                                        |
-| `ui-ux-pro-max`         | shared   | 50 styles, 21 palettes, 50 fonts                                      |
+| Skill                        | Profile | Description                                                           |
+| ---------------------------- | ------- | --------------------------------------------------------------------- |
+| `nextjs-react-expert`        | shared  | React & Next.js performance optimization (Vercel - 57 rules)          |
+| `web-design-guidelines`      | shared  | Web UI audit - 100+ rules for accessibility, UX, performance (Vercel) |
+| `composition-patterns`       | shared  | React composition patterns - compound components, state lifting       |
+| `tailwind-patterns`          | shared  | Tailwind CSS v4 utilities                                             |
+| `frontend-design`            | shared  | UI/UX patterns, design systems                                        |
+| `ui-ux-pro-max`              | shared  | 50 styles, 21 palettes, 50 fonts                                      |
+| `design-system-architecture` | dev     | Figma sync, React/Tailwind token strategy                             |
 
 ### Backend & API
 
-| Skill                   | Profile  | Description                    |
-| ----------------------- | -------- | ------------------------------ |
-| `api-patterns`          | dev      | REST, GraphQL, tRPC            |
-| `nodejs-best-practices` | dev      | Node.js async, modules         |
-| `python-patterns`       | dev      | Python standards, FastAPI      |
-| `rust-pro`              | dev      | Rust 1.75+ async, type system  |
+| Skill                   | Profile | Description                   |
+| ----------------------- | ------- | ----------------------------- |
+| `api-patterns`          | dev     | REST, GraphQL, tRPC           |
+| `nodejs-best-practices` | dev     | Node.js async, modules        |
+| `python-patterns`       | dev     | Python standards, FastAPI     |
+| `rust-pro`              | dev     | Rust 1.75+ async, type system |
 
-### Database
+### Database & Web3
 
-| Skill              | Profile  | Description                         |
-| ------------------ | -------- | ----------------------------------- |
-| `database-design`  | dev      | Schema design, optimization         |
-| `typeorm-patterns` | dev      | TypeORM entities, relations, migrations, QueryBuilder |
+| Skill                  | Profile | Description                                           |
+| ---------------------- | ------- | ----------------------------------------------------- |
+| `database-design`      | dev     | Schema design, optimization                           |
+| `typeorm-patterns`     | dev     | TypeORM entities, relations, migrations, QueryBuilder |
+| `web3-smart-contracts` | dev     | Solidity, CEI patterns, Hardhat/Foundry testing       |
 
 ### Cloud & Infrastructure
 
-| Skill                   | Profile  | Description               |
-| ----------------------- | -------- | ------------------------- |
-| `deployment-procedures` | dev      | CI/CD, deploy workflows   |
-| `server-management`     | dev      | Infrastructure management |
+| Skill                   | Profile | Description                               |
+| ----------------------- | ------- | ----------------------------------------- |
+| `deployment-procedures` | dev     | CI/CD, deploy workflows                   |
+| `server-management`     | dev     | Infrastructure management                 |
+| `cloud-infrastructure`  | dev     | Terraform, AWS/GCP architecture, security |
 
 ### Testing & Quality
 
-| Skill                   | Description              |
-| ----------------------- | ------------------------ |
-| `testing-patterns`      | Jest, Vitest, strategies                     |
-| `webapp-testing`        | E2E, Playwright                              |
-| `tdd-workflow`          | Test-driven development (+ Superpowers TDD)  |
-| `code-review-checklist` | Code review standards                        |
-| `requesting-code-review`| When/how to dispatch code reviewer           |
-| `receiving-code-review` | Evaluating feedback, pushback protocol       |
-| `verification-before-completion` | Evidence before claims, iron law    |
-| `lint-and-validate`     | Linting, validation                          |
+| Skill                            | Description                                 |
+| -------------------------------- | ------------------------------------------- |
+| `testing-patterns`               | Jest, Vitest, strategies                    |
+| `webapp-testing`                 | E2E, Playwright                             |
+| `tdd-workflow`                   | Test-driven development (+ Superpowers TDD) |
+| `code-review-checklist`          | Code review standards                       |
+| `requesting-code-review`         | When/how to dispatch code reviewer          |
+| `receiving-code-review`          | Evaluating feedback, pushback protocol      |
+| `verification-before-completion` | Evidence before claims, iron law            |
+| `lint-and-validate`              | Linting, validation                         |
 
 ### Security
 
@@ -123,24 +127,25 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ### Architecture & Planning
 
-| Skill           | Description                                    |
-| --------------- | ---------------------------------------------- |
-| `app-builder`   | Full-stack app scaffolding                     |
-| `architecture`  | System design patterns                         |
-| `plan-writing`  | Task planning, breakdown (+ Superpowers plans) |
-| `brainstorming` | Socratic questioning (+ Superpowers gate)      |
-| `executing-plans` | Batch execution with checkpoints             |
-| `subagent-driven-development` | Subagent per task + 2-stage review |
-| `using-git-worktrees` | Isolated workspace setup                 |
-| `finishing-a-development-branch` | Merge/PR/keep/discard workflow  |
-| `writing-skills` | TDD for skill creation, CSO                   |
+| Skill                            | Description                                    |
+| -------------------------------- | ---------------------------------------------- |
+| `app-builder`                    | Full-stack app scaffolding                     |
+| `architecture`                   | System design patterns                         |
+| `plan-writing`                   | Task planning, breakdown (+ Superpowers plans) |
+| `brainstorming`                  | Socratic questioning (+ Superpowers gate)      |
+| `executing-plans`                | Batch execution with checkpoints               |
+| `subagent-driven-development`    | Subagent per task + 2-stage review             |
+| `using-git-worktrees`            | Isolated workspace setup                       |
+| `finishing-a-development-branch` | Merge/PR/keep/discard workflow                 |
+| `writing-skills`                 | TDD for skill creation, CSO                    |
+| `notebooklm-rag`                 | Connect to NotebookLM for stable RAG knowledge |
 
 ### Mobile
 
-| Skill                    | Description                                        |
-| ------------------------ | -------------------------------------------------- |
-| `mobile-design`          | Mobile UI/UX patterns                              |
-| `react-native-guidelines`| React Native & Expo best practices (Vercel - 30+ rules) |
+| Skill                     | Description                                             |
+| ------------------------- | ------------------------------------------------------- |
+| `mobile-design`           | Mobile UI/UX patterns                                   |
+| `react-native-guidelines` | React Native & Expo best practices (Vercel - 30+ rules) |
 
 ### Game Development
 
@@ -150,44 +155,44 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ### SEO & Growth
 
-| Skill              | Description                   |
-| ------------------ | ----------------------------- |
-| `seo-fundamentals` | SEO, E-E-A-T, Core Web Vitals |
-| `geo-fundamentals` | GenAI optimization            |
-| `seo-audit`        | Technical and on-page SEO     |
+| Skill              | Description                             |
+| ------------------ | --------------------------------------- |
+| `seo-fundamentals` | SEO, E-E-A-T, Core Web Vitals           |
+| `geo-fundamentals` | GenAI optimization                      |
+| `seo-audit`        | Technical and on-page SEO               |
 | `ai-seo`           | AI search optimization (AEO, GEO, LLMO) |
-| `programmatic-seo` | Scaled page generation        |
-| `schema-markup`    | Structured data / JSON-LD     |
+| `programmatic-seo` | Scaled page generation                  |
+| `schema-markup`    | Structured data / JSON-LD               |
 
 ### Marketing & CRO
 
-| Skill                     | Description                                  |
-| ------------------------- | -------------------------------------------- |
-| `page-cro`                | Marketing page conversion optimization       |
-| `signup-flow-cro`         | Registration flow optimization               |
-| `onboarding-cro`          | Post-signup activation                       |
-| `form-cro`                | Lead capture form optimization               |
-| `popup-cro`               | Modals and overlays                          |
-| `paywall-upgrade-cro`     | In-app upgrade moments                       |
-| `copywriting`             | Marketing page copy                          |
-| `copy-editing`            | Edit and polish existing copy                |
-| `cold-email`              | B2B cold outreach emails                     |
-| `email-sequence`          | Automated email flows                        |
-| `social-content`          | Social media content                         |
-| `content-strategy`        | Content planning and strategy                |
-| `paid-ads`                | Google, Meta, LinkedIn ad campaigns          |
-| `ad-creative`             | Bulk ad creative generation                  |
-| `analytics-tracking`      | Event tracking setup (GA4, GTM)              |
-| `ab-test-setup`           | Experiment design                            |
-| `churn-prevention`        | Cancel flows, save offers, dunning           |
-| `free-tool-strategy`      | Marketing tools and calculators              |
-| `referral-program`        | Referral and affiliate programs              |
-| `marketing-ideas`         | 140 SaaS marketing ideas                     |
-| `marketing-psychology`    | Mental models and psychology                 |
-| `launch-strategy`         | Product launches and announcements           |
-| `pricing-strategy`        | Pricing, packaging, monetization             |
-| `competitor-alternatives` | Comparison and alternative pages             |
-| `product-marketing-context` | Product marketing context setup            |
+| Skill                       | Description                            |
+| --------------------------- | -------------------------------------- |
+| `page-cro`                  | Marketing page conversion optimization |
+| `signup-flow-cro`           | Registration flow optimization         |
+| `onboarding-cro`            | Post-signup activation                 |
+| `form-cro`                  | Lead capture form optimization         |
+| `popup-cro`                 | Modals and overlays                    |
+| `paywall-upgrade-cro`       | In-app upgrade moments                 |
+| `copywriting`               | Marketing page copy                    |
+| `copy-editing`              | Edit and polish existing copy          |
+| `cold-email`                | B2B cold outreach emails               |
+| `email-sequence`            | Automated email flows                  |
+| `social-content`            | Social media content                   |
+| `content-strategy`          | Content planning and strategy          |
+| `paid-ads`                  | Google, Meta, LinkedIn ad campaigns    |
+| `ad-creative`               | Bulk ad creative generation            |
+| `analytics-tracking`        | Event tracking setup (GA4, GTM)        |
+| `ab-test-setup`             | Experiment design                      |
+| `churn-prevention`          | Cancel flows, save offers, dunning     |
+| `free-tool-strategy`        | Marketing tools and calculators        |
+| `referral-program`          | Referral and affiliate programs        |
+| `marketing-ideas`           | 140 SaaS marketing ideas               |
+| `marketing-psychology`      | Mental models and psychology           |
+| `launch-strategy`           | Product launches and announcements     |
+| `pricing-strategy`          | Pricing, packaging, monetization       |
+| `competitor-alternatives`   | Comparison and alternative pages       |
+| `product-marketing-context` | Product marketing context setup        |
 
 ### Shell/CLI
 
@@ -196,19 +201,29 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 | `bash-linux`         | Linux commands, scripting |
 | `powershell-windows` | Windows PowerShell        |
 
+### AI & Data
+
+| Skill            | Profile | Description                                 |
+| ---------------- | ------- | ------------------------------------------- |
+| `notebooklm-rag` | shared  | Using NotebookLM for stable project context |
+| `ml-engineer`    | dev     | LLM evals, RAG tuning, and LoRA fine-tuning |
+| `data-analysis`  | shared  | SQL reporting, pandas, enterprise charting  |
+
 ### Other
 
-| Skill                     | Profile  | Description               |
-| ------------------------- | -------- | ------------------------- |
-| `clean-code`              | shared   | Coding standards + SOLID + Karpathy (Global) |
-| `behavioral-modes`        | shared   | Agent personas            |
-| `parallel-agents`         | shared   | Multi-agent patterns      |
-| `intelligent-routing`     | shared   | Auto agent selection      |
-| `mcp-builder`             | dev      | Model Context Protocol    |
-| `documentation-templates` | shared   | Doc formats               |
-| `i18n-localization`       | dev      | Internationalization      |
-| `performance-profiling`   | shared   | Web Vitals, optimization  |
-| `systematic-debugging`    | shared   | Troubleshooting           |
+| Skill                     | Profile | Description                                  |
+| ------------------------- | ------- | -------------------------------------------- |
+| `clean-code`              | shared  | Coding standards + SOLID + Karpathy (Global) |
+| `behavioral-modes`        | shared  | Agent personas                               |
+| `parallel-agents`         | shared  | Multi-agent patterns                         |
+| `intelligent-routing`     | shared  | Auto agent selection                         |
+| `prompt-engineering`      | shared  | System prompts, few-shot structures, LLMO    |
+| `github-mcp`              | shared  | GitHub repository automation via MCP         |
+| `mcp-builder`             | dev     | Model Context Protocol                       |
+| `documentation-templates` | shared  | Doc formats                                  |
+| `i18n-localization`       | dev     | Internationalization                         |
+| `performance-profiling`   | shared  | Web Vitals, optimization                     |
+| `systematic-debugging`    | shared  | Troubleshooting                              |
 
 ---
 
@@ -216,11 +231,11 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 Project-type routing — determines which agents/skills are prioritized per project.
 
-| Profile | Agents | Skills | Use When |
-| ------- | ------ | ------ | -------- |
-| `dev` | 10 engineering | 22 dev skills | Software development projects |
-| `marketing` | 1 + shared | 29 marketing skills | Marketing campaigns, CRO, content |
-| `hybrid` | All | All (phase-based) | Build product + grow it |
+| Profile     | Agents         | Skills              | Use When                          |
+| ----------- | -------------- | ------------------- | --------------------------------- |
+| `dev`       | 10 engineering | 22 dev skills       | Software development projects     |
+| `marketing` | 1 + shared     | 29 marketing skills | Marketing campaigns, CRO, content |
+| `hybrid`    | All            | All (phase-based)   | Build product + grow it           |
 
 Set `profile:` in brand's `context.md`. See `profiles/` for full listings.
 
@@ -230,33 +245,33 @@ Set `profile:` in brand's `context.md`. See `profiles/` for full listings.
 
 Slash command procedures. Invoke with `/command`.
 
-| Command          | Description              |
-| ---------------- | ------------------------ |
-| `/brainstorm`    | Socratic discovery       |
-| `/create`        | Create new features      |
-| `/create-prd`    | Product Requirements Doc |
-| `/debug`         | Debug issues             |
-| `/deploy`        | Deploy application       |
-| `/enhance`       | Improve existing code    |
-| `/orchestrate`   | Multi-agent coordination |
-| `/plan`          | Task breakdown           |
-| `/preview`       | Preview changes          |
-| `/status`        | Check project status     |
-| `/test`          | Run tests                |
-| `/ui-ux-pro-max` | Design with 50 styles    |
-| `/code-review`   | Technical code review    |
-| `/code-review-fix` | Fix review issues      |
-| `/rca`           | Root cause analysis      |
-| `/implement-fix` | Implement fix from RCA   |
-| `/piv-plan`      | Feature plan + analysis  |
-| `/piv-prime`     | Prime codebase           |
-| `/piv-execute`   | Execute PIV plan         |
-| `/validate`      | Validate implementation  |
-| `/execution-report` | Implementation report |
-| `/system-review` | Review against plan      |
-| `/update`        | Sync system after changes |
-| `/audit-goals`   | Goal gap analysis        |
-| `/system-check`  | System health check      |
+| Command             | Description               |
+| ------------------- | ------------------------- |
+| `/brainstorm`       | Socratic discovery        |
+| `/create`           | Create new features       |
+| `/create-prd`       | Product Requirements Doc  |
+| `/debug`            | Debug issues              |
+| `/deploy`           | Deploy application        |
+| `/enhance`          | Improve existing code     |
+| `/orchestrate`      | Multi-agent coordination  |
+| `/plan`             | Task breakdown            |
+| `/preview`          | Preview changes           |
+| `/status`           | Check project status      |
+| `/test`             | Run tests                 |
+| `/ui-ux-pro-max`    | Design with 50 styles     |
+| `/code-review`      | Technical code review     |
+| `/code-review-fix`  | Fix review issues         |
+| `/rca`              | Root cause analysis       |
+| `/implement-fix`    | Implement fix from RCA    |
+| `/piv-plan`         | Feature plan + analysis   |
+| `/piv-prime`        | Prime codebase            |
+| `/piv-execute`      | Execute PIV plan          |
+| `/validate`         | Validate implementation   |
+| `/execution-report` | Implementation report     |
+| `/system-review`    | Review against plan       |
+| `/update`           | Sync system after changes |
+| `/audit-goals`      | Goal gap analysis         |
+| `/system-check`     | System health check       |
 
 ---
 
@@ -282,10 +297,10 @@ skill-name/
 
 ### Enhanced Skills (with scripts/references)
 
-| Skill               | Files | Coverage                            |
-| ------------------- | ----- | ----------------------------------- |
-| `ui-ux-pro-max`     | 27    | 50 styles, 21 palettes, 50 fonts    |
-| `app-builder`       | 20    | Full-stack scaffolding              |
+| Skill           | Files | Coverage                         |
+| --------------- | ----- | -------------------------------- |
+| `ui-ux-pro-max` | 27    | 50 styles, 21 palettes, 50 fonts |
+| `app-builder`   | 20    | Full-stack scaffolding           |
 
 ---
 
@@ -342,7 +357,7 @@ brands/
 │   ├── _common/industry.md      # Industry knowledge
 │   └── _brand-template/         # Copy for new brand
 │       ├── context.md            # Brand identity (has profile: field)
-│       ├── todo.md               # Progress + decisions
+│       ├── telos.md              # Telos tracker  (replaces todo.md)
 │       ├── reference/            # Raw client data
 │       ├── brand-data/           # Processed assets
 │       └── artifacts/            # AI deliverables
@@ -353,12 +368,13 @@ brands/
 
 ## 📖 Docs
 
-| Document | Purpose |
-| -------- | ------- |
-| `docs/BUILDING-AGENTS.md` | How to create agents |
-| `docs/BUILDING-SKILLS.md` | How to create skills |
-| `docs/BUILDING-WORKFLOWS.md` | How to create workflows |
-| `docs/COMBINING-COMPONENTS.md` | How they work together |
+| Document                        | Purpose                           |
+| ------------------------------- | --------------------------------- |
+| `docs/BUILDING-AGENTS.md`       | How to create agents              |
+| `docs/BUILDING-SKILLS.md`       | How to create skills              |
+| `docs/BUILDING-WORKFLOWS.md`    | How to create workflows           |
+| `docs/COMBINING-COMPONENTS.md`  | How they work together            |
+| `docs/workflow-coverage-map.md` | Full workflow→agent→skill mapping |
 
 ---
 
@@ -367,8 +383,8 @@ brands/
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 21                            |
-| **Total Skills**    | 77                            |
-| **Total Workflows** | 25                            |
+| **Total Skills**    | 86                            |
+| **Total Workflows** | 26                            |
 | **Profiles**        | 3 (dev, marketing, hybrid)    |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~98% web/mobile/marketing     |
@@ -377,17 +393,17 @@ brands/
 
 ## 🔗 Quick Reference
 
-| Need      | Agent                 | Skills                                   |
-| --------- | --------------------- | ---------------------------------------- |
-| Web App   | `frontend-specialist` | nextjs-react-expert, frontend-design     |
-| API       | `backend-specialist`  | api-patterns, nodejs-best-practices      |
-| Mobile    | `mobile-developer`    | mobile-design, react-native-guidelines   |
-| Database  | `database-architect`  | database-design, typeorm-patterns        |
-| Security  | `security-auditor`    | vulnerability-scanner                    |
-| Testing   | `test-engineer`       | testing-patterns, webapp-testing         |
-| Debug     | `debugger`            | systematic-debugging                     |
-| Plan      | `project-planner`     | brainstorming, plan-writing              |
-| SEO       | `seo-specialist`      | seo-audit, ai-seo, schema-markup         |
-| Copy      | (skill-based)         | copywriting, copy-editing                |
-| CRO       | (skill-based)         | page-cro, signup-flow-cro                |
-| Ads       | (skill-based)         | paid-ads, ad-creative                    |
+| Need     | Agent                 | Skills                                 |
+| -------- | --------------------- | -------------------------------------- |
+| Web App  | `frontend-specialist` | nextjs-react-expert, frontend-design   |
+| API      | `backend-specialist`  | api-patterns, nodejs-best-practices    |
+| Mobile   | `mobile-developer`    | mobile-design, react-native-guidelines |
+| Database | `database-architect`  | database-design, typeorm-patterns      |
+| Security | `security-auditor`    | vulnerability-scanner                  |
+| Testing  | `test-engineer`       | testing-patterns, webapp-testing       |
+| Debug    | `debugger`            | systematic-debugging                   |
+| Plan     | `project-planner`     | brainstorming, plan-writing            |
+| SEO      | `seo-specialist`      | seo-audit, ai-seo, schema-markup       |
+| Copy     | (skill-based)         | copywriting, copy-editing              |
+| CRO      | (skill-based)         | page-cro, signup-flow-cro              |
+| Ads      | (skill-based)         | paid-ads, ad-creative                  |

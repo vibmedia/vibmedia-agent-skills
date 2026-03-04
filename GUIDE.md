@@ -41,15 +41,15 @@ vib.md                          ← Company identity (ALWAYS loads first)
 
 ### What Each Layer Does
 
-| Layer | File | Purpose |
-|-------|------|---------|
-| **Company** | `vib.md` | Your practices, standards, routing rules |
-| **Profile** | `profiles/*.md` | Which agents/skills to prioritize |
-| **Agent** | `agents/*.md` | Specialist persona + principles |
-| **Skill** | `skills/*/SKILL.md` | Domain expertise (has `profile:` and `category:` metadata) |
-| **Workflow** | `workflows/*.md` | Step-by-step procedures |
-| **Industry** | `brands/[industry]/_common/` | Shared industry knowledge |
-| **Brand** | `brands/[industry]/[brand]/` | Client-specific context |
+| Layer        | File                         | Purpose                                                    |
+| ------------ | ---------------------------- | ---------------------------------------------------------- |
+| **Company**  | `vib.md`                     | Your practices, standards, routing rules                   |
+| **Profile**  | `profiles/*.md`              | Which agents/skills to prioritize                          |
+| **Agent**    | `agents/*.md`                | Specialist persona + principles                            |
+| **Skill**    | `skills/*/SKILL.md`          | Domain expertise (has `profile:` and `category:` metadata) |
+| **Workflow** | `workflows/*.md`             | Step-by-step procedures                                    |
+| **Industry** | `brands/[industry]/_common/` | Shared industry knowledge                                  |
+| **Brand**    | `brands/[industry]/[brand]/` | Client-specific context                                    |
 
 ---
 
@@ -57,11 +57,11 @@ vib.md                          ← Company identity (ALWAYS loads first)
 
 Every project has a **profile** that determines which agents and skills are prioritized:
 
-| Profile | Set In `context.md` | What Loads |
-|---------|-------------------|------------|
-| `dev` | `profile: dev` | 22 dev skills + 10 dev agents |
+| Profile     | Set In `context.md`  | What Loads                             |
+| ----------- | -------------------- | -------------------------------------- |
+| `dev`       | `profile: dev`       | 26 dev skills + 10 dev agents          |
 | `marketing` | `profile: marketing` | 29 marketing skills + marketing agents |
-| `hybrid` | `profile: hybrid` | All skills, phase-based priority |
+| `hybrid`    | `profile: hybrid`    | All skills, phase-based priority       |
 
 ### How Profiles Work
 
@@ -91,6 +91,7 @@ AI:  🤖 Applying knowledge of @backend-specialist...
 ### Skills → What they know
 
 Skills are **knowledge modules** loaded on-demand. Each has metadata:
+
 - `SKILL.md` — Instructions and rules
 - `profile:` — dev, marketing, or shared
 - `category:` — Hierarchy grouping (backend, content, core, etc.)
@@ -205,35 +206,35 @@ Phase 2 — Grow:
 
 ### Development
 
-| Command | When to Use |
-|---------|-------------|
-| `/create` | Build a new feature or application |
-| `/plan` | Break down work into tasks before coding |
-| `/enhance` | Add or update features in existing code |
-| `/debug` | Systematic debugging of issues |
-| `/test` | Generate and run tests |
-| `/code-review` | Review code for quality and bugs |
-| `/deploy` | Deploy to production |
-| `/preview` | Start/stop local dev server |
+| Command        | When to Use                              |
+| -------------- | ---------------------------------------- |
+| `/create`      | Build a new feature or application       |
+| `/plan`        | Break down work into tasks before coding |
+| `/enhance`     | Add or update features in existing code  |
+| `/debug`       | Systematic debugging of issues           |
+| `/test`        | Generate and run tests                   |
+| `/code-review` | Review code for quality and bugs         |
+| `/deploy`      | Deploy to production                     |
+| `/preview`     | Start/stop local dev server              |
 
 ### Planning & Analysis
 
-| Command | When to Use |
-|---------|-------------|
-| `/brainstorm` | Explore ideas before building |
-| `/create-prd` | Create a Product Requirements Document |
-| `/piv-plan` | Deep feature plan with codebase analysis |
+| Command        | When to Use                                  |
+| -------------- | -------------------------------------------- |
+| `/brainstorm`  | Explore ideas before building                |
+| `/create-prd`  | Create a Product Requirements Document       |
+| `/piv-plan`    | Deep feature plan with codebase analysis     |
 | `/orchestrate` | Coordinate multiple agents for complex tasks |
-| `/rca` | Root cause analysis for issues |
+| `/rca`         | Root cause analysis for issues               |
 
 ### System Management
 
-| Command | When to Use |
-|---------|-------------|
-| `/update` | After adding skills, agents, workflows, industries, or brands |
-| `/audit-goals` | Weekly — find gaps between goals and capabilities |
-| `/system-check` | Monthly — find errors, broken refs, stale data |
-| `/status` | Check project progress |
+| Command         | When to Use                                                   |
+| --------------- | ------------------------------------------------------------- |
+| `/update`       | After adding skills, agents, workflows, industries, or brands |
+| `/audit-goals`  | Weekly — find gaps between goals and capabilities             |
+| `/system-check` | Monthly — find errors, broken refs, stale data                |
+| `/status`       | Check project progress                                        |
 
 ---
 
@@ -251,41 +252,41 @@ Force a specific agent with `@`:
 
 ### Agent Routing (Profile-Aware)
 
-| Your Request | Profile | Agent |
-|-------------|---------|-------|
-| "build API" | dev | `backend-specialist` |
-| "write copy" | marketing | (copywriting skill) |
-| "build landing page" | hybrid | `frontend-specialist` + copywriting |
-| "debug" | any | `debugger` |
-| "plan" | any | `project-planner` |
+| Your Request         | Profile   | Agent                               |
+| -------------------- | --------- | ----------------------------------- |
+| "build API"          | dev       | `backend-specialist`                |
+| "write copy"         | marketing | (copywriting skill)                 |
+| "build landing page" | hybrid    | `frontend-specialist` + copywriting |
+| "debug"              | any       | `debugger`                          |
+| "plan"               | any       | `project-planner`                   |
 
 ---
 
 ## Skill Categories
 
-### 🔧 Dev Skills (22) — `profile: dev`
+### 🔧 Dev Skills (26) — `profile: dev`
 
-`api-patterns` · `nodejs-best-practices` · `python-patterns` · `rust-pro` · `database-design` · `typeorm-patterns` · `testing-patterns` · `webapp-testing` · `tdd-workflow` · `code-review-checklist` · `requesting-code-review` · `receiving-code-review` · `verification-before-completion` · `lint-and-validate` · `vulnerability-scanner` · `red-team-tactics` · `deployment-procedures` · `server-management` · `mobile-design` · `react-native-guidelines` · `mcp-builder` · `i18n-localization`
+`api-patterns` · `nodejs-best-practices` · `python-patterns` · `rust-pro` · `database-design` · `typeorm-patterns` · `testing-patterns` · `webapp-testing` · `tdd-workflow` · `code-review-checklist` · `requesting-code-review` · `receiving-code-review` · `verification-before-completion` · `lint-and-validate` · `vulnerability-scanner` · `red-team-tactics` · `deployment-procedures` · `server-management` · `mobile-design` · `react-native-guidelines` · `mcp-builder` · `i18n-localization` · `cloud-infrastructure` · `web3-smart-contracts` · `design-system-architecture` · `ml-engineer`
 
 ### 📈 Marketing Skills (29) — `profile: marketing`
 
 `copywriting` · `copy-editing` · `cold-email` · `email-sequence` · `social-content` · `content-strategy` · `seo-audit` · `ai-seo` · `programmatic-seo` · `schema-markup` · `competitor-alternatives` · `page-cro` · `signup-flow-cro` · `onboarding-cro` · `form-cro` · `popup-cro` · `paywall-upgrade-cro` · `paid-ads` · `ad-creative` · `analytics-tracking` · `ab-test-setup` · `churn-prevention` · `free-tool-strategy` · `referral-program` · `marketing-ideas` · `marketing-psychology` · `launch-strategy` · `pricing-strategy` · `product-marketing-context`
 
-### ⚡ Shared Skills (26) — `profile: shared`
+### ⚡ Shared Skills (30) — `profile: shared`
 
-`clean-code` · `brainstorming` · `plan-writing` · `architecture` · `app-builder` · `nextjs-react-expert` · `web-design-guidelines` · `composition-patterns` · `tailwind-patterns` · `frontend-design` · `behavioral-modes` · `parallel-agents` · `intelligent-routing` · `performance-profiling` · `systematic-debugging` · `documentation-templates` · `seo-fundamentals` · `geo-fundamentals` · `executing-plans` · `subagent-driven-development` · `using-git-worktrees` · `finishing-a-development-branch` · `writing-skills` · `bash-linux` · `powershell-windows` · `game-development`
+`clean-code` · `brainstorming` · `plan-writing` · `architecture` · `app-builder` · `nextjs-react-expert` · `web-design-guidelines` · `composition-patterns` · `tailwind-patterns` · `frontend-design` · `behavioral-modes` · `parallel-agents` · `intelligent-routing` · `performance-profiling` · `systematic-debugging` · `documentation-templates` · `seo-fundamentals` · `geo-fundamentals` · `executing-plans` · `subagent-driven-development` · `using-git-worktrees` · `finishing-a-development-branch` · `writing-skills` · `bash-linux` · `powershell-windows` · `game-development` · `data-analysis` · `prompt-engineering` · `notebooklm-rag` · `github-mcp`
 
 ---
 
 ## Extending the System
 
-| Want to add... | How | After adding |
-|---------------|-----|-------------|
-| New skill | See `docs/BUILDING-SKILLS.md` | Run `/update` |
-| New agent | See `docs/BUILDING-AGENTS.md` | Run `/update` |
-| New workflow | See `docs/BUILDING-WORKFLOWS.md` | Run `/update` |
-| New industry | Copy `brands/_industry-template` | Run `/update` |
-| New brand | Copy `brands/[industry]/_brand-template` | Run `/update` |
+| Want to add... | How                                      | After adding  |
+| -------------- | ---------------------------------------- | ------------- |
+| New skill      | See `docs/BUILDING-SKILLS.md`            | Run `/update` |
+| New agent      | See `docs/BUILDING-AGENTS.md`            | Run `/update` |
+| New workflow   | See `docs/BUILDING-WORKFLOWS.md`         | Run `/update` |
+| New industry   | Copy `brands/_industry-template`         | Run `/update` |
+| New brand      | Copy `brands/[industry]/_brand-template` | Run `/update` |
 
 ---
 

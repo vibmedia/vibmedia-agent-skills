@@ -1,6 +1,4 @@
 ---
-trigger: always_on
----
 
 # GEMINI.md - Antigravity Kit
 
@@ -35,7 +33,7 @@ Agent activated → Check `profile:` tag → Check frontmatter `skills:` → Rea
 ### 3. Enforcement
 
 1. **When agent is activated:**
-    - ✅ Activate: Read Rules → Check Profile → Check Frontmatter → Load SKILL.md → Apply All.
+   - ✅ Activate: Read Rules → Check Profile → Check Frontmatter → Load SKILL.md → Apply All.
 2. **Forbidden:** Never skip reading agent rules or skill instructions. "Read → Understand → Apply" is mandatory.
 
 ---
@@ -51,7 +49,7 @@ Agent activated → Check `profile:` tag → Check frontmatter `skills:` → Rea
 | **SIMPLE CODE**  | "fix", "add", "change" (single file)       | TIER 0 + TIER 1 (lite)         | Inline Edit                 |
 | **COMPLEX CODE** | "build", "create", "implement", "refactor" | TIER 0 + TIER 1 (full) + Agent | **{task-slug}.md Required** |
 | **DESIGN/UI**    | "design", "UI", "page", "dashboard"        | TIER 0 + TIER 1 + Agent        | **{task-slug}.md Required** |
-| **MARKETING**    | "copy", "SEO", "campaign", "CRO"          | TIER 0 + Marketing Profile     | Brand context required      |
+| **MARKETING**    | "copy", "SEO", "campaign", "CRO"           | TIER 0 + Marketing Profile     | Brand context required      |
 | **SLASH CMD**    | /create, /orchestrate, /debug, /update     | Command-specific flow          | Variable                    |
 
 ---
@@ -104,13 +102,13 @@ When auto-applying an agent, inform the user:
 
 ### ⚠️ AGENT ROUTING CHECKLIST (MANDATORY BEFORE EVERY CODE/DESIGN RESPONSE)
 
-| Step | Check | If Unchecked |
-|------|-------|--------------|
-| 1 | Did I check the project profile? | → STOP. Read brand's `context.md` |
-| 2 | Did I identify the correct agent for this domain? | → STOP. Analyze request domain first. |
-| 3 | Did I READ the agent's `.md` file? | → STOP. Open `.agent/agents/{agent}.md` |
-| 4 | Did I announce `🤖 Applying knowledge of @[agent]...`? | → STOP. Add announcement. |
-| 5 | Did I load required skills from agent's frontmatter? | → STOP. Check `skills:` field. |
+| Step | Check                                                  | If Unchecked                            |
+| ---- | ------------------------------------------------------ | --------------------------------------- |
+| 1    | Did I check the project profile?                       | → STOP. Read brand's `context.md`       |
+| 2    | Did I identify the correct agent for this domain?      | → STOP. Analyze request domain first.   |
+| 3    | Did I READ the agent's `.md` file?                     | → STOP. Open `.agent/agents/{agent}.md` |
+| 4    | Did I announce `🤖 Applying knowledge of @[agent]...`? | → STOP. Add announcement.               |
+| 5    | Did I load required skills from agent's frontmatter?   | → STOP. Check `skills:` field.          |
 
 ---
 
@@ -178,12 +176,12 @@ When user's prompt is NOT in English:
 
 ### 📱 Project Type Routing
 
-| Project Type                           | Primary Agent         | Profile    | Skills                        |
-| -------------------------------------- | --------------------- | ---------- | ----------------------------- |
-| **MOBILE** (iOS, Android, RN, Flutter) | `mobile-developer`    | dev        | mobile-design                 |
-| **WEB** (Next.js, React web)           | `frontend-specialist` | shared     | frontend-design               |
-| **BACKEND** (API, server, DB)          | `backend-specialist`  | dev        | api-patterns, database-design |
-| **MARKETING** (Copy, SEO, Ads)         | (skill-based)         | marketing  | copywriting, seo-audit, etc.  |
+| Project Type                           | Primary Agent         | Profile   | Skills                        |
+| -------------------------------------- | --------------------- | --------- | ----------------------------- |
+| **MOBILE** (iOS, Android, RN, Flutter) | `mobile-developer`    | dev       | mobile-design                 |
+| **WEB** (Next.js, React web)           | `frontend-specialist` | shared    | frontend-design               |
+| **BACKEND** (API, server, DB)          | `backend-specialist`  | dev       | api-patterns, database-design |
+| **MARKETING** (Copy, SEO, Ads)         | (skill-based)         | marketing | copywriting, seo-audit, etc.  |
 
 > 🔴 **Mobile + frontend-specialist = WRONG.** Mobile = mobile-developer ONLY.
 
@@ -191,14 +189,14 @@ When user's prompt is NOT in English:
 
 **MANDATORY: Every user request must pass through the Socratic Gate before ANY tool use or implementation.**
 
-| Request Type            | Strategy       | Required Action                                                   |
-| ----------------------- | -------------- | ----------------------------------------------------------------- |
-| **New Feature / Build** | Deep Discovery | ASK minimum 8 strategic questions                                 |
-| **Code Edit / Bug Fix** | Context Check  | Confirm understanding + ask impact questions                      |
-| **Marketing / Copy**    | Brand Check    | Confirm brand context loaded + ask audience/channel questions      |
-| **Vague / Simple**      | Clarification  | Ask Purpose, Users, and Scope                                     |
-| **Full Orchestration**  | Gatekeeper     | **STOP** subagents until user confirms plan details               |
-| **Direct "Proceed"**    | Validation     | **STOP** → Ask 4 "Edge Case" questions                            |
+| Request Type            | Strategy       | Required Action                                               |
+| ----------------------- | -------------- | ------------------------------------------------------------- |
+| **New Feature / Build** | Deep Discovery | ASK minimum 8 strategic questions                             |
+| **Code Edit / Bug Fix** | Context Check  | Confirm understanding + ask impact questions                  |
+| **Marketing / Copy**    | Brand Check    | Confirm brand context loaded + ask audience/channel questions |
+| **Vague / Simple**      | Clarification  | Ask Purpose, Users, and Scope                                 |
+| **Full Orchestration**  | Gatekeeper     | **STOP** subagents until user confirms plan details           |
+| **Direct "Proceed"**    | Validation     | **STOP** → Ask 4 "Edge Case" questions                        |
 
 **Protocol:**
 
@@ -267,8 +265,8 @@ When user's prompt is NOT in English:
 
 > **Design rules are in the specialist agents, NOT here.**
 
-| Task         | Read                            |
-| ------------ | ------------------------------- |
+| Task         | Read                                   |
+| ------------ | -------------------------------------- |
 | Web UI/UX    | `.agent/agents/frontend-specialist.md` |
 | Mobile UI/UX | `.agent/agents/mobile-developer.md`    |
 
@@ -278,29 +276,29 @@ When user's prompt is NOT in English:
 
 ### System Files
 
-| File | Purpose |
-|------|---------|
-| `vib.md` | Company identity — loads first |
-| `ARCHITECTURE.md` | System map — agents, skills, workflows |
-| `structure.drawio` | Visual diagram — open in draw.io |
-| `profiles/*.md` | Project-type routing — dev, marketing, hybrid |
-| `brands/[industry]/[brand]/context.md` | Brand identity — profile, voice, audience |
+| File                                   | Purpose                                         |
+| -------------------------------------- | ----------------------------------------------- |
+| `vib.md`                               | Company identity — loads first                  |
+| `ARCHITECTURE.md`                      | System map — 21 agents, 79 skills, 26 workflows |
+| `structure.drawio`                     | Visual diagram — open in draw.io                |
+| `profiles/*.md`                        | Project-type routing — dev, marketing, hybrid   |
+| `brands/[industry]/[brand]/context.md` | Brand identity — profile, voice, audience       |
 
 ### Profiles
 
-| Profile | When | Agents | Skills |
-|---------|------|--------|--------|
-| `dev` | Software projects | 10 engineering | 22 dev skills |
-| `marketing` | Marketing campaigns | 1 + shared | 29 marketing skills |
-| `hybrid` | Build + grow | All | All (phase-based) |
+| Profile     | When                | Agents         | Skills              |
+| ----------- | ------------------- | -------------- | ------------------- |
+| `dev`       | Software projects   | 10 engineering | 22 dev skills       |
+| `marketing` | Marketing campaigns | 1 + shared     | 29 marketing skills |
+| `hybrid`    | Build + grow        | All            | All (phase-based)   |
 
 ### System Management Commands
 
-| Command | When |
-|---------|------|
-| `/update` | After adding skills, agents, workflows, industries, or brands |
-| `/audit-goals` | Weekly — find gaps between goals and capabilities |
-| `/system-check` | Monthly — find errors, broken refs, stale data |
+| Command         | When                                                          |
+| --------------- | ------------------------------------------------------------- |
+| `/update`       | After adding skills, agents, workflows, industries, or brands |
+| `/audit-goals`  | Weekly — find gaps between goals and capabilities             |
+| `/system-check` | Monthly — find errors, broken refs, stale data                |
 
 ### Key Agents
 
