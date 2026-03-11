@@ -41,7 +41,7 @@ description: Set up local SEO for a business — Google My Business optimization
 5. **Citation building**
    - Create/update listings on missing citation sources
    - Fix inconsistent NAP on existing citations
-   - Prioritize: Justdial, Sulekha, Yelp, Facebook, Bing Places, Apple Maps
+   - Prioritize sources from `brands/[industry]/_common/industry.md` citation list
    - Expected: Citations created/fixed on top sources
 
 6. **Review strategy setup**

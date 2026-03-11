@@ -1,5 +1,5 @@
 ---
-description: Create business listings on external platforms (Zomato, Swiggy, Amazon, Flipkart, etc.) using the harness pattern for token-efficient automation.
+description: Create business listings on external marketplace platforms using the harness pattern for token-efficient automation.
 ---
 
 # /setup-listing — Platform Listing Setup

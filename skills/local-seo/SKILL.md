@@ -45,24 +45,27 @@ profile: marketing
 
 | Element | Rule | Example |
 |---------|------|---------|
-| Name | Exact legal business name, no keyword stuffing | "Raj's Kitchen" not "Raj's Kitchen - Best Restaurant in Delhi" |
-| Address | Exact same format everywhere | "42, MG Road, Sector 12" not "42 MG Rd, Sec 12" |
-| Phone | Include country code, consistent format | "+91 98765 43210" everywhere |
+| Name | Exact legal business name, no keyword stuffing | "[Business]" not "[Business] - Best [Service] in [City]" |
+| Address | Exact same format everywhere | "42, Main Road, Suite 12" not "42 Main Rd, Ste 12" |
+| Phone | Include country code, consistent format | "+[code] [number]" everywhere |
 
-### Citation Building (Top 30 Sources for India)
+### Citation Building
+
+> 📌 **Country-specific citation sources should be defined in `brands/[industry]/_common/industry.md`.**
+> The framework below shows priority tiers — populate with sources from the brand/industry context.
 
 | Priority | Source | Type |
 |----------|--------|------|
 | P0 | Google My Business | Must have |
-| P0 | Justdial | Must have |
-| P0 | Sulekha | Must have |
-| P1 | IndiaMART | Industry |
-| P1 | TradeIndia | Industry |
-| P1 | Yelp India | Reviews |
+| P0 | Google My Business | Must have (all regions) |
+| P0 | [Country directory 1] | Must have (from industry context) |
+| P0 | [Country directory 2] | Must have (from industry context) |
+| P1 | [Industry directory] | Industry-specific |
+| P1 | Yelp / [Regional equivalent] | Reviews |
 | P1 | Facebook Business | Social |
 | P2 | Bing Places | Search |
 | P2 | Apple Maps | Maps |
-| P2 | Yellow Pages India | Directory |
+| P2 | [Country yellow pages] | Directory |
 | P2 | Foursquare | Location |
 | P3 | Industry-specific directories | Varies |
 
@@ -70,10 +73,10 @@ profile: marketing
 
 | Content Type | Purpose | Example |
 |--------------|---------|---------|
-| Location pages | Rank for "[service] in [city]" | "Plumbing Services in Noida" |
+| Location pages | Rank for "[service] in [city]" | "[Service] in [City Name]" |
 | Service area pages | Cover each service area | One page per city/neighborhood |
-| Local blog posts | Local events, community | "Best Restaurants Near [Landmark]" |
-| FAQ pages | Answer local queries | "How much does plumbing cost in Delhi?" |
+| Local blog posts | Local events, community | "Best [Services] Near [Landmark]" |
+| FAQ pages | Answer local queries | "How much does [service] cost in [City]?" |
 
 ### Local SEO Audit Checklist
 

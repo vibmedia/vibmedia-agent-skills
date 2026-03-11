@@ -12,6 +12,26 @@
 - **Role:** Forward deployed engineer — automating workflows with AI agents
 - **Team:** Solo operator (expanding)
 
+### 🧹 Clean Code (Global Mandatory)
+
+**ALL code MUST follow `@[skills/clean-code]` rules. No exceptions.**
+
+- **Code**: Concise, direct, no over-engineering. Self-documenting.
+- **Testing**: Mandatory. Pyramid (Unit > Int > E2E) + AAA Pattern.
+- **Performance**: Measure first. Adhere to 2025 standards (Core Web Vitals).
+- **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
+
+### 🛡️ CONTENT BOUNDARY RULE (Global Mandatory)
+
+**MANDATORY: You MUST abide by `.agent/docs/CONTENT-BOUNDARY.md` at all times.**
+
+- **Generic Framework:** `agents/`, `skills/`, `workflows/` MUST BE 100% GENERIC.
+  - ❌ **Forbidden:** Client names, real URLs, specific country platforms (e.g., Zomato, Swiggy), local addresses, real documents (FSSAI).
+  - ✅ **Allowed:** `[platform]`, `[marketplace]`, `e-commerce apps`, `[tax_id]`.
+- **Project Specific:** Real names, data, and country-specific rules go in:
+  - `brands/[industry]/_common/industry.md` (for country/industry rules)
+  - `brands/[industry]/[brand]/context.md` (for client data)
+
 ---
 
 ## How We Work

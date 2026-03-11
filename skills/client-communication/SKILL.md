@@ -98,9 +98,9 @@ Every project tracks pending items:
 
 | # | Item | Requested | Via | Status | Blocks |
 |---|------|-----------|-----|--------|--------|
-| 1 | Company logo (PNG) | 2026-03-11 | WhatsApp | PENDING | Header, favicon |
-| 2 | Service descriptions | 2026-03-11 | Google Sheet | IN PROGRESS | Service pages |
-| 3 | FSSAI license copy | 2026-03-11 | WhatsApp | RECEIVED ✅ | Zomato listing |
+| 1 | Company logo (PNG) | [date] | WhatsApp | PENDING | Header, favicon |
+| 2 | Service descriptions | [date] | Google Sheet | IN PROGRESS | Service pages |
+| 3 | Business license copy | [date] | WhatsApp | RECEIVED ✅ | Platform listing |
 ```
 
 **Status Flow:** PENDING → IN PROGRESS → RECEIVED → VERIFIED
@@ -133,8 +133,8 @@ Resume instructions: [How to continue after intervention]"
 
 | Time | Direction | Channel | Message Summary | Response |
 |------|-----------|---------|----------------|----------|
-| 10:00 | OUT | WhatsApp | OTP request for Zomato | Pending |
-| 10:03 | IN | WhatsApp | OTP: 483921 | ✅ Used |
+| 10:00 | OUT | WhatsApp | OTP request for [Platform] | Pending |
+| 10:03 | IN | WhatsApp | OTP: [code] | ✅ Used |
 ```
 
 ## Common Mistakes

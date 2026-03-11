@@ -12,7 +12,7 @@
 | `seo-specialist` | Rankings, visibility, local SEO |
 | `wordpress-site-builder` | End-to-end WordPress builds via MCP |
 | `local-seo-manager` | GMB, citations, reviews, local search |
-| `listing-automation` | Platform listings (Zomato, Swiggy, Amazon, Flipkart) |
+| `listing-automation` | Marketplace platform listings (food, e-commerce, local) |
 | `client-coordinator` | Client communication, data collection, approvals |
 | `product-manager` | Requirements, user stories |
 | `product-owner` | Strategy, backlog |

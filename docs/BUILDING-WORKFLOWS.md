@@ -154,6 +154,19 @@ Best for: TDD, iterative development.
 
 ---
 
+## Workflow Quality Checklist
+
+Before shipping a workflow:
+
+1. Did I include the YAML frontmatter with `description`?
+2. Is the workflow mapping to a slash command?
+3. Is it deterministic (numbered list)?
+4. Did I remove all project-specific data? **(Review `docs/CONTENT-BOUNDARY.md` - P0 priority!)**
+5. Does it delegate specialized work to agents?
+6. Are the exit criteria clear?
+
+---
+
 ## Examples
 
 ### Minimal Workflow

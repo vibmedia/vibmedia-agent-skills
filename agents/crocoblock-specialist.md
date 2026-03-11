@@ -37,7 +37,7 @@ When assigned to a project to build dynamic templates, follow these steps:
   - Click the wrench icon and select the specific field name (e.g., `feature_1_title`).
 
 ### 3. Future-Proofing for Domain Changes
-If migrating from a temporary/staging domain (like `cachandnichopra.com` moving to a new TLD):
+If migrating from a temporary/staging domain (like `staging.example.com` moving to a new TLD):
 - **Images:** Upload to WordPress Media Library. Map via Dynamic Tag -> Post Custom Field -> Image ID/URL. This relies on relative media IDs, surviving domain changes flawlessly.
 - **Buttons / Calls to Action:** Map links using `Site URL` + relative path, or specifically to `Post URL` if referring to another CPT.
 

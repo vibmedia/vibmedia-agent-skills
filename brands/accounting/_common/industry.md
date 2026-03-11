@@ -31,7 +31,7 @@
 
 ---
 
-### Technical Considerations
+## Technical Considerations
 
 ### Common Tech Stack
 - **Frontend:** [Common choices in this industry]
@@ -39,22 +39,12 @@
 - **Database:** [Common choices]
 - **Integrations:** [Industry-specific APIs, services]
 
----
+### Compliance & Regulations
+- [Regulation 1] — [What it requires]
+- [Regulation 2] — [What it requires]
 
-## Marketing & Operational Platforms
-
-### Platform & Listing Sources
-- **[Platform Name]:** [What it is used for, key requirements]
-- **[Platform Name]:** [What it is used for, key requirements]
-
-### Local SEO & Citation Sources
-- **P0 Must-Haves:** [Google My Business, Industry-specific massive directories]
-- **P1 Industry:** [Key industry directories]
-- **P2 Local/Search:** [Bing Places, Yelp equivalents]
-
-### Regulatory Requirements
-- **[Regulation/License Name]:** [What it requires, e.g., FSSAI for food]
-- **[Tax Entity]:** [e.g., GSTIN, EIN, ABN]
+### Security Requirements
+- [Industry-specific security needs]
 
 ---
 

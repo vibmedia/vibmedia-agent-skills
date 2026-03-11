@@ -200,6 +200,18 @@ See any file in `agents/` for complete examples.
 
 ---
 
+### Step 4: Quality & Content Boundary Review
+
+Review your agent file against these standards:
+
+1. **Content Boundary Check:** Does the agent contain any project-specific data (client URLs, specific local platforms, real addresses)? If yes, remove them and replace with generic placeholders (e.g., `[platform]`). Read `docs/CONTENT-BOUNDARY.md`.
+2. **Actionable:** Does it tell the AI *what* to do and *how* to think?
+3. **Bounded:** Are the boundaries clear? Does it delegate to other agents?
+4. **Trigger-Ready:** Does the `description` contain exact trigger phrases?
+5. **No Hallucinations:** Does it rely on listed skills rather than assuming knowledge?
+
+---
+
 ## Testing Your Agent
 
 After creating an agent:

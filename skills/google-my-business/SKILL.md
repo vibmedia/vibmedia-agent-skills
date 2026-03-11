@@ -69,7 +69,7 @@ profile: marketing
 
 | Business Type | Primary Category | secondaries |
 |--------------|-----------------|-------------|
-| Restaurant | Restaurant | Indian Restaurant, Delivery Restaurant |
+| Restaurant | Restaurant | [Cuisine] Restaurant, Delivery Restaurant |
 | Plumber | Plumber | Emergency Plumber, Water Heater Repair |
 | Accountant | Accounting Firm | Tax Preparation, Bookkeeper |
 | Salon | Beauty Salon | Hair Salon, Nail Salon |

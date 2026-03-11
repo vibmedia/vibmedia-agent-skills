@@ -59,7 +59,15 @@ def print_error(text: str):
 
 # Complete verification suite
 VERIFICATION_SUITE = [
-    # P0: Security (CRITICAL)
+    # P0: Framework Integrity (CRITICAL)
+    {
+        "category": "Framework Integrity",
+        "checks": [
+            ("Content Boundary Check", ".agent/scripts/verify_boundary.py", True),
+        ]
+    },
+    
+    # P1: Security (CRITICAL)
     {
         "category": "Security",
         "checks": [

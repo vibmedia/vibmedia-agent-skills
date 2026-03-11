@@ -154,8 +154,12 @@ your-skill/
 
 Before shipping a skill:
 
-- [ ] `description` has trigger phrases (not just a label)
-- [ ] Framework is structured as tables/lists, not walls of text
+1. Did I include the YAML frontmatter?
+2. Is the `description` specific with exact trigger phrases?
+3. Did I use tables for structured data?
+4. Did I remove all project-specific data and use generic placeholders? **(Review `docs/CONTENT-BOUNDARY.md` - this is P0 priority!)**
+5. Are the examples illustrative but generic (e.g., `[Company Name]`)?
+6. Is the skill actionable (tells *how* to do it) rather than just theoretical?
 - [ ] Includes "Before Starting" context-gathering section
 - [ ] Has "Output Format" section (so output is consistent)
 - [ ] Has "Common Mistakes" section

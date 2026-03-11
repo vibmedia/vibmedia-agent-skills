@@ -1,6 +1,6 @@
 ---
 name: business-listing
-description: When the user wants to create, manage, or automate business listings on platforms like Zomato, Swiggy, Amazon, Flipkart, Justdial, or other marketplaces. Also use when the user mentions "listing," "marketplace listing," "product listing," "restaurant listing," "Zomato listing," "Swiggy partner," "Amazon seller," "Flipkart seller," "platform listing," or "listing automation." For Google My Business, see google-my-business. For local SEO citations, see local-seo.
+description: When the user wants to create, manage, or automate business listings on external marketplace platforms. Also use when the user mentions "listing," "marketplace listing," "product listing," "restaurant listing," "platform listing," "listing automation," or any specific marketplace platform name. For Google My Business, see google-my-business. For local SEO citations, see local-seo.
 category: marketing
 profile: marketing
 ---
@@ -12,8 +12,8 @@ profile: marketing
 ## When to Use
 
 - Creating a new business listing on any platform
-- Setting up a restaurant on Zomato/Swiggy
-- Listing products on Amazon/Flipkart
+- Setting up a restaurant on food delivery platforms
+- Listing products on e-commerce marketplaces
 - Managing existing listings across platforms
 - Automating repetitive listing creation
 
@@ -21,7 +21,7 @@ profile: marketing
 
 1. Which platform(s) does this business need?
 2. Do we have login credentials or will we need OTP flow?
-3. What documents are required? (FSSAI, GSTIN, brand auth, etc.)
+3. What documents are required? (business license, tax ID, brand auth, etc.)
 4. Are images ready in Google Drive? Meeting platform specs?
 5. Is the listing data verified by the client?
 6. Do we have a crystallized script for this platform, or is this a Golden Run?
@@ -102,13 +102,14 @@ def create_listing(data: dict):
 
 ### Platform Quick Reference
 
-| Platform | Type | Key Documents | OTP Required |
-|----------|------|---------------|-------------|
-| **Zomato** | Restaurant | FSSAI, GST, menu photos | Yes (phone) |
-| **Swiggy** | Restaurant | FSSAI, menu with prices, bank details | Yes (phone) |
-| **Amazon** | E-commerce | GSTIN, product images, EAN/UPC | Yes (phone/email) |
-| **Flipkart** | E-commerce | GSTIN, brand auth letter, product specs | Yes (phone) |
-| **Justdial** | Local biz | Business proof, address proof | Yes (phone) |
+> 📌 **Platform-specific requirements should be documented in `brands/[industry]/_common/industry.md`.**
+> Below is a generic template — populate per platform during the Golden Run.
+
+| Platform Type | Examples | Typical Documents | OTP Required |
+|---------------|----------|------------------|--------------|
+| Food delivery | DoorDash, UberEats, regional apps | Food license, menu photos, bank details | Usually yes |
+| E-commerce | Amazon, regional marketplaces | Tax ID, product images, brand auth | Usually yes |
+| Local directory | Yelp, regional directories | Business proof, address proof | Varies |
 
 ### OTP Flow Integration
 
@@ -136,13 +137,12 @@ For bulk listings, use Google Sheets with standardized columns:
 
 | Column | Example |
 |--------|---------|
-| Business Name | Raj's Kitchen |
-| Address | 42, MG Road, Sector 12, Noida |
-| Phone | 9876543210 |
-| Category | Restaurant > North Indian |
-| FSSAI | 12345678901234 |
-| GST | 07AABCU9603R1ZM |
-| Description | "Authentic North Indian cuisine..." |
+| Business Name | [Client business name] |
+| Address | [Full formatted address] |
+| Phone | [Phone with country code] |
+| Category | [Platform category path] |
+| License/Tax ID | [Country-specific business license] |
+| Description | [Business description] |
 | Images Folder | [Google Drive link] |
 | Status | PENDING / SUBMITTED / VERIFIED |
 
@@ -152,7 +152,7 @@ For bulk listings, use Google Sheets with standardized columns:
 ```
 ## Listing Created — [Platform] — [Business Name]
 
-- Platform: Zomato
+- Platform: [Platform name]
 - Status: SUBMITTED ✅
 - URL: [listing URL]
 - Submitted: 2026-03-11
