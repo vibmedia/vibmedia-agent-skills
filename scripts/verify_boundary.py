@@ -21,13 +21,17 @@ PROJECT_TERMS = [
 # Directories that must be PURE FRAMEWORK (no project data)
 TARGET_DIRS = ['agents', 'skills', 'workflows', 'profiles']
 
-def check_files():
-    root_dir = Path('.agent')
+def check_framework_boundaries(base_path: str) -> bool:
+    """Scan framework files for strictly forbidden project/brand-specific terms and check for artifacts."""
+    root_dir = Path(base_path) / '.agent'
     if not root_dir.exists():
         print("❌ Please run this script from the project root (where .agent lives).")
         sys.exit(1)
 
-    has_violations = False
+    failures = 0
+
+    # 1. Check framework boundary (no brand info in framework)
+    print("📋 Checking Framework Boundary (No instance data in templates)...")
     regex = re.compile('|'.join(PROJECT_TERMS), re.IGNORECASE)
 
     for target in TARGET_DIRS:
@@ -42,7 +46,7 @@ def check_files():
                     
                     matches = regex.findall(content)
                     if matches:
-                        has_violations = True
+                        failures += 1
                         print(f"❌ VIOLATION in {filepath}")
                         print(f"   Found project-specific terms: {set(matches)}")
                         print(f"   Fix: Move this to brands/[industry]/_common/ or replace with generic [placeholder].")
@@ -50,12 +54,26 @@ def check_files():
             except Exception as e:
                 print(f"Error reading {filepath}: {e}")
 
-    if has_violations:
+    if failures > 0:
         print("🚨 Content Boundary Check FAILED. Do not commit these files until fixed.")
-        sys.exit(1)
-    else:
-        print("✅ Content Boundary Check PASSED. All framework files are generic.")
+        # Do not exit yet, continue to the next check
+
+    # 2. Check output boundary (no project deliverables in .agent/brands)
+    print("\n📋 Checking Output Boundary (No project deliverables inside .agent)...")
+    brands_dir = root_dir / "brands"
+    if brands_dir.is_dir():
+        for root, dirs, files in os.walk(brands_dir):
+            if "artifacts" in dirs:
+                rel_path = Path(root) / "artifacts"
+                print(f"❌ ERROR: Project deliverables inside framework detected: {rel_path}")
+                print(f"      Rule: Project artifacts (code, copy) must be saved OUTSIDE the .agent folder.")
+                failures += 1
+
+    if failures == 0:
+        print("\n✅ Verification Passed: Framework remains generic and boundaries respected.")
         sys.exit(0)
+    else:
+        sys.exit(1)
 
 if __name__ == '__main__':
-    check_files()
+    check_framework_boundaries(os.getcwd())

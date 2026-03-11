@@ -390,8 +390,7 @@ brands/
 │       ├── context.md            # Brand identity (has profile: field)
 │       ├── telos.md              # Telos tracker  (replaces todo.md)
 │       ├── reference/            # Raw client data
-│       ├── brand-data/           # Processed assets
-│       └── artifacts/            # AI deliverables
+│       └── brand-data/           # Processed assets
 └── [industry]/[brand]/          # Actual brand folders
 ```
 

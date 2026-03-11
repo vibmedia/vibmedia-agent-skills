@@ -32,6 +32,19 @@
   - `brands/[industry]/_common/industry.md` (for country/industry rules)
   - `brands/[industry]/[brand]/context.md` (for client data)
 
+### 📂 OUTPUT GENERATION RULE (Where to save files)
+
+**MANDATORY: Never save project deliverables inside `.agent/`.**
+
+1. **Context & Knowledge → INSIDE `.agent/`**
+   - Brand guidelines, industry benchmarks, platform rules → `brands/[industry]/`
+2. **Framework Logic → INSIDE `.agent/`**
+   - Universal agents, specific domain skills, workflows → `agents/`, `skills/`, `workflows/`
+3. **Project Deliverables & Artifacts → OUTSIDE `.agent/` (Project Root)**
+   - Source code, compiled assets, text copy, blog posts, PRDs, task lists.
+   - Example: If generating copy for a website, save it to `./copy/homepage.md` or `./src/components/`, NEVER to `.agent/brands/.../artifacts/`.
+   - The `.agent/` folder is a knowledge framework, NOT a build directory.
+
 ---
 
 ## How We Work
@@ -100,8 +113,9 @@ We handle two types of projects, sometimes both for the same client:
 ### Always
 - [ ] Read brand `context.md` before starting any work
 - [ ] Check industry `_common/` for sector-specific rules
-- [ ] Update `todo.md` after completing work
-- [ ] Date-stamp artifacts in `artifacts/`
+- [ ] Update `context.md` if new brand knowledge was discovered
+- [ ] Log test summaries in the PR or task file
+- [ ] Record any root cause analysis in `docs/`
 
 ### Never
 - [ ] Never skip the brand context — assumptions lead to rework

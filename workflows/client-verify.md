@@ -42,8 +42,8 @@ description: Send data to client for verification, collect approvals, and track 
    - If NO RESPONSE → flag in pending items register, continue non-blocked work
    - Expected: Clear next action determined
 
-5. **Update tracking**
-   - Update pending items register in brand's `artifacts/` folder
-   - Log communication in project notes
+5. **Track status (Background)**
+   - Update pending items register in project root `client-pending-items.md`
+   - Mark items correctly in the task checklist notes
    - If all items approved → send completion confirmation
    - Expected: All tracking updated, client informed

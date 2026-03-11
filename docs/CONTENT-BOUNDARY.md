@@ -21,7 +21,8 @@
 | **Platform names** (specific services) | `brands/[industry]/_common/industry.md` | Zomato, Swiggy, DoorDash, Amazon |
 | **Country data** (regulations, directories) | `brands/[industry]/_common/industry.md` | FSSAI, GSTIN, Justdial, Sulekha |
 | **Client data** (names, URLs, credentials) | `brands/[industry]/[brand]/context.md` | "cachandnichopra.com", "Raj's Kitchen" |
-| **Project artifacts** (content, plans) | `brands/[industry]/[brand]/artifacts/` | Homepage copy, service descriptions |
+| **Project output** (code, deliverables, copy) | **Outside** `.agent/` (Project Root) | `src/`, `docs/`, `public/`, `project-copy.md` |
+| **Project PRDs/Plans** | **Outside** `.agent/` (Project Root) | `.claude/`, `docs/`, root directory |
 
 ---
 
@@ -44,6 +45,11 @@
 - Client URLs, domain names, credentials
 - Regional directories (Sulekha, IndiaMART, TradeIndia)
 - Currency-specific examples (₹, prices in INR)
+
+### ❌ FORBIDDEN in `.agent/brands/` (Brand/Industry folders)
+
+- Deliverables meant for the project (e.g., actual source code, final website copy, compiled assets)
+- These belong OUTSIDE the `.agent/` folder in the main project workspace.
 
 ### 🟡 GRAY AREA (use judgment)
 
@@ -109,6 +115,20 @@ grep -rl "[PROJECT_TERMS]" agents/ skills/ workflows/ profiles/ --include="*.md"
 Where `[PROJECT_TERMS]` are the client/project-specific names from the current engagement.
 
 The `/update` workflow should include this check automatically.
+
+---
+
+## Output Generation Rule (Where to write files)
+
+When writing or generating files for the user:
+
+1. **Context & Knowledge → INSIDE `.agent/`**
+   - Save brand guidelines, industry benchmarks, and platform rules to `brands/[industry]/[brand]/context.md` or `brands/[industry]/_common/industry.md`.
+2. **Framework logic → INSIDE `.agent/`**
+   - Save generic reusable skills, agents, and workflows to `skills/`, `agents/`, `workflows/`.
+3. **Project Deliverables & Code → OUTSIDE `.agent/`**
+   - Save actual code (`src/`), generated marketing copy, website content, PRDs, and deliverables in the **Project Root** (outside the `.agent` folder). NEVER save project outputs inside `.agent/brands/.../artifacts/`.
+   - The `.agent/` folder is a framework and knowledge base, NOT a build directory.
 
 ---
 

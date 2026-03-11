@@ -66,5 +66,6 @@ description: Create business listings on external marketplace platforms using th
 9. **Post-submission**
    - Verify listing appears on platform (may take 24-48h for some platforms)
    - Send completion confirmation to client
-   - Log listing in project's `artifacts/` folder
+   - Log listing in project root `listing-log.md`
+   - Include URL/status/credentials used live
    - Expected: Listing confirmed live

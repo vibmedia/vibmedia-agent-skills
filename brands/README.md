@@ -13,11 +13,9 @@ brands/
 │   │   ├── industry.md               # Industry-specific AI instructions
 │   │   └── references/               # Benchmarks, frameworks, terminology
 │   ├── _brand-template/              # Copy for new brands in this industry
-│   │   ├── context.md                # Brand identity (fill-in template)
-│   │   ├── todo.md                   # Progress + decisions + ideas
-│   │   ├── reference/                # Raw client data (inbox)
-│   │   ├── brand-data/               # Processed assets (logos, guidelines)
-│   │   └── artifacts/                # AI-generated deliverables
+│   │   ├── context.md           # The primary source of truth for this brand
+│   │   ├── todo.md              # Active tasks and decisions made
+│   │   └── reference/           # Raw client data, interview transcripts, PDFs
 │   └── [brand-name]/                 # Actual brand (copy from _brand-template)
 │
 ├── _industry-template/               # Copy when adding a new industry
@@ -27,9 +25,7 @@ brands/
 │   └── _brand-template/
 │       ├── context.md
 │       ├── todo.md
-│       ├── reference/.gitkeep
-│       ├── brand-data/.gitkeep
-│       └── artifacts/.gitkeep
+│       └── reference/.gitkeep
 │
 └── README.md                         # This file
 ```
@@ -102,17 +98,8 @@ Everything an AI needs to know about this specific brand. See the template for a
 
 Living document with: completed work, in-progress items, planned tasks, decisions log, and ideas parking lot.
 
-### `reference/` — Raw Client Data (Inbox)
-
-Drop files as-is: briefs, meeting notes, screenshots, spreadsheets. Don't organize — this is the raw input.
-
-### `brand-data/` — Processed Assets
-
-Cleaned, AI-readable brand materials: logos, guidelines, services, contacts. Markdown preferred over PDFs.
-
-### `artifacts/` — AI Deliverables
-
-Everything AI produces: pages, audits, campaigns, reports. Date-stamp files for history.
+### `reference/` — Raw Materials
+Place raw client data here: PDF brand guidelines, old website copy, interview transcripts, meeting notes. The AI will read this to generate new context or content.
 
 ---
 

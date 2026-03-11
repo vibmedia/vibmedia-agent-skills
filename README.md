@@ -45,8 +45,7 @@ See [INSTALL.md](INSTALL.md) for detailed setup across different IDEs and CLI to
 │           ├── todo.md      # Progress + decisions
 │           ├── structure.drawio  # Visual project map
 │           ├── reference/   # Raw client data
-│           ├── brand-data/  # Processed assets
-│           └── artifacts/   # AI deliverables
+│           └── brand-data/  # Processed assets
 ├── docs/                    # How-to guides
 ├── rules/                   # Global rules
 └── scripts/                 # Master validation scripts

@@ -136,11 +136,13 @@ nano .agent/brands/saas/acme-corp/context.md
 ```
 brands/saas/acme-corp/
 ├── context.md          # Brand identity + profile: marketing
-├── todo.md             # Progress, decisions, ideas
-├── structure.drawio    # Visual project map (draw.io)
-├── reference/          # Raw client data (inbox)
-├── brand-data/         # Processed assets (logos, guidelines)
-└── artifacts/          # AI-generated deliverables
+├── todo.md             #Every brand gets its own folder:
+
+```
+brands/[industry]/[brand-name]/
+├── context.md          # Define voice, target audience, products
+├── todo.md             # Keep track of progress and open questions
+└── reference/          # Raw materials (brand guidelines, old copy)
 ```
 
 ### Switching Brands

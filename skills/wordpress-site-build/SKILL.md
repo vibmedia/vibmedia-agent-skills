@@ -123,7 +123,8 @@ profile: marketing
 | Data pending | Add placeholder with visible marker | `[PENDING: Company Logo]` |
 | Data irrelevant | Skip section, note in build log | ⏭️ |
 
-**Pending tracking:** Maintain a `pending-items.md` in the brand's `artifacts/` folder.
+**Pending tracking:** Maintain a `pending-items.md` in the project root directory.
+Whenever a step requires client input/approval, mark it as `[PENDING]` on the checklist and log the required item in `pending-items.md`. Proceed with other non-blocking steps.
 
 ## Output Format
 
