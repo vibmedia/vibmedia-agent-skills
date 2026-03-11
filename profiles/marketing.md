@@ -9,7 +9,11 @@
 
 | Agent | Role |
 |-------|------|
-| `seo-specialist` | Rankings, visibility |
+| `seo-specialist` | Rankings, visibility, local SEO |
+| `wordpress-site-builder` | End-to-end WordPress builds via MCP |
+| `local-seo-manager` | GMB, citations, reviews, local search |
+| `listing-automation` | Platform listings (Zomato, Swiggy, Amazon, Flipkart) |
+| `client-coordinator` | Client communication, data collection, approvals |
 | `product-manager` | Requirements, user stories |
 | `product-owner` | Strategy, backlog |
 | `documentation-writer` | Content, guides |
@@ -22,6 +26,7 @@
 | Agent | When |
 |-------|------|
 | `orchestrator` | Multi-agent coordination |
+| `crocoblock-specialist` | Dynamic data architecture (CPTs, JetEngine) |
 | `backend-specialist` | When marketing needs API integrations |
 | `project-planner` | Campaign planning |
 
@@ -46,6 +51,15 @@
 
 ### Analytics
 `analytics-tracking` · `ab-test-setup`
+
+### WordPress & Site Building
+`wordpress-mcp-bundle` · `wordpress-site-build` · `envato-template-selection`
+
+### Local SEO & Listings
+`local-seo` · `google-my-business` · `business-listing`
+
+### Client Communication
+`client-communication`
 
 ### Growth & Strategy
 `free-tool-strategy` · `referral-program` · `marketing-ideas` · `marketing-psychology` · `launch-strategy` · `pricing-strategy` · `competitor-alternatives` · `churn-prevention`

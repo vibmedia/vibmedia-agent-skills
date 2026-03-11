@@ -8,9 +8,9 @@
 
 Antigravity Kit is a modular system consisting of:
 
-- **21 Specialist Agents** - Role-based AI personas
-- **86 Skills** - Domain-specific knowledge modules
-- **26 Slash Commands** - Slash command procedures
+- **26 Specialist Agents** - Role-based AI personas
+- **93 Skills** - Domain-specific knowledge modules
+- **30 Slash Commands** - Slash command procedures
 
 ---
 
@@ -23,8 +23,8 @@ Antigravity Kit is a modular system consisting of:
 ├── ARCHITECTURE.md          # This file
 ├── structure.drawio          # Visual system map (draw.io)
 ├── profiles/                # Project-type routing (3 profiles)
-├── agents/                  # 21 Specialist Agents
-├── skills/                  # 85 Skills (tagged: dev|marketing|shared)
+├── agents/                  # 26 Specialist Agents
+├── skills/                  # 93 Skills (tagged: dev|marketing|shared)
 ├── workflows/               # 26 Slash Commands
 ├── brands/                  # Industry → Brand context folders
 ├── docs/                    # Authoring guides (5 files)
@@ -34,7 +34,7 @@ Antigravity Kit is a modular system consisting of:
 
 ---
 
-## 🤖 Agents (21)
+## 🤖 Agents (26)
 
 Specialist AI personas for different domains.
 
@@ -61,10 +61,15 @@ Specialist AI personas for different domains.
 | `code-archaeologist`     | Legacy code, refactoring   | clean-code, code-review-checklist                        |
 | `code-reviewer`          | Code quality review        | requesting-code-review, receiving-code-review            |
 | `explorer-agent`         | Codebase analysis          | -                                                        |
+| `wordpress-site-builder` | WordPress site builds      | wordpress-mcp-bundle, wordpress-site-build, envato-template-selection |
+| `local-seo-manager`      | Local SEO, GMB, citations  | local-seo, google-my-business, seo-fundamentals          |
+| `listing-automation`     | Platform listings          | business-listing, client-communication, copywriting      |
+| `client-coordinator`     | Client comms, approvals    | client-communication, brainstorming                      |
+| `crocoblock-specialist`  | Dynamic data, JetEngine    | frontend-design                                          |
 
 ---
 
-## 🧩 Skills (79)
+## 🧩 Skills (93)
 
 Modular knowledge domains that agents can load on-demand based on task context.
 
@@ -163,6 +168,28 @@ Modular knowledge domains that agents can load on-demand based on task context.
 | `ai-seo`           | AI search optimization (AEO, GEO, LLMO) |
 | `programmatic-seo` | Scaled page generation                  |
 | `schema-markup`    | Structured data / JSON-LD               |
+
+### WordPress & Site Building
+
+| Skill                        | Profile   | Description                                           |
+| ---------------------------- | --------- | ----------------------------------------------------- |
+| `wordpress-mcp-bundle`       | marketing | MCP tools for Elementor, JetEngine, WordPress REST    |
+| `wordpress-site-build`       | marketing | End-to-end WordPress build checklist (5 phases)       |
+| `envato-template-selection`  | marketing | Envato Elementor Kit search, evaluation, plugin mgmt  |
+
+### Local SEO & Listings
+
+| Skill                  | Profile   | Description                                           |
+| ---------------------- | --------- | ----------------------------------------------------- |
+| `local-seo`            | marketing | NAP consistency, citations, local pack optimization   |
+| `google-my-business`   | marketing | GMB profiles, reviews, Google Posts, API integration   |
+| `business-listing`     | marketing | Platform listings with harness pattern (Zomato, etc.) |
+
+### Client Communication
+
+| Skill                  | Profile   | Description                                           |
+| ---------------------- | --------- | ----------------------------------------------------- |
+| `client-communication` | marketing | WhatsApp/Evolution API, OTP relay, approvals, pending |
 
 ### Marketing & CRO
 
@@ -272,6 +299,10 @@ Slash command procedures. Invoke with `/command`.
 | `/update`           | Sync system after changes |
 | `/audit-goals`      | Goal gap analysis         |
 | `/system-check`     | System health check       |
+| `/build-website`    | WordPress site build      |
+| `/setup-listing`    | Platform listing setup    |
+| `/local-seo-setup`  | Local SEO + GMB setup     |
+| `/client-verify`    | Client data verification  |
 
 ---
 
@@ -382,12 +413,12 @@ brands/
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
-| **Total Agents**    | 21                            |
-| **Total Skills**    | 86                            |
-| **Total Workflows** | 26                            |
+| **Total Agents**    | 26                            |
+| **Total Skills**    | 93                            |
+| **Total Workflows** | 30                            |
 | **Profiles**        | 3 (dev, marketing, hybrid)    |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
-| **Coverage**        | ~98% web/mobile/marketing     |
+| **Coverage**        | ~99% web/mobile/marketing     |
 
 ---
 
@@ -404,6 +435,10 @@ brands/
 | Debug    | `debugger`            | systematic-debugging                   |
 | Plan     | `project-planner`     | brainstorming, plan-writing            |
 | SEO      | `seo-specialist`      | seo-audit, ai-seo, schema-markup       |
+| Local SEO| `local-seo-manager`   | local-seo, google-my-business          |
+| WordPress| `wordpress-site-builder` | wordpress-mcp-bundle, wordpress-site-build |
+| Listings | `listing-automation`  | business-listing, client-communication |
+| Client   | `client-coordinator`  | client-communication                   |
 | Copy     | (skill-based)         | copywriting, copy-editing              |
 | CRO      | (skill-based)         | page-cro, signup-flow-cro              |
 | Ads      | (skill-based)         | paid-ads, ad-creative                  |

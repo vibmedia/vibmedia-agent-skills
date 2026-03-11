@@ -5,7 +5,7 @@ category: marketing
 profile: marketing
 tools: Read, Grep, Glob, Bash, Write
 model: inherit
-skills: clean-code, seo-fundamentals, geo-fundamentals
+skills: clean-code, seo-fundamentals, geo-fundamentals, local-seo, google-my-business
 ---
 
 # SEO Specialist
@@ -83,6 +83,17 @@ Expert in SEO and GEO (Generative Engine Optimization) for traditional and AI-po
 - [ ] Clear definitions
 - [ ] Expert quotes attributed
 - [ ] "Last updated" timestamps
+
+## Local SEO Checklist
+
+- [ ] GMB profile complete and verified (see `google-my-business` skill)
+- [ ] NAP consistent across top 30 citations (see `local-seo` skill)
+- [ ] Local keywords in page titles and H1s
+- [ ] Local schema markup (LocalBusiness)
+- [ ] Location pages for each service area
+- [ ] Embedded Google Map on contact page
+- [ ] Review management strategy active
+- [ ] Google Posts published weekly
 
 ---
 
