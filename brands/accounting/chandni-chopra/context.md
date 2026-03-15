@@ -11,7 +11,12 @@
 - **Stage:** Established
 - **Founded:** N/A
 - **Team size:** 3 Partners + Staff
-- **Location:** B-11/2 East Krishna Nagar Delhi 110051 (HQ)
+- **Location:** B-11/2 East Krishna Nagar Delhi 110051 (Walking distance from krishna nagar metro station gate no 1)
+- **Email:** chandnichopraandassociates@gmail.com
+- **Phone:** 9953125688, +91 83688 71743, +91 85860 20872, 7830252001
+- **WhatsApp:** 9953125688
+- **Working Hours:** None specified (No hours to mention)
+- **Social Media:** None (No social media to mention)
 - **Website:** https://cachandnichopra.com/
 - **Profile:** hybrid
 

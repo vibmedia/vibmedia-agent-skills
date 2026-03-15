@@ -6,6 +6,13 @@ Master Checklist Runner - Antigravity Kit
 Orchestrates all validation scripts in priority order.
 Use this for incremental validation during development.
 
+> **HYBRID APPROACH CONTEXT (Vibhor Rule):**
+> `.py` scripts in the Antigravity Kit are ONLY used for tasks that 
+> Markdown files cannot perform natively — like making HTTP requests, 
+> scraping, or file-system scanning. The *source of truth* for project 
+> objectives, plans, and manual checklists must ALWAYS remain in the 
+> `.md` format. Scripts are utilitarian tools, not project logs.
+
 Usage:
     python scripts/checklist.py .                    # Run core checks
     python scripts/checklist.py . --url <URL>        # Include performance checks
@@ -87,7 +94,7 @@ def run_script(name: str, script_path: Path, project_path: str, url: Optional[st
     print_step(f"Running: {name}")
     
     # Build command
-    cmd = ["python", str(script_path), project_path]
+    cmd = ["python3", str(script_path), project_path]
     if url and ("lighthouse" in script_path.name.lower() or "playwright" in script_path.name.lower()):
         cmd.append(url)
     

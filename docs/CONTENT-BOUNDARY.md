@@ -23,6 +23,25 @@
 | **Client data** (names, URLs, credentials) | `brands/[industry]/[brand]/context.md` | "cachandnichopra.com", "Raj's Kitchen" |
 | **Project output** (code, deliverables, copy) | **Outside** `.agent/` (Project Root) | `src/`, `docs/`, `public/`, `project-copy.md` |
 | **Project PRDs/Plans** | **Outside** `.agent/` (Project Root) | `.claude/`, `docs/`, root directory |
+| **Executables/Utilities** (pings, checks, automations) | `scripts/` (`.py`, `.sh`) | `checklist.py`, `wordpress_checklist.py` |
+
+---
+
+## The Hybrid Approach (Markdown & Scripts)
+
+> **VIBHOR'S RULE OF TRUTH:** The `.agent` system and all project logic runs on Markdown (`.md`). Python (`.py`) scripts are strictly edge-case tools, never the master plan.
+
+1. **When to use Markdown (`.md`) - ALWAYS DEFAULT HERE**
+   - Project goals, plans, and task trackers (`task.md`, `implementation_plan.md`).
+   - Manual checklists and standard operating procedures (SOPs).
+   - Rules, architecture, and brand definitions.
+   - *If a human needs to read it to understand context, it belongs in Markdown.*
+
+2. **When to use Scripts (`.py` / `.sh`) - EXCEPTIONS ONLY**
+   - When a task requires an HTTP request, SSL ping, or API call that raw text cannot compute.
+   - When running automated Regex scans across thousands of files (e.g., `verify_boundary.py`).
+   - When programmatically scraping or parsing a live URL.
+   - *Scripts must only execute discrete mechanical actions and report back to the AI/Human; they do not hold project truth or goals.*
 
 ---
 

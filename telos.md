@@ -76,6 +76,7 @@ Provide a modular, extensible AI agent toolkit where every component (agent, ski
 
 > Newest entries first. These override any conflicting information above.
 
+- 2026-03-15: Formalized "Vibhor Rule" (Markdown Truth) in `ARCHITECTURE.md` and `CONTENT-BOUNDARY.md`. Added `wordpress_checklist.py` and updated infrastructure to use `python3`.
 - 2026-03-04: Integrated GitHub MCP using provided PAT and created `github-mcp` skill.
 - 2026-03-04: Built the 6 missing enterprise skills (`data-analysis`, `prompt-engineering`, `cloud-infrastructure`, `web3-smart-contracts`, `design-system-architecture`, `ml-engineer`).
 - 2026-03-04: Documented missing skill domains for future development and removed temporary local `.agent/GEMINI.md` junction to fix IDE rule duplication.

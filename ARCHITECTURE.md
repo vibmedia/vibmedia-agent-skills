@@ -341,10 +341,13 @@ Master validation scripts that orchestrate skill-level scripts.
 
 ### Master Scripts
 
-| Script          | Purpose                                 | When to Use              |
-| --------------- | --------------------------------------- | ------------------------ |
-| `checklist.py`  | Priority-based validation (Core checks) | Development, pre-commit  |
-| `verify_all.py` | Comprehensive verification (All checks) | Pre-deployment, releases |
+| Script                 | Purpose                                 | When to Use              |
+| ---------------------- | --------------------------------------- | ------------------------ |
+| `checklist.py`         | Priority-based validation (Core checks) | Development, pre-commit  |
+| `verify_all.py`        | Comprehensive verification (All checks) | Pre-deployment, releases |
+| `wordpress_checklist.py`| Extensive WP-specific pre-flight audit  | WordPress Site Launches  |
+
+> **VIBHOR'S HYBRID RULE:** Python (`.py`) scripts are strictly for utilitarian tasks that require compute/network requests (e.g., pinging a URL). The *Master Source of Truth*, plans, and checklists for a project must **always** remain in Markdown (`.md`).
 
 ### Usage
 
