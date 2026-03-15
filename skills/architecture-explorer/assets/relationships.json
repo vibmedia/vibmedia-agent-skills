@@ -2,418 +2,106 @@
   "nodes": [
     {
       "id": "root",
-      "name": "travel_ai",
+      "name": ".agent",
       "type": "server",
       "level": 0,
-      "path": "/nara/travel_ai",
+      "path": "/nara/projectCA/.agent",
       "content": ""
     },
     {
-      "id": "inspect_kuma_db.py",
-      "name": "inspect_kuma_db.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/inspect_kuma_db.py",
-      "content": ""
-    },
-    {
-      "id": "reset_kuma_users.py",
-      "name": "reset_kuma_users.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/reset_kuma_users.py",
-      "content": ""
-    },
-    {
-      "id": "rewrite.py",
-      "name": "rewrite.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/rewrite.py",
-      "content": ""
-    },
-    {
-      "id": "scenario_a.py",
-      "name": "scenario_a.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/scenario_a.py",
-      "content": ""
-    },
-    {
-      "id": "scenario_b.py",
-      "name": "scenario_b.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/scenario_b.py",
-      "content": ""
-    },
-    {
-      "id": "test_flows.py",
-      "name": "test_flows.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/test_flows.py",
-      "content": ""
-    },
-    {
-      "id": "test_supabase_async.py",
-      "name": "test_supabase_async.py",
-      "type": "node",
-      "level": 1,
-      "path": "/nara/travel_ai/test_supabase_async.py",
-      "content": ""
-    },
-    {
-      "id": "app",
-      "name": "app",
+      "id": ".shared",
+      "name": ".shared",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/app",
+      "path": "/nara/projectCA/.agent/.shared",
       "content": ""
     },
     {
-      "id": "app/__init__.py",
-      "name": "__init__.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/__init__.py",
-      "content": ""
-    },
-    {
-      "id": "app/config.py",
-      "name": "config.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/config.py",
-      "content": "The Journey Books \u2014 Bot Configuration Loads settings from .env + Supabase bot_settings table."
-    },
-    {
-      "id": "app/generate_scenarios.py",
-      "name": "generate_scenarios.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/generate_scenarios.py",
-      "content": ""
-    },
-    {
-      "id": "app/live_e2e.py",
-      "name": "live_e2e.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/live_e2e.py",
-      "content": ""
-    },
-    {
-      "id": "app/main.py",
-      "name": "main.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/main.py",
-      "content": "The Journey Books \u2014 WhatsApp Automation Bot FastAPI Application Entry Point Endpoints: - POST /webhook/evolution \u2014 receives all WhatsApp messages from Evolution API - POST /webhook/sheets \u2014 receives PAID/KILL/PAUSE signals from Google Sheets - GET /health \u2014 health check - GET /api/settings \u2014 get bot settings - POST /api/settings \u2014 update bot settings - GET /api/leads \u2014 list leads - POST /api/leads/{id}/kill \u2014 toggle kill switch - POST /api/leads/{id}/pause \u2014 toggle pause switch"
-    },
-    {
-      "id": "app/run_e2e.py",
-      "name": "run_e2e.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/run_e2e.py",
-      "content": ""
-    },
-    {
-      "id": "app/run_tests.py",
-      "name": "run_tests.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/run_tests.py",
-      "content": ""
-    },
-    {
-      "id": "app/start_user_test.py",
-      "name": "start_user_test.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/start_user_test.py",
-      "content": ""
-    },
-    {
-      "id": "app/graph",
-      "name": "graph",
+      "id": ".shared/ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
       "type": "service",
       "level": 2,
-      "path": "/nara/travel_ai/app/graph",
+      "path": "/nara/projectCA/.agent/.shared/ui-ux-pro-max",
       "content": ""
     },
     {
-      "id": "app/graph/__init__.py",
-      "name": "__init__.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/graph/__init__.py",
-      "content": ""
-    },
-    {
-      "id": "app/graph/builder.py",
-      "name": "builder.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/graph/builder.py",
-      "content": "LangGraph Builder \u2014 Constructs the conversation graph with checkpointing. Phase 1: Human-First flow (Inquiry \u2192 Info Dump \u2192 Gatekeeper \u2192 Handoff)."
-    },
-    {
-      "id": "app/graph/state.py",
-      "name": "state.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/graph/state.py",
-      "content": "LangGraph Conversation State \u2014 the data that flows through every node."
-    },
-    {
-      "id": "app/models",
-      "name": "models",
-      "type": "service",
-      "level": 2,
-      "path": "/nara/travel_ai/app/models",
-      "content": ""
-    },
-    {
-      "id": "app/models/__init__.py",
-      "name": "__init__.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/models/__init__.py",
-      "content": ""
-    },
-    {
-      "id": "app/models/schemas.py",
-      "name": "schemas.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/models/schemas.py",
-      "content": "Pydantic models for leads, trips, messages, and settings."
-    },
-    {
-      "id": "app/services",
-      "name": "services",
-      "type": "service",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services",
-      "content": ""
-    },
-    {
-      "id": "app/services/__init__.py",
-      "name": "__init__.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/__init__.py",
-      "content": ""
-    },
-    {
-      "id": "app/services/audit.py",
-      "name": "audit.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/audit.py",
-      "content": "Audit Log Service \u2014 Filesystem-based history for all Evolution API interactions. Logs every inbound/outbound message, admin command, and workflow run to structured JSON files in the logs/ directory."
-    },
-    {
-      "id": "app/services/auto_tester.py",
-      "name": "auto_tester.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/auto_tester.py",
-      "content": ""
-    },
-    {
-      "id": "app/services/content.py",
-      "name": "content.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/content.py",
-      "content": "Content Manager \u2014 Serves trip PDFs, photos, and videos from the filesystem."
-    },
-    {
-      "id": "app/services/evolution.py",
-      "name": "evolution.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/evolution.py",
-      "content": "Evolution API Client \u2014 Send and receive WhatsApp messages. Wraps all HTTP calls to the Evolution API gateway."
-    },
-    {
-      "id": "app/services/llm.py",
-      "name": "llm.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/llm.py",
-      "content": "LLM Router \u2014 Multi-provider LLM with automatic fallback. Supports: - Gemini (Google) \u2014 great for testing, generous free tier - Grok (xAI) \u2014 fast, good for production - OpenAI \u2014 GPT-4o-mini, reliable fallback - Ollama \u2014 local LLMs, no API key needed Uses LangChain's unified interface so structured output, guardrails, and conversation history all work identically regardless of which provider is active. Set LLM_PROVIDER in .env to switch providers."
-    },
-    {
-      "id": "app/services/supabase_client.py",
-      "name": "supabase_client.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/services/supabase_client.py",
-      "content": "Supabase Client \u2014 All database operations. Supabase is the SINGLE SOURCE OF TRUTH for the entire system."
-    },
-    {
-      "id": "app/utils",
-      "name": "utils",
-      "type": "service",
-      "level": 2,
-      "path": "/nara/travel_ai/app/utils",
-      "content": ""
-    },
-    {
-      "id": "app/utils/__init__.py",
-      "name": "__init__.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/utils/__init__.py",
-      "content": ""
-    },
-    {
-      "id": "app/utils/guardrails.py",
-      "name": "guardrails.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/utils/guardrails.py",
-      "content": "Anti-Hallucination Guardrails \u2014 Output validation for LLM responses. Ensures the bot: 1. Never fabricates trip details not in the source data 2. Never discusses pricing or discounts 3. Never makes booking promises 4. Never outputs overly long messages"
-    },
-    {
-      "id": "app/utils/text.py",
-      "name": "text.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/utils/text.py",
-      "content": "Message Templates \u2014 Pre-written WhatsApp messages used throughout the bot."
-    },
-    {
-      "id": "app/utils/timing.py",
-      "name": "timing.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/app/utils/timing.py",
-      "content": "Timing Utilities \u2014 Delay calculations, quiet hours, timezone handling."
-    },
-    {
-      "id": "content",
-      "name": "content",
+      "id": "agents",
+      "name": "agents",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/content",
+      "path": "/nara/projectCA/.agent/agents",
       "content": ""
     },
     {
-      "id": "content/trips",
-      "name": "trips",
-      "type": "service",
-      "level": 2,
-      "path": "/nara/travel_ai/content/trips",
-      "content": ""
-    },
-    {
-      "id": "credentials",
-      "name": "credentials",
+      "id": "brands",
+      "name": "brands",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/credentials",
+      "path": "/nara/projectCA/.agent/brands",
       "content": ""
     },
     {
-      "id": "dashboard",
-      "name": "dashboard",
-      "type": "service",
-      "level": 1,
-      "path": "/nara/travel_ai/dashboard",
-      "content": ""
-    },
-    {
-      "id": "dashboard/app.js",
-      "name": "app.js",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/dashboard/app.js",
-      "content": ""
-    },
-    {
-      "id": "data",
-      "name": "data",
-      "type": "service",
-      "level": 1,
-      "path": "/nara/travel_ai/data",
-      "content": ""
-    },
-    {
-      "id": "data/sync_csv.py",
-      "name": "sync_csv.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/data/sync_csv.py",
-      "content": "CSV \u2192 Supabase Sync Script Reads CSVs from data/ directory and upserts into Supabase tables. Usage: python data/sync_csv.py"
-    },
-    {
-      "id": "deploy",
-      "name": "deploy",
-      "type": "service",
-      "level": 1,
-      "path": "/nara/travel_ai/deploy",
-      "content": ""
-    },
-    {
-      "id": "deploy/bot-engine",
-      "name": "bot-engine",
+      "id": "brands/_industry-template",
+      "name": "_industry-template",
       "type": "service",
       "level": 2,
-      "path": "/nara/travel_ai/deploy/bot-engine",
+      "path": "/nara/projectCA/.agent/brands/_industry-template",
       "content": ""
     },
     {
-      "id": "deploy/evolution-api",
-      "name": "evolution-api",
+      "id": "brands/_template",
+      "name": "_template",
       "type": "service",
       "level": 2,
-      "path": "/nara/travel_ai/deploy/evolution-api",
+      "path": "/nara/projectCA/.agent/brands/_template",
       "content": ""
     },
     {
-      "id": "deploy/supabase",
-      "name": "supabase",
+      "id": "brands/accounting",
+      "name": "accounting",
       "type": "service",
       "level": 2,
-      "path": "/nara/travel_ai/deploy/supabase",
+      "path": "/nara/projectCA/.agent/brands/accounting",
       "content": ""
     },
     {
-      "id": "design-system",
-      "name": "design-system",
-      "type": "service",
-      "level": 1,
-      "path": "/nara/travel_ai/design-system",
-      "content": ""
-    },
-    {
-      "id": "design-system/the-journey-books-admin",
-      "name": "the-journey-books-admin",
+      "id": "brands/travel",
+      "name": "travel",
       "type": "service",
       "level": 2,
-      "path": "/nara/travel_ai/design-system/the-journey-books-admin",
+      "path": "/nara/projectCA/.agent/brands/travel",
       "content": ""
     },
     {
-      "id": "humaninput",
-      "name": "humaninput",
+      "id": "docs",
+      "name": "docs",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/humaninput",
+      "path": "/nara/projectCA/.agent/docs",
       "content": ""
     },
     {
-      "id": "nginx",
-      "name": "nginx",
+      "id": "mcp-servers",
+      "name": "mcp-servers",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/nginx",
+      "path": "/nara/projectCA/.agent/mcp-servers",
+      "content": ""
+    },
+    {
+      "id": "profiles",
+      "name": "profiles",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/projectCA/.agent/profiles",
+      "content": ""
+    },
+    {
+      "id": "rules",
+      "name": "rules",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/projectCA/.agent/rules",
       "content": ""
     },
     {
@@ -421,408 +109,885 @@
       "name": "scripts",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/scripts",
+      "path": "/nara/projectCA/.agent/scripts",
       "content": ""
     },
     {
-      "id": "scripts/check_status.py",
-      "name": "check_status.py",
+      "id": "scripts/auto_preview.py",
+      "name": "auto_preview.py",
       "type": "node",
       "level": 2,
-      "path": "/nara/travel_ai/scripts/check_status.py",
+      "path": "/nara/projectCA/.agent/scripts/auto_preview.py",
+      "content": "Auto Preview - Antigravity Kit ============================== Manages (start/stop/status) the local development server for previewing the application. Usage: python .agent/scripts/auto_preview.py start [port] python .agent/scripts/auto_preview.py stop python .agent/scripts/auto_preview.py status"
+    },
+    {
+      "id": "scripts/checklist.py",
+      "name": "checklist.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/scripts/checklist.py",
+      "content": "Master Checklist Runner - Antigravity Kit ========================================== Orchestrates all validation scripts in priority order. Use this for incremental validation during development. > **HYBRID APPROACH CONTEXT (Vibhor Rule):** > `.py` scripts in the Antigravity Kit are ONLY used for tasks that > Markdown files cannot perform natively \u2014 like making HTTP requests, > scraping, or file-system scanning. The *source of truth* for project > objectives, plans, and manual checklists must ALWAYS remain in the > `.md` format. Scripts are utilitarian tools, not project logs. Usage: python scripts/checklist.py . # Run core checks python scripts/checklist.py . --url <URL> # Include performance checks Priority Order: P0: Security Scan (vulnerabilities, secrets) P1: Lint & Type Check (code quality) P2: Schema Validation (if database exists) P3: Test Runner (unit/integration tests) P4: UX Audit (psychology laws, accessibility) P5: SEO Check (meta tags, structure) P6: Performance (lighthouse - requires URL)"
+    },
+    {
+      "id": "scripts/session_manager.py",
+      "name": "session_manager.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/scripts/session_manager.py",
+      "content": "Session Manager - Antigravity Kit ================================= Analyzes project state, detects tech stack, tracks file statistics, and provides a summary of the current session. Usage: python .agent/scripts/session_manager.py status [path] python .agent/scripts/session_manager.py info [path]"
+    },
+    {
+      "id": "scripts/verify_all.py",
+      "name": "verify_all.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/scripts/verify_all.py",
+      "content": "Full Verification Suite - Antigravity Kit ========================================== Runs COMPLETE validation including all checks + performance + E2E. Use this before deployment or major releases. Usage: python scripts/verify_all.py . --url <URL> Includes ALL checks: \u2705 Security Scan (OWASP, secrets, dependencies) \u2705 Lint & Type Coverage \u2705 Schema Validation \u2705 Test Suite (unit + integration) \u2705 UX Audit (psychology, accessibility) \u2705 SEO Check \u2705 Lighthouse (Core Web Vitals) \u2705 Playwright E2E \u2705 Bundle Analysis (if applicable) \u2705 Mobile Audit (if applicable)"
+    },
+    {
+      "id": "scripts/verify_boundary.py",
+      "name": "verify_boundary.py",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/scripts/verify_boundary.py",
       "content": ""
     },
     {
-      "id": "scripts/check_supabase.py",
-      "name": "check_supabase.py",
+      "id": "scripts/wordpress_checklist.py",
+      "name": "wordpress_checklist.py",
       "type": "node",
       "level": 2,
-      "path": "/nara/travel_ai/scripts/check_supabase.py",
-      "content": ""
+      "path": "/nara/projectCA/.agent/scripts/wordpress_checklist.py",
+      "content": "Extensive WordPress Launch Checklist - Antigravity Kit ====================================================== Automated pre-flight checks specifically designed for WordPress sites. Validates SEO, Security, Configuration, and UX standards without failing on standard software dev metrics (like missing linters). > **HYBRID APPROACH CONTEXT (Vibhor Rule):** > `.py` scripts in the Antigravity Kit are ONLY used for tasks that > Markdown files cannot perform natively \u2014 like making HTTP requests, > pinging URLs, checking SSL certificates, and hitting APIs. > > The *source of truth* for project objectives, plans, and manual > checklists must ALWAYS remain in the `.md` format (e.g., `task.md`, > `requirements.md`). These `.py` files are strictly utilitarian tools > to assist the Markdown workflows, never to replace them. Usage: python3 scripts/wordpress_checklist.py https://example.com"
     },
     {
-      "id": "scripts/debug_trips.py",
-      "name": "debug_trips.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/debug_trips.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/get_qr.py",
-      "name": "get_qr.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/get_qr.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/guardian_runner.py",
-      "name": "guardian_runner.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/guardian_runner.py",
-      "content": "System Guardian \u2014 Automated Health Checks & Bodyguard for The Journey Books. Monitors bot connectivity, admin group membership, and alerts on issues."
-    },
-    {
-      "id": "scripts/inspect_constraints.py",
-      "name": "inspect_constraints.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/inspect_constraints.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/inspect_schema.py",
-      "name": "inspect_schema.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/inspect_schema.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/seed_data.py",
-      "name": "seed_data.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/seed_data.py",
-      "content": "Seed Data \u2014 Insert sample trip data for testing. Run: python -m scripts.seed_data"
-    },
-    {
-      "id": "scripts/seed_supabase.py",
-      "name": "seed_supabase.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/seed_supabase.py",
-      "content": "Seed Supabase tables with current trip data, settings, and whitelist."
-    },
-    {
-      "id": "scripts/seed_trips.py",
-      "name": "seed_trips.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/seed_trips.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/send_qr_to_admin.py",
-      "name": "send_qr_to_admin.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/send_qr_to_admin.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/sheets_supabase_sync.py",
-      "name": "sheets_supabase_sync.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/sheets_supabase_sync.py",
-      "content": "Google Sheets \u2194 Supabase LIVE Sync Script Runs every 5 minutes via cron. Flow: 1. Download the unified Google Sheet workbook (as xlsx) via rclone 2. Extract each tab to CSV using openpyxl 3. Upsert into Supabase tables 4. Export Supabase leads \u2192 CSV \u2192 upload back to Drive"
-    },
-    {
-      "id": "scripts/simulate_booking.py",
-      "name": "simulate_booking.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/simulate_booking.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/simulate_scenarios.py",
-      "name": "simulate_scenarios.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/simulate_scenarios.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/simulate_webhook.py",
-      "name": "simulate_webhook.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/simulate_webhook.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/test_media.py",
-      "name": "test_media.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/test_media.py",
-      "content": ""
-    },
-    {
-      "id": "scripts/update_db_schema.py",
-      "name": "update_db_schema.py",
-      "type": "node",
-      "level": 2,
-      "path": "/nara/travel_ai/scripts/update_db_schema.py",
-      "content": ""
-    },
-    {
-      "id": "website",
-      "name": "website",
+      "id": "skills",
+      "name": "skills",
       "type": "service",
       "level": 1,
-      "path": "/nara/travel_ai/website",
+      "path": "/nara/projectCA/.agent/skills",
+      "content": ""
+    },
+    {
+      "id": "skills/ab-test-setup",
+      "name": "ab-test-setup",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/ab-test-setup",
+      "content": ""
+    },
+    {
+      "id": "skills/ad-creative",
+      "name": "ad-creative",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/ad-creative",
+      "content": ""
+    },
+    {
+      "id": "skills/ai-seo",
+      "name": "ai-seo",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/ai-seo",
+      "content": ""
+    },
+    {
+      "id": "skills/analytics-tracking",
+      "name": "analytics-tracking",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/analytics-tracking",
+      "content": ""
+    },
+    {
+      "id": "skills/api-patterns",
+      "name": "api-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/api-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/app-builder",
+      "name": "app-builder",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/app-builder",
+      "content": ""
+    },
+    {
+      "id": "skills/architecture",
+      "name": "architecture",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/architecture",
+      "content": ""
+    },
+    {
+      "id": "skills/architecture-explorer",
+      "name": "architecture-explorer",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/architecture-explorer",
+      "content": ""
+    },
+    {
+      "id": "skills/bash-linux",
+      "name": "bash-linux",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/bash-linux",
+      "content": ""
+    },
+    {
+      "id": "skills/behavioral-modes",
+      "name": "behavioral-modes",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/behavioral-modes",
+      "content": ""
+    },
+    {
+      "id": "skills/brainstorming",
+      "name": "brainstorming",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/brainstorming",
+      "content": ""
+    },
+    {
+      "id": "skills/business-listing",
+      "name": "business-listing",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/business-listing",
+      "content": ""
+    },
+    {
+      "id": "skills/churn-prevention",
+      "name": "churn-prevention",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/churn-prevention",
+      "content": ""
+    },
+    {
+      "id": "skills/clean-code",
+      "name": "clean-code",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/clean-code",
+      "content": ""
+    },
+    {
+      "id": "skills/client-communication",
+      "name": "client-communication",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/client-communication",
+      "content": ""
+    },
+    {
+      "id": "skills/cloud-infrastructure",
+      "name": "cloud-infrastructure",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/cloud-infrastructure",
+      "content": ""
+    },
+    {
+      "id": "skills/code-review-checklist",
+      "name": "code-review-checklist",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/code-review-checklist",
+      "content": ""
+    },
+    {
+      "id": "skills/cold-email",
+      "name": "cold-email",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/cold-email",
+      "content": ""
+    },
+    {
+      "id": "skills/competitor-alternatives",
+      "name": "competitor-alternatives",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/competitor-alternatives",
+      "content": ""
+    },
+    {
+      "id": "skills/composition-patterns",
+      "name": "composition-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/composition-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/content-strategy",
+      "name": "content-strategy",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/content-strategy",
+      "content": ""
+    },
+    {
+      "id": "skills/copy-editing",
+      "name": "copy-editing",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/copy-editing",
+      "content": ""
+    },
+    {
+      "id": "skills/copywriting",
+      "name": "copywriting",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/copywriting",
+      "content": ""
+    },
+    {
+      "id": "skills/data-analysis",
+      "name": "data-analysis",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/data-analysis",
+      "content": ""
+    },
+    {
+      "id": "skills/database-design",
+      "name": "database-design",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/database-design",
+      "content": ""
+    },
+    {
+      "id": "skills/deployment-procedures",
+      "name": "deployment-procedures",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/deployment-procedures",
+      "content": ""
+    },
+    {
+      "id": "skills/design-system-architecture",
+      "name": "design-system-architecture",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/design-system-architecture",
+      "content": ""
+    },
+    {
+      "id": "skills/documentation-templates",
+      "name": "documentation-templates",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/documentation-templates",
+      "content": ""
+    },
+    {
+      "id": "skills/email-sequence",
+      "name": "email-sequence",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/email-sequence",
+      "content": ""
+    },
+    {
+      "id": "skills/envato-template-selection",
+      "name": "envato-template-selection",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/envato-template-selection",
+      "content": ""
+    },
+    {
+      "id": "skills/executing-plans",
+      "name": "executing-plans",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/executing-plans",
+      "content": ""
+    },
+    {
+      "id": "skills/finishing-a-development-branch",
+      "name": "finishing-a-development-branch",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/finishing-a-development-branch",
+      "content": ""
+    },
+    {
+      "id": "skills/form-cro",
+      "name": "form-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/form-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/free-tool-strategy",
+      "name": "free-tool-strategy",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/free-tool-strategy",
+      "content": ""
+    },
+    {
+      "id": "skills/frontend-design",
+      "name": "frontend-design",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/frontend-design",
+      "content": ""
+    },
+    {
+      "id": "skills/game-development",
+      "name": "game-development",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/game-development",
+      "content": ""
+    },
+    {
+      "id": "skills/geo-fundamentals",
+      "name": "geo-fundamentals",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/geo-fundamentals",
+      "content": ""
+    },
+    {
+      "id": "skills/github-mcp",
+      "name": "github-mcp",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/github-mcp",
+      "content": ""
+    },
+    {
+      "id": "skills/google-my-business",
+      "name": "google-my-business",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/google-my-business",
+      "content": ""
+    },
+    {
+      "id": "skills/i18n-localization",
+      "name": "i18n-localization",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/i18n-localization",
+      "content": ""
+    },
+    {
+      "id": "skills/intelligent-routing",
+      "name": "intelligent-routing",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/intelligent-routing",
+      "content": ""
+    },
+    {
+      "id": "skills/launch-strategy",
+      "name": "launch-strategy",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/launch-strategy",
+      "content": ""
+    },
+    {
+      "id": "skills/lint-and-validate",
+      "name": "lint-and-validate",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/lint-and-validate",
+      "content": ""
+    },
+    {
+      "id": "skills/local-seo",
+      "name": "local-seo",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/local-seo",
+      "content": ""
+    },
+    {
+      "id": "skills/marketing-ideas",
+      "name": "marketing-ideas",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/marketing-ideas",
+      "content": ""
+    },
+    {
+      "id": "skills/marketing-psychology",
+      "name": "marketing-psychology",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/marketing-psychology",
+      "content": ""
+    },
+    {
+      "id": "skills/mcp-builder",
+      "name": "mcp-builder",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/mcp-builder",
+      "content": ""
+    },
+    {
+      "id": "skills/ml-engineer",
+      "name": "ml-engineer",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/ml-engineer",
+      "content": ""
+    },
+    {
+      "id": "skills/mobile-design",
+      "name": "mobile-design",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/mobile-design",
+      "content": ""
+    },
+    {
+      "id": "skills/nextjs-react-expert",
+      "name": "nextjs-react-expert",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/nextjs-react-expert",
+      "content": ""
+    },
+    {
+      "id": "skills/nodejs-best-practices",
+      "name": "nodejs-best-practices",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/nodejs-best-practices",
+      "content": ""
+    },
+    {
+      "id": "skills/notebooklm-rag",
+      "name": "notebooklm-rag",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/notebooklm-rag",
+      "content": ""
+    },
+    {
+      "id": "skills/onboarding-cro",
+      "name": "onboarding-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/onboarding-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/page-cro",
+      "name": "page-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/page-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/paid-ads",
+      "name": "paid-ads",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/paid-ads",
+      "content": ""
+    },
+    {
+      "id": "skills/parallel-agents",
+      "name": "parallel-agents",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/parallel-agents",
+      "content": ""
+    },
+    {
+      "id": "skills/paywall-upgrade-cro",
+      "name": "paywall-upgrade-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/paywall-upgrade-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/performance-profiling",
+      "name": "performance-profiling",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/performance-profiling",
+      "content": ""
+    },
+    {
+      "id": "skills/plan-writing",
+      "name": "plan-writing",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/plan-writing",
+      "content": ""
+    },
+    {
+      "id": "skills/popup-cro",
+      "name": "popup-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/popup-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/powershell-windows",
+      "name": "powershell-windows",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/powershell-windows",
+      "content": ""
+    },
+    {
+      "id": "skills/pricing-strategy",
+      "name": "pricing-strategy",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/pricing-strategy",
+      "content": ""
+    },
+    {
+      "id": "skills/product-marketing-context",
+      "name": "product-marketing-context",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/product-marketing-context",
+      "content": ""
+    },
+    {
+      "id": "skills/programmatic-seo",
+      "name": "programmatic-seo",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/programmatic-seo",
+      "content": ""
+    },
+    {
+      "id": "skills/prompt-engineering",
+      "name": "prompt-engineering",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/prompt-engineering",
+      "content": ""
+    },
+    {
+      "id": "skills/python-patterns",
+      "name": "python-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/python-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/react-native-guidelines",
+      "name": "react-native-guidelines",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/react-native-guidelines",
+      "content": ""
+    },
+    {
+      "id": "skills/receiving-code-review",
+      "name": "receiving-code-review",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/receiving-code-review",
+      "content": ""
+    },
+    {
+      "id": "skills/red-team-tactics",
+      "name": "red-team-tactics",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/red-team-tactics",
+      "content": ""
+    },
+    {
+      "id": "skills/referral-program",
+      "name": "referral-program",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/referral-program",
+      "content": ""
+    },
+    {
+      "id": "skills/requesting-code-review",
+      "name": "requesting-code-review",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/requesting-code-review",
+      "content": ""
+    },
+    {
+      "id": "skills/rust-pro",
+      "name": "rust-pro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/rust-pro",
+      "content": ""
+    },
+    {
+      "id": "skills/schema-markup",
+      "name": "schema-markup",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/schema-markup",
+      "content": ""
+    },
+    {
+      "id": "skills/seo-audit",
+      "name": "seo-audit",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/seo-audit",
+      "content": ""
+    },
+    {
+      "id": "skills/seo-fundamentals",
+      "name": "seo-fundamentals",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/seo-fundamentals",
+      "content": ""
+    },
+    {
+      "id": "skills/server-management",
+      "name": "server-management",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/server-management",
+      "content": ""
+    },
+    {
+      "id": "skills/signup-flow-cro",
+      "name": "signup-flow-cro",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/signup-flow-cro",
+      "content": ""
+    },
+    {
+      "id": "skills/social-content",
+      "name": "social-content",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/social-content",
+      "content": ""
+    },
+    {
+      "id": "skills/subagent-driven-development",
+      "name": "subagent-driven-development",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/subagent-driven-development",
+      "content": ""
+    },
+    {
+      "id": "skills/systematic-debugging",
+      "name": "systematic-debugging",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/systematic-debugging",
+      "content": ""
+    },
+    {
+      "id": "skills/tailwind-patterns",
+      "name": "tailwind-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/tailwind-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/tdd-workflow",
+      "name": "tdd-workflow",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/tdd-workflow",
+      "content": ""
+    },
+    {
+      "id": "skills/testing-patterns",
+      "name": "testing-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/testing-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/typeorm-patterns",
+      "name": "typeorm-patterns",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/typeorm-patterns",
+      "content": ""
+    },
+    {
+      "id": "skills/using-git-worktrees",
+      "name": "using-git-worktrees",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/using-git-worktrees",
+      "content": ""
+    },
+    {
+      "id": "skills/verification-before-completion",
+      "name": "verification-before-completion",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/verification-before-completion",
+      "content": ""
+    },
+    {
+      "id": "skills/vulnerability-scanner",
+      "name": "vulnerability-scanner",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/vulnerability-scanner",
+      "content": ""
+    },
+    {
+      "id": "skills/web-design-guidelines",
+      "name": "web-design-guidelines",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/web-design-guidelines",
+      "content": ""
+    },
+    {
+      "id": "skills/web3-smart-contracts",
+      "name": "web3-smart-contracts",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/web3-smart-contracts",
+      "content": ""
+    },
+    {
+      "id": "skills/webapp-testing",
+      "name": "webapp-testing",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/webapp-testing",
+      "content": ""
+    },
+    {
+      "id": "skills/wordpress-mcp-bundle",
+      "name": "wordpress-mcp-bundle",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/wordpress-mcp-bundle",
+      "content": ""
+    },
+    {
+      "id": "skills/wordpress-site-build",
+      "name": "wordpress-site-build",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/wordpress-site-build",
+      "content": ""
+    },
+    {
+      "id": "skills/writing-skills",
+      "name": "writing-skills",
+      "type": "service",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/writing-skills",
+      "content": ""
+    },
+    {
+      "id": "skills/writing-skills/render-graphs.js",
+      "name": "render-graphs.js",
+      "type": "node",
+      "level": 2,
+      "path": "/nara/projectCA/.agent/skills/writing-skills/render-graphs.js",
+      "content": ""
+    },
+    {
+      "id": "workflows",
+      "name": "workflows",
+      "type": "service",
+      "level": 1,
+      "path": "/nara/projectCA/.agent/workflows",
       "content": ""
     }
   ],
   "links": [
     {
       "source": "root",
-      "target": "inspect_kuma_db.py",
+      "target": ".shared",
+      "type": "hierarchy"
+    },
+    {
+      "source": ".shared",
+      "target": ".shared/ui-ux-pro-max",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "reset_kuma_users.py",
+      "target": "agents",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "rewrite.py",
+      "target": "brands",
+      "type": "hierarchy"
+    },
+    {
+      "source": "brands",
+      "target": "brands/_industry-template",
+      "type": "hierarchy"
+    },
+    {
+      "source": "brands",
+      "target": "brands/_template",
+      "type": "hierarchy"
+    },
+    {
+      "source": "brands",
+      "target": "brands/accounting",
+      "type": "hierarchy"
+    },
+    {
+      "source": "brands",
+      "target": "brands/travel",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "scenario_a.py",
+      "target": "docs",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "scenario_b.py",
+      "target": "mcp-servers",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "test_flows.py",
+      "target": "profiles",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "test_supabase_async.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "app",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/__init__.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/config.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/generate_scenarios.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/live_e2e.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/main.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/run_e2e.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/run_tests.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/start_user_test.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/graph",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/graph",
-      "target": "app/graph/__init__.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/graph",
-      "target": "app/graph/builder.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/graph",
-      "target": "app/graph/state.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/models",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/models",
-      "target": "app/models/__init__.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/models",
-      "target": "app/models/schemas.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/services",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/__init__.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/audit.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/auto_tester.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/content.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/evolution.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/llm.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/services",
-      "target": "app/services/supabase_client.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app",
-      "target": "app/utils",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/utils",
-      "target": "app/utils/__init__.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/utils",
-      "target": "app/utils/guardrails.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/utils",
-      "target": "app/utils/text.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "app/utils",
-      "target": "app/utils/timing.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "content",
-      "type": "hierarchy"
-    },
-    {
-      "source": "content",
-      "target": "content/trips",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "credentials",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "dashboard",
-      "type": "hierarchy"
-    },
-    {
-      "source": "dashboard",
-      "target": "dashboard/app.js",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "data",
-      "type": "hierarchy"
-    },
-    {
-      "source": "data",
-      "target": "data/sync_csv.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "deploy",
-      "type": "hierarchy"
-    },
-    {
-      "source": "deploy",
-      "target": "deploy/bot-engine",
-      "type": "hierarchy"
-    },
-    {
-      "source": "deploy",
-      "target": "deploy/evolution-api",
-      "type": "hierarchy"
-    },
-    {
-      "source": "deploy",
-      "target": "deploy/supabase",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "design-system",
-      "type": "hierarchy"
-    },
-    {
-      "source": "design-system",
-      "target": "design-system/the-journey-books-admin",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "humaninput",
-      "type": "hierarchy"
-    },
-    {
-      "source": "root",
-      "target": "nginx",
+      "target": "rules",
       "type": "hierarchy"
     },
     {
@@ -832,92 +997,512 @@
     },
     {
       "source": "scripts",
-      "target": "scripts/check_status.py",
+      "target": "scripts/auto_preview.py",
       "type": "hierarchy"
     },
     {
       "source": "scripts",
-      "target": "scripts/check_supabase.py",
+      "target": "scripts/checklist.py",
       "type": "hierarchy"
     },
     {
       "source": "scripts",
-      "target": "scripts/debug_trips.py",
+      "target": "scripts/session_manager.py",
       "type": "hierarchy"
     },
     {
       "source": "scripts",
-      "target": "scripts/get_qr.py",
+      "target": "scripts/verify_all.py",
       "type": "hierarchy"
     },
     {
       "source": "scripts",
-      "target": "scripts/guardian_runner.py",
+      "target": "scripts/verify_boundary.py",
       "type": "hierarchy"
     },
     {
       "source": "scripts",
-      "target": "scripts/inspect_constraints.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/inspect_schema.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/seed_data.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/seed_supabase.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/seed_trips.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/send_qr_to_admin.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/sheets_supabase_sync.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/simulate_booking.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/simulate_scenarios.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/simulate_webhook.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/test_media.py",
-      "type": "hierarchy"
-    },
-    {
-      "source": "scripts",
-      "target": "scripts/update_db_schema.py",
+      "target": "scripts/wordpress_checklist.py",
       "type": "hierarchy"
     },
     {
       "source": "root",
-      "target": "website",
+      "target": "skills",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/ab-test-setup",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/ad-creative",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/ai-seo",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/analytics-tracking",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/api-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/app-builder",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/architecture",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/architecture-explorer",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/bash-linux",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/behavioral-modes",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/brainstorming",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/business-listing",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/churn-prevention",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/clean-code",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/client-communication",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/cloud-infrastructure",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/code-review-checklist",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/cold-email",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/competitor-alternatives",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/composition-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/content-strategy",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/copy-editing",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/copywriting",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/data-analysis",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/database-design",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/deployment-procedures",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/design-system-architecture",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/documentation-templates",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/email-sequence",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/envato-template-selection",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/executing-plans",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/finishing-a-development-branch",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/form-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/free-tool-strategy",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/frontend-design",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/game-development",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/geo-fundamentals",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/github-mcp",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/google-my-business",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/i18n-localization",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/intelligent-routing",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/launch-strategy",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/lint-and-validate",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/local-seo",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/marketing-ideas",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/marketing-psychology",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/mcp-builder",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/ml-engineer",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/mobile-design",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/nextjs-react-expert",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/nodejs-best-practices",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/notebooklm-rag",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/onboarding-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/page-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/paid-ads",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/parallel-agents",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/paywall-upgrade-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/performance-profiling",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/plan-writing",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/popup-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/powershell-windows",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/pricing-strategy",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/product-marketing-context",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/programmatic-seo",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/prompt-engineering",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/python-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/react-native-guidelines",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/receiving-code-review",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/red-team-tactics",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/referral-program",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/requesting-code-review",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/rust-pro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/schema-markup",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/seo-audit",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/seo-fundamentals",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/server-management",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/signup-flow-cro",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/social-content",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/subagent-driven-development",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/systematic-debugging",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/tailwind-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/tdd-workflow",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/testing-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/typeorm-patterns",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/using-git-worktrees",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/verification-before-completion",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/vulnerability-scanner",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/web-design-guidelines",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/web3-smart-contracts",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/webapp-testing",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/wordpress-mcp-bundle",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/wordpress-site-build",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills",
+      "target": "skills/writing-skills",
+      "type": "hierarchy"
+    },
+    {
+      "source": "skills/writing-skills",
+      "target": "skills/writing-skills/render-graphs.js",
+      "type": "hierarchy"
+    },
+    {
+      "source": "root",
+      "target": "workflows",
       "type": "hierarchy"
     }
   ]

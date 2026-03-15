@@ -1,6 +1,6 @@
 # Vibmedia Agent Skills
 
-> 🧠 Modular AI agent toolkit — **86 skills**, **21 agents**, **26 workflows**, **3 project profiles** for Antigravity, Claude Code, and AI coding assistants.
+> 🧠 Modular AI agent toolkit — **93 skills**, **26 agents**, **30 workflows**, **3 project profiles** for Antigravity, Claude Code, and AI coding assistants.
 
 Curated and merged from the best open-source AI skill repositories.
 
@@ -30,13 +30,13 @@ See [INSTALL.md](INSTALL.md) for detailed setup across different IDEs and CLI to
 │   ├── dev.md               # Dev skills prioritized
 │   ├── marketing.md         # Marketing skills prioritized
 │   └── hybrid.md            # Both (phase-based)
-├── agents/                  # 21 Specialist AI personas
-├── skills/                  # 77 Domain skills (tagged: dev|marketing|shared)
+├── agents/                  # 26 Specialist AI personas
+├── skills/                  # 93 Domain skills (tagged: dev|marketing|shared)
 │   └── <skill>/
 │       ├── SKILL.md         # Main instructions (required)
 │       ├── references/      # Deep-dive docs (optional)
 │       └── scripts/         # Automation scripts (optional)
-├── workflows/               # 25 Slash command procedures
+├── workflows/               # 30 Slash command procedures
 ├── brands/                  # Industry → Brand context folders
 │   └── <industry>/
 │       ├── _common/         # Shared industry knowledge
@@ -61,7 +61,7 @@ Project-type routing — controls which agents/skills are prioritized.
 | ----------- | ------------------------ | ----------------------- |
 | `dev`       | 22 dev + 27 shared       | Software development    |
 | `marketing` | 29 marketing + 27 shared | Campaigns, CRO, content |
-| `hybrid`    | All 79 (phase-based)     | Build product + grow it |
+| `hybrid`    | All 93 (phase-based)     | Build product + grow it |
 
 Set `profile:` in your brand's `context.md`.
 
@@ -92,6 +92,11 @@ Set `profile:` in your brand's `context.md`.
 | `code-archaeologist`     | Legacy code, refactoring   | dev       |
 | `code-reviewer`          | Code quality review        | dev       |
 | `explorer-agent`         | Codebase analysis          | shared    |
+| `wordpress-site-builder` | WordPress site builds      | marketing |
+| `local-seo-manager`      | Local SEO, GMB, citations  | marketing |
+| `listing-automation`     | Platform listings          | marketing |
+| `client-coordinator`     | Client comms, approvals    | marketing |
+| `crocoblock-specialist`  | Dynamic data, JetEngine    | marketing |
 
 ---
 
@@ -157,9 +162,13 @@ Set `profile:` in your brand's `context.md`.
 
 `game-development`
 
+### WordPress & Marketing Ops (6) — marketing
+
+`wordpress-mcp-bundle` · `wordpress-site-build` · `envato-template-selection` · `local-seo` · `google-my-business` · `business-listing` · `client-communication`
+
 ---
 
-## 🔄 Workflows (26)
+## 🔄 Workflows (30)
 
 | Command             | Description                   |
 | ------------------- | ----------------------------- |
@@ -177,16 +186,21 @@ Set `profile:` in your brand's `context.md`.
 | `/ui-ux-pro-max`    | Design with 50 styles         |
 | `/code-review`      | Technical code review         |
 | `/code-review-fix`  | Fix code review issues        |
-| `/implement-fix`    | Implement fix from RCA        |
 | `/rca`              | Root cause analysis           |
+| `/implement-fix`    | Implement fix from RCA        |
 | `/execution-report` | Implementation report         |
 | `/system-review`    | Analyze against plan          |
 | `/piv-plan`         | Feature plan with analysis    |
 | `/piv-prime`        | Prime agent with codebase     |
+| `/piv-execute`      | Execute PIV plan              |
 | `/validate`         | Validate implementation       |
 | `/update`           | Sync system after changes     |
 | `/audit-goals`      | Goal gap analysis             |
 | `/system-check`     | System health check           |
+| `/build-website`    | WordPress site build          |
+| `/setup-listing`    | Platform listing setup        |
+| `/local-seo-setup`  | Local SEO + GMB setup         |
+| `/client-verify`    | Client data verification      |
 
 ---
 
@@ -210,12 +224,12 @@ Set `profile:` in your brand's `context.md`.
 
 | Metric             | Count |
 | ------------------ | ----- |
-| Agents             | 21    |
-| Skills             | 86    |
-| Workflows          | 26    |
+| Agents             | 26    |
+| Skills             | 93    |
+| Workflows          | 30    |
 | Profiles           | 3     |
-| Reference Files    | 60+   |
-| Validation Scripts | 20    |
+| Reference Files    | 61    |
+| Validation Scripts | 21    |
 
 ---
 
