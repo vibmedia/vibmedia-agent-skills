@@ -66,6 +66,7 @@ Specialist AI personas for different domains.
 | `listing-automation`     | Platform listings          | business-listing, client-communication, copywriting      |
 | `client-coordinator`     | Client comms, approvals    | client-communication, brainstorming                      |
 | `crocoblock-specialist`  | Dynamic data, JetEngine    | frontend-design                                          |
+| `pos-operations-manager` | Petpooja POS & Menu Sync   | petpooja-management, brainstorming                        |
 
 ---
 
@@ -297,6 +298,7 @@ Slash command procedures. Invoke with `/command`.
 | `/execution-report` | Implementation report     |
 | `/system-review`    | Review against plan       |
 | `/update`           | Sync system after changes |
+| `/menu-sync`       | Sync Petpooja Menu CRUD    |
 | `/audit-goals`      | Goal gap analysis         |
 | `/system-check`     | System health check       |
 | `/build-website`    | WordPress site build      |

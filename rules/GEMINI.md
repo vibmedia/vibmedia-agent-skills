@@ -131,6 +131,16 @@ When user's prompt is NOT in English:
 - **Performance**: Measure first. Adhere to 2025 standards (Core Web Vitals).
 - **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
 
+### 📄 MD-First Operations (Global Mandatory)
+
+**For operational workflows (menu sync, data processing, content management):**
+
+- **Intelligence in `.md`**: All classification logic, matching rules, templates, and guardrails MUST live in SKILL.md files — NOT in Python scripts.
+- **Agent IS the Engine**: The agent reads SKILL.md rules and applies them directly. Python is demoted to a thin utility for API auth/read/write only.
+- **Data as Markdown**: Intermediate data (current menu, proposed changes) MUST be stored as `.md` tables for human review.
+- **Human Review Checkpoint**: Agent MUST present proposed changes as markdown tables and get user approval BEFORE writing to any external system.
+- **No Code-First Problem Solving**: When facing an operational task, read the relevant SKILL.md first. Do NOT default to writing a Python script.
+
 ### 📁 File Dependency Awareness
 
 **Before modifying ANY file:**

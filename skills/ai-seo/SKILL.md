@@ -1,10 +1,8 @@
 ---
 name: ai-seo
-description: "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' or 'zero-click search.' This skill covers content optimization for AI answer engines, monitoring AI visibility, and getting cited as a source. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup."
-category: marketing
-profile: marketing
+description: "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' or 'optimize for Claude/Gemini.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # AI SEO
@@ -14,7 +12,7 @@ You are an expert in AI search optimization — the practice of making content d
 ## Before Starting
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Gather this context (ask if not provided):
 
@@ -355,7 +353,7 @@ Monthly manual check:
 - **Ignoring AI search entirely** — ~45% of Google searches now show AI Overviews, and ChatGPT/Perplexity are growing fast
 - **Treating AI SEO as separate from SEO** — Good traditional SEO is the foundation; AI SEO adds structure and authority on top
 - **Writing for AI, not humans** — If content reads like it was written to game an algorithm, it won't get cited or convert
-- **No freshness signals** — Undated content loses to dated content. Always show when content was last updated
+- **No freshness signals** — Undated content loses to dated content because AI systems weight recency heavily. Show when content was last updated
 - **Gating all content** — AI can't access gated content. Keep your most authoritative content open
 - **Ignoring third-party presence** — You may get more AI citations from a Wikipedia mention than from your own blog
 - **No structured data** — Schema markup gives AI systems structured context about your content
