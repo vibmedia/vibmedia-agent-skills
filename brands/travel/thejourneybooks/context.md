@@ -42,7 +42,7 @@ The Journey Books curates affordable group adventure trips across India for youn
 
 ### Secondary Audience
 
-- **Who:** Parents booking for college-age kids, small corporate groups (team outings)
+- **Who:** Small corporate groups (team outings)
 - **Relationship to primary:** Decision maker / Budget holder
 
 ---
@@ -84,10 +84,12 @@ The Journey Books curates affordable group adventure trips across India for youn
 
 - Use casual Hinglish naturally: "Bhai", "Sir", "aap", "ho", "kab"
 - Match the customer's energy — excited → excited, casual → casual
-- Keep messages SHORT — max 2-3 sentences (WhatsApp style)
-- Use 1-2 emojis per message max — don't overdo it 🏔️
+- Keep messages SHORT — max 1-2 sentences (WhatsApp style)
+- Use 0-1 emojis per message max — don't overdo it 🏔️
 - Always speak in first person: "main", "mera", "mere paas"
-- Steer every conversation toward collecting dates + group size → phone call
+- Share trip details for a maximum of 2-4 locations if the user asks for options. If they keep asking for more options, stop sharing and ask to connect on a call.
+- Do not repeat yourself for the same type of response. If the conversation starts looping, stop the AI and hand over to a human.
+- Steer every conversation toward collecting location + dates + group size → time for call  
 
 ### Don'ts
 
@@ -160,7 +162,7 @@ For young Indian travelers (18-35) who want hassle-free group adventures, The Jo
 | Backend | FastAPI + LangGraph (Python) |
 | Database | Self-hosted Supabase (PostgreSQL) |
 | WhatsApp API | Evolution API v2.3.7 (Docker) |
-| LLM | Ollama (local) |
+| LLM | Grok (Primary) / Ollama (local) |
 | Proxy | Traefik |
 | Admin | Google Sheets (unified workbook) |
 | Sync | Cron + openpyxl + rclone |
@@ -187,15 +189,16 @@ For young Indian travelers (18-35) who want hassle-free group adventures, The Jo
 
 | Role | Number | Instance |
 |------|--------|----------|
-| Super Admin | 918810202691 | `customer` |
+| Super Admin | 918810202691 | `superadmin / developer` |
 | Admin | 919217209633 | `journey-books-main` |
 | User (Customer) | 919718204968 | `user-9718204968` |
 
 ## Admin Group
 
-- WhatsApp Group: `TJB Admin Portal 🔑`
-- Group JID: `120363409581729559@g.us`
-- Invite Link: https://chat.whatsapp.com/Jwqjv36JHLYGXPMa6ckX5Z
+- WhatsApp Group: `TJB - Internals`
+- Group JID: `120363420648450531@g.us`
+- Invite Link: https://chat.whatsapp.com/KYN3j4qCDlR2MiQPwfcMv9
+- **System Role:** The backend router (`admin_notifier.py`, `main.py`) monitors this group. Any `/` shortcode sent here triggers admin commands. Any regular message sent by a human here (replying to a lead thread) pauses the bot for that lead.
 
 ## Active Bot Instance
 
@@ -240,7 +243,7 @@ For young Indian travelers (18-35) who want hassle-free group adventures, The Jo
 - **WhatsApp bot is the primary revenue channel** — never break bot endpoints or webhook flows
 - **Supabase is self-hosted** on Coolify — no cloud Supabase APIs, use self-hosted URLs
 - **Admin Sheet is the source of truth** for trip data, bot config, and instance settings
-- **LLM runs on Ollama (local)** — consider context window limits (~4K tokens)
+- **LLM runs primarily on Grok** (with Ollama available locally). Consider context window limits and cost optimizations.
 - **Bot voice = Hinglish** — all bot-generated content must match TJB brand voice
 - **Website must work on slow mobile connections** — target 3G India, keep bundle small
 - **NEVER reveal bot is AI** — all bot interactions present as a real person named by instance

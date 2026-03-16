@@ -323,3 +323,12 @@ When user's prompt is NOT in English:
 - **Audits**: `ux_audit.py`, `mobile_audit.py`, `lighthouse_audit.py`, `seo_checker.py`
 
 ---
+
+## 🚨 GLOBAL ARCHITECTURE MANDATE
+
+**ALL infrastructure, tools, and services MUST be strictly Open-Source and Self-Hosted.**
+1. **NO proprietary cloud solutions** (e.g., Vercel, Supabase Cloud, managed AWS services where self-hosted alternatives exist) are allowed unless explicitly approved by the human.
+2. **Infrastructure MUST run on self-hosted environments** (e.g., VPS, Docker Compose, Coolify).
+3. **Database MUST be self-hosted** (e.g., open-source Supabase or PostgreSQL via Docker).
+4. **App Hosting MUST be self-hosted** (e.g., Node/React on VPS, Nginx).
+5. Default to the most robust open-source, self-hosted option for any architectural decision.
