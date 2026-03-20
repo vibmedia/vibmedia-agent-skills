@@ -1,6 +1,6 @@
 # Vibmedia Agent Skills
 
-> 🧠 Modular AI agent toolkit — **93 skills**, **26 agents**, **30 workflows**, **3 project profiles** for Antigravity, Claude Code, and AI coding assistants.
+> 🧠 Modular AI agent toolkit — **98 skills**, **27 agents**, **31 workflows**, **3 project profiles** for Antigravity, Claude Code, and AI coding assistants.
 
 Curated and merged from the best open-source AI skill repositories.
 
@@ -67,7 +67,7 @@ Set `profile:` in your brand's `context.md`.
 
 ---
 
-## 🤖 Agents (21)
+## 🤖 Agents (27)
 
 | Agent                    | Focus                      | Profile   |
 | ------------------------ | -------------------------- | --------- |
@@ -100,7 +100,7 @@ Set `profile:` in your brand's `context.md`.
 
 ---
 
-## 🧩 Skills (79)
+## 🧩 Skills (98)
 
 ### Frontend & UI (7) — shared
 
@@ -168,7 +168,7 @@ Set `profile:` in your brand's `context.md`.
 
 ---
 
-## 🔄 Workflows (30)
+## 🔄 Workflows (31)
 
 | Command             | Description                   |
 | ------------------- | ----------------------------- |
@@ -224,11 +224,11 @@ Set `profile:` in your brand's `context.md`.
 
 | Metric             | Count |
 | ------------------ | ----- |
-| Agents             | 26    |
-| Skills             | 93    |
-| Workflows          | 30    |
+| Agents             | 27    |
+| Skills             | 98    |
+| Workflows          | 31    |
 | Profiles           | 3     |
-| Reference Files    | 61    |
+| Reference Files    | 75    |
 | Validation Scripts | 21    |
 
 ---

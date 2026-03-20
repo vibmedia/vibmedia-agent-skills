@@ -6,7 +6,6 @@ profile: shared
 
 # GitHub MCP Skill
 
-> **Authentication Key:** `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`
 
 Use this skill to leverage the GitHub MCP server for repository automation.
 
@@ -39,7 +38,6 @@ Sync project tasks with GitHub Issues:
 
 The following token is authorized for this workspace:
 
-- **GITHUB_TOKEN:** `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`
 
 > [!IMPORTANT]
 > Never expose this token in public PRs or logs. It is for internal agent use via configured MCP tools.

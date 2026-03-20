@@ -8,9 +8,9 @@
 
 Antigravity Kit is a modular system consisting of:
 
-- **26 Specialist Agents** - Role-based AI personas
-- **93 Skills** - Domain-specific knowledge modules
-- **30 Slash Commands** - Slash command procedures
+- **27 Specialist Agents** - Role-based AI personas
+- **98 Skills** - Domain-specific knowledge modules
+- **31 Slash Commands** - Slash command procedures
 
 ---
 
@@ -34,7 +34,7 @@ Antigravity Kit is a modular system consisting of:
 
 ---
 
-## 🤖 Agents (26)
+## 🤖 Agents (27)
 
 Specialist AI personas for different domains.
 
@@ -70,7 +70,7 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (93)
+## 🧩 Skills (98)
 
 Modular knowledge domains that agents can load on-demand based on task context.
 
@@ -269,7 +269,7 @@ Set `profile:` in brand's `context.md`. See `profiles/` for full listings.
 
 ---
 
-## 🔄 Workflows (25)
+## 🔄 Workflows (31)
 
 Slash command procedures. Invoke with `/command`.
 
@@ -417,9 +417,9 @@ brands/
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
-| **Total Agents**    | 26                            |
-| **Total Skills**    | 93                            |
-| **Total Workflows** | 30                            |
+| **Total Agents**    | 27                            |
+| **Total Skills**    | 98                            |
+| **Total Workflows** | 31                            |
 | **Profiles**        | 3 (dev, marketing, hybrid)    |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~99% web/mobile/marketing     |
