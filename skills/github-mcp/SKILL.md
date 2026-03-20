@@ -6,7 +6,6 @@ profile: shared
 
 # GitHub MCP Skill
 
-
 Use this skill to leverage the GitHub MCP server for repository automation.
 
 ## Core Capabilities
@@ -37,7 +36,6 @@ Sync project tasks with GitHub Issues:
 ## Global Credentials
 
 The following token is authorized for this workspace:
-
 
 > [!IMPORTANT]
 > Never expose this token in public PRs or logs. It is for internal agent use via configured MCP tools.
